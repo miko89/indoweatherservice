@@ -631,7 +631,7 @@
     var map = L.map('map', {
         maxZoom: 15,
         minZoom: 1,
-    }).setView(center, 12).addTo(map);
+    }).setView(center, 12)
 
     // Peta OSM
     var OSM = L.tileLayer(
@@ -652,7 +652,7 @@
         // attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, ' +
         // 'NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
         // }
-    );
+    ).addTo(map);
 
     // Peta Dark 
     var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
@@ -1048,7 +1048,7 @@
         "Gray scale": grayscale,
         "OSM": OSM,
         "OSM_Topo": OpenTopoMap,
-        "Dark_Map": Stadia_AlidadeSmoothDark,
+        "Esri_Dark": Esri_DarkGreyCanvas,
         // "Esri_Dark" : Esri_DarkGreyCanvas,
         // "Map": Stamen_TonerBackground
 
