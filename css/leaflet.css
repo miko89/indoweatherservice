@@ -351,14 +351,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-layers-toggle {
 	background-image: url(img/layers.png);
 	width: 100px;
-	height: 36px;
+	height: 30px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
 	background-image: url(img/layers.png);
 	background-size: 100px 36px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 150px;
+	width: 200px;
 	height: 44px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
