@@ -343,23 +343,23 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* layers control */
 
 .leaflet-control-layers {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #fff;
-	border-radius: 5px;
+	box-shadow: 0 1px 5px rgb(103, 255, 15);
+	background: rgba(255, 255, 255, 0);
+	border-radius: 2px;
 	/* display: none */
 	}
 .leaflet-control-layers-toggle {
-	background-image: url(img/layers.png);
-	width: 100px;
-	height: 30px;
+	background-image: url(img/layers_data.png);
+	width: 150px;
+	height: 40px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
 	background-image: url(img/layers.png);
 	background-size: 36px 36px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 200px;
-	height: 44px;
+	width: 300px;
+	height: 50px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
