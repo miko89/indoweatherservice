@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <script>
+            var jsonData='data/hotspotNew.json';
+            function getJSONValue(fileJSON){
+                var value=$.ajax({
+                    url:fileJSON,
+                    async:false
+                }).responseText;
+                return value
+            }
+            hotspotData=getJSONValue(jsonData)
+            var hotspotDataJSON=JSON.parse(hotspotData)
+            console.log(hotspotDataJSON)
+        </script>
+    </body>
+</html>

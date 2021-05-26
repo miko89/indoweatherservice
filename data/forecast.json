@@ -1,0 +1,126 @@
+[
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 00:00;85;24;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 03:00;85;30;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 06:00;60;30;60;W;30"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 09:00;75;30;61;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 12:00;95;24;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 15:00;95;23;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 18:00;95;23;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;27/03/2021 21:00;95;22;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 00:00;80;26;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 03:00;70;30;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 06:00;70;33;60;W;30"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 09:00;85;29;1;W;20"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 12:00;95;27;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 15:00;90;25;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 18:00;95;22;3;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;28/03/2021 21:00;95;22;3;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 00:00;95;25;1;N;0"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 03:00;80;29;1;NE;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 06:00;85;29;3;NW;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 09:00;85;29;60;N;0"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 12:00;95;25;95;S;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 15:00;95;25;60;SE;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 18:00;100;24;60;SW;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;29/03/2021 21:00;95;24;60;N;0"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;30/03/2021 00:00;95;25;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;30/03/2021 06:00;75;30;60;NW;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;30/03/2021 12:00;90;25;60;E;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;30/03/2021 18:00;95;24;1;SE;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;31/03/2021 00:00;100;25;3;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;31/03/2021 06:00;80;29;95;NW;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;31/03/2021 12:00;95;25;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;31/03/2021 18:00;95;24;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;01/04/2021 00:00;95;25;60;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;01/04/2021 06:00;90;27;3;W;20"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;01/04/2021 12:00;90;25;3;W;20"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;01/04/2021 18:00;90;25;3;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;02/04/2021 00:00;95;25;3;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;02/04/2021 06:00;75;30;60;NW;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;02/04/2021 12:00;90;25;1;W;10"
+       },
+       {
+              "ID;WAKTU;RH;SUHU;CUACA;ARAH;KECEPATAN": "5009371;02/04/2021 18:00;95;24;1;W;10"
+       }
+]
+
+
+
+
