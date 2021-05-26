@@ -358,7 +358,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 44px;
+	width: 150px;
 	height: 44px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
