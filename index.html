@@ -631,7 +631,7 @@
     var map = L.map('map', {
         maxZoom: 15,
         minZoom: 1,
-    }).setView(center, 12);
+    }).setView(center, 12).addTo(map);
 
     // Peta OSM
     var OSM = L.tileLayer(
@@ -658,7 +658,7 @@
     var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
         //attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    })
 
 
 
@@ -833,7 +833,7 @@
         return value
     }
     prakicujson = getJSONValue(jsonprakiraan)
-    var dataprakicuJSON = JSON.parse(prakicujson)
+    var dataprakicuJSON = JSON.parse(prakicujson).addTo(map);
 
 
 
@@ -899,7 +899,7 @@
 
 
 
-    var prakiraancuaca = L.layerGroup()
+    var prakiraancuaca = L.layerGroup().addTo(map);
 
     var garistrack = L.layerGroup()
     var PREC100 = L.layerGroup()
@@ -1036,7 +1036,7 @@
     var LayerFDRS_fwi = L.imageOverlay(imageUrl_fwi, imageBounds_fwi, { zindex: 900 })//.addTo(map);
     var LayerFDRS_bui = L.imageOverlay(imageUrl_bui, imageBounds_bui, { zindex: 900 })//.addTo(map);
     var LayerFDRS_isi = L.imageOverlay(imageUrl_isi, imageBounds_isi, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_rain = L.imageOverlay(imageUrl_rain, imageBounds_rain, { zindex: 300 }).addTo(map);
+    var LayerFDRS_rain = L.imageOverlay(imageUrl_rain, imageBounds_rain, { zindex: 300 })//.addTo(map);
 
 
 
