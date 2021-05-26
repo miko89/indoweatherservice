@@ -354,7 +354,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	height: 36px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(images/img/layers.png);
+	background-image: url(img/layers.png);
 	background-size: 100px 36px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
