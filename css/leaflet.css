@@ -365,8 +365,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	display: none;
 	}
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
-	display: block;
-	position: absolute;
+	display:inline-block;
+	position:static;
 	}
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
