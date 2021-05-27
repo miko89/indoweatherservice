@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WEATHER SERVICE</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript" src="data/cikarang.js"></script>
+
+    <style>
+        #map {
+            /* width: 894px; */
+            width: 100%;
+            height: 600px;
+            top: 5px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        /* <!-- ================================================== CSS-LABEL ========================================================= -->
+<!-- ================================================== ISI LAMAN ========================================================= --> */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1500;
+            top: 0;
+            left: 0;
+            background-color: rgb(19, 19, 19);
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .sidebar-pane {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #72f804;
+            display: block;
+            transition: 0.3s;
+        }
+
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #72f804;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            font-size: 30px;
+            margin-left: 5px;
+        }
+
+        .imgsidebar {
+            position: absolute;
+            top: 5px;
+            left: 30px;
+            margin-right: 5px;
+        }
+
+        .imgheader {
+            position: absolute;
+            top: 5px;
+            left: 30px;
+            margin-right: 5px;
+        }
+
+        .openbtn {
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #111;
+            color: white;
+            padding: 10px 10px;
+            /* border: none; */
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        /* <!-- ================================================== CSS-LEGENDA ========================================================= -->
+<!-- ================================================== ISI LAMAN ========================================================= --> */
+
+
+        .header {
+            background: rgb(255, 255, 255);
+            border-bottom: solid 10px;
+            padding: 1px 0;
+            width: 100%;
+            height: 90px;
+            position: auto;
+            z-index: 100;
+        }
+
+        .body-content {
+            max-height: 10px;
+            max-width: 100%;
+            background: rgb(2, 26, 58);
+            margin-left: auto;
+            margin-right: auto
+        }
+
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+
+        
+
+       
+        .footer {
+            background: rgb(1, 170, 1);
+            height: 50px;
+            width: 100%;
+            position: relative;
+            margin-left: 0;
+            margin-right: 0;
+
+        }
+
+        
+        .text-footer {
+            margin: 0px 0;
+            padding: 0px;
+            color: rgb(255, 255, 255);
+
+
+        }
+
+        
+        
+
+        .container {
+            padding-top: 40px;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+            max-height: auto;
+            background-color: rgb(20, 34, 73);
+
+        }
+
+        
+        
+    </style>
+</head>
+
+<!-- ================================================== ISI LAMAN ========================================================= -->
+<!-- ================================================== ISI LAMAN ========================================================= -->
+
+
+<body>
+   
+    <div class="header">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
+        </a>
+
+    </div>
+    
+    <div id="mySidebar" class="sidebar">
+        <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+        <br>
+        <br>
+        <a href="about.html">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="">
+                <div id="example">
+                    <!--Here the layer control menu will be added-->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        <div class="row">
+            <div class="col-xs-12"></div>
+            <div id="map">
+            </div>
+
+            <div class="container">
+
+
+                <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
+                <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12"></div>
+        <div class="footer">
+            <p class="text-footer">&copy; Copyright ActionLearning_meteo.</p>
+        </div>
+    </div>
+
+
+
+
+    <!--===================================================== SCRIPT ==================================================================  -->
+    <!--================================================= PETA INTERACTIVE ============================================================  -->
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>
