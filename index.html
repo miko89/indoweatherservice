@@ -461,6 +461,8 @@
         <a class="navbar-brand" href="#">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a>
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
     </div>
     <!-- </nav> -->
     <!-- <div class="wrap">
@@ -471,7 +473,6 @@
                 <img alt="SPARTAN" src="img/header_fdrs_SPARTAN10.png" height="80" width="1348" />
             </div>
         </div> -->
-
     <div id="mySidebar" class="sidebar">
         <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
@@ -488,17 +489,17 @@
                     <!--Here the layer control menu will be added-->
                 </div>
             </div>
-        </div>        
         </div>
 
-        
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">☰</button>
-            <div class="row">
-                <div class="col-xs-12"></div>
-                <div id="map">
-                </div>
-                <div class="container"></div>
+
+    </div>
+    
+        <div class="row">
+            <div class="col-xs-12"></div>
+            <div id="map">
+            </div>
+
+            <div class="container">
                 <!-- <div class="slidecontainer"> -->
                 <div class="loader">Loading...</div>
                 <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
@@ -723,7 +724,7 @@
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                grades[i] + ("<img src=" + labels[i] + " height='350' width='30'>" + '<br>');
+            grades[i] + ("<img src=" + labels[i] + " height='350' width='30'>" + '<br>');
         }
 
         return div;
