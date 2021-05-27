@@ -498,16 +498,15 @@
                 </div>
                 <div class="container">
                     <!-- <div class="slidecontainer"> -->
-
                     <div class="loader">Loading...</div>
                     <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
                     <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
                         <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
 
-                    <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
+                    <!-- <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
                         class="slider">
                     <p class="text-slider"> Satelit Cuaca : <span id="demo"> </span> <b> | Tanggal : <span id="Date">
-                            </span></b></p>
+                            </span></b></p> -->
                     <!-- </div> -->
                     <div class="row">
                         <div class="col-xs-12"></div>
@@ -582,41 +581,41 @@
 
 
     //SLIDER
-    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-    var date = new Date();
-    var day = date.getDate();
-    var month = date.getMonth();
-    var thisDay = date.getDay(),
-        thisDay = myDays[thisDay];
-    var yy = date.getYear();
-    var year = (yy < 1000) ? yy + 1900 : yy;
-    // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
-    // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
+    // var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    // var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+    // var date = new Date();
+    // var day = date.getDate();
+    // var month = date.getMonth();
+    // var thisDay = date.getDay(),
+    //     thisDay = myDays[thisDay];
+    // var yy = date.getYear();
+    // var year = (yy < 1000) ? yy + 1900 : yy;
+    // // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+    // // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
 
-    var imgffmc = document.getElementById('img_ffmc');
-    var imgfwi = document.getElementById('img_fwi');
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    var date = document.getElementById("Date")
-    output.innerHTML = slider.value;
-    date.innerHTML = day + " " + months[month] + " " + year;
-    slider.oninput = function (e) {
-        let value = parseInt(e.target.value);
-        if (value >= 0) {
-            date.innerHTML = thisDay + " " + day + " " + months[month] + " " + year;
-        } else { }
+    // var imgffmc = document.getElementById('img_ffmc');
+    // var imgfwi = document.getElementById('img_fwi');
+    // var slider = document.getElementById("myRange");
+    // var output = document.getElementById("demo");
+    // var date = document.getElementById("Date")
+    // output.innerHTML = slider.value;
+    // date.innerHTML = day + " " + months[month] + " " + year;
+    // slider.oninput = function (e) {
+    //     let value = parseInt(e.target.value);
+    //     if (value >= 0) {
+    //         date.innerHTML = thisDay + " " + day + " " + months[month] + " " + year;
+    //     } else { }
 
-        output.innerHTML = this.value;
-    };
-    var img_array1 = ['img/ECMWF/39_asia_transparan_ffmc_01.png', 'img/ECMWF/39_asia_transparan_ffmc_02.png', 'img/ECMWF/39_asia_transparan_ffmc_03.png', 'img/ECMWF/39_asia_transparan_ffmc_04.png', 'img/ECMWF/39_asia_transparan_ffmc_05.png', 'img/ECMWF/39_asia_transparan_ffmc_06.png', 'img/ECMWF/39_asia_transparan_ffmc_07.png'];
-    var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
-    function setImage(obj) {
-        var value = obj.value;
-        imgffmc.src = img_array1[value];
-        imgfwi.src = img_array2[value];
+    //     output.innerHTML = this.value;
+    // };
+    // var img_array1 = ['img/ECMWF/39_asia_transparan_ffmc_01.png', 'img/ECMWF/39_asia_transparan_ffmc_02.png', 'img/ECMWF/39_asia_transparan_ffmc_03.png', 'img/ECMWF/39_asia_transparan_ffmc_04.png', 'img/ECMWF/39_asia_transparan_ffmc_05.png', 'img/ECMWF/39_asia_transparan_ffmc_06.png', 'img/ECMWF/39_asia_transparan_ffmc_07.png'];
+    // var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
+    // function setImage(obj) {
+    //     var value = obj.value;
+    //     imgffmc.src = img_array1[value];
+    //     imgfwi.src = img_array2[value];
 
-    }
+    // }
 
 
     // center of the map
@@ -986,40 +985,40 @@
 
     // <!--================================================== LAYER FDRS =====================================================  -->
 
-    var imageUrl_ffmc = document.getElementById("img_ffmc")
-    var imageBounds_ffmc = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
+    // var imageUrl_ffmc = document.getElementById("img_ffmc")
+    // var imageBounds_ffmc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
-    var imageUrl_dmc = document.getElementById("img_dmc")
-    var imageBounds_dmc = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
+    // var imageUrl_dmc = document.getElementById("img_dmc")
+    // var imageBounds_dmc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
-    var imageUrl_dc = 'img/fdrs_dc_gsmap_1.png';
-    var imageBounds_dc = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
-    var imageUrl_fwi = document.getElementById("img_fwi")
-    var imageBounds_fwi = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
+    // var imageUrl_dc = 'img/fdrs_dc_gsmap_1.png';
+    // var imageBounds_dc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+    // var imageUrl_fwi = document.getElementById("img_fwi")
+    // var imageBounds_fwi = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
-    var imageUrl_bui = 'img/fdrs_bui_gsmap_1.png';
-    var imageBounds_bui = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
+    // var imageUrl_bui = 'img/fdrs_bui_gsmap_1.png';
+    // var imageBounds_bui = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
-    var imageUrl_isi = 'img/fdrs_isi_gsmap_1.png';
-    var imageBounds_isi = new L.LatLngBounds(
-        new L.LatLng(-12.7, 91.2),
-        new L.LatLng(28.0, 150)
-    )
+    // var imageUrl_isi = 'img/fdrs_isi_gsmap_1.png';
+    // var imageBounds_isi = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
     var imageUrl_rain = document.getElementById("img_rain")
     var imageBounds_rain = new L.LatLngBounds(
@@ -1027,18 +1026,18 @@
         new L.LatLng(19.8, 149.6)
     )
 
-    var imageUrl_1 = 'img/KAB_RIAU.png';
-    var imageBounds_1 = new L.LatLngBounds(
-        new L.LatLng(-11.35, 91.68),
-        new L.LatLng(27.25, 148.15)
-    )
+    // var imageUrl_1 = 'img/KAB_RIAU.png';
+    // var imageBounds_1 = new L.LatLngBounds(
+    //     new L.LatLng(-11.35, 91.68),
+    //     new L.LatLng(27.25, 148.15)
+    // )
 
-    var LayerFDRS_ffmc = L.imageOverlay(imageUrl_ffmc, imageBounds_ffmc, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_dmc = L.imageOverlay(imageUrl_dmc, imageBounds_dmc, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_dc = L.imageOverlay(imageUrl_dc, imageBounds_dc, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_fwi = L.imageOverlay(imageUrl_fwi, imageBounds_fwi, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_bui = L.imageOverlay(imageUrl_bui, imageBounds_bui, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_isi = L.imageOverlay(imageUrl_isi, imageBounds_isi, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_ffmc = L.imageOverlay(imageUrl_ffmc, imageBounds_ffmc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_dmc = L.imageOverlay(imageUrl_dmc, imageBounds_dmc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_dc = L.imageOverlay(imageUrl_dc, imageBounds_dc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_fwi = L.imageOverlay(imageUrl_fwi, imageBounds_fwi, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_bui = L.imageOverlay(imageUrl_bui, imageBounds_bui, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_isi = L.imageOverlay(imageUrl_isi, imageBounds_isi, { zindex: 900 })//.addTo(map);
     var LayerFDRS_rain = L.imageOverlay(imageUrl_rain, imageBounds_rain, { zindex: 300 })//.addTo(map);
 
 
