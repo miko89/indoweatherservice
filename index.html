@@ -690,7 +690,7 @@
     // ==================================================================== LEGENDA ======================================================//
     //MEMBUAT LEGENDA
 
-    var legend = L.control({ position: 'bottomleft' });
+    var legend = L.control({ position: "topright" });
 
     legend.onAdd = function (map) {
 
@@ -708,45 +708,49 @@
     };
 
     legend.addTo(map);
-    // var legend = L.control({ position: 'bottomleft' });
-
-    // legend.onAdd = function (map) {
-
-    //     var div = L.DomUtil.create('div', 'info legend'),
-    //         grades = ["<b> FDRS</b>"],
-    //         labels = ['img/FDRS_NEW_8.png'];
-
-    //     // loop through our density intervals and generate a label with a colored square for each interval
-    //     for (var i = 0; i < grades.length; i++) {
-    //         div.innerHTML +=
-    //             ("<img src=" + labels[i] + " height='290' width='20'>" + '<br>');
-    //     }
-
-    //     return div;
-    // };
 
 
-    // legend.addTo(map);
-
-
-
-    var legend = L.control({ position: "topright" });
+    var legend = L.control({ position: 'bottomleft' });
 
     legend.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = ["<b> Logo Spartan</b>"],
-            labels = ['img/legenda_siklon_2.png'];
+            grades = ["<b> FDRS</b>"],
+            labels = ['img/legendasatelit.png'];
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                ("<img src=" + labels[i] + " height='25' width='250'>");
+                ("<img src=" + labels[i] + " height='320' width='30'>" + '<br>');
         }
 
         return div;
     };
+
+
     legend.addTo(map);
+
+
+
+
+
+    // var legend = L.control({ position: "topright" });
+
+    // legend.onAdd = function (map) {
+
+    //     var div = L.DomUtil.create('div', 'info legend'),
+    //         grades = ["<b> Logo Spartan</b>"],
+    //         labels = ['img/legenda_siklon_2.png'];
+
+    //     // loop through our density intervals and generate a label with a colored square for each interval
+    //     for (var i = 0; i < grades.length; i++) {
+    //         div.innerHTML +=
+    //             ("<img src=" + labels[i] + " height='25' width='250'>");
+    //     }
+
+    //     return div;
+    // };
+    // legend.addTo(map);
 
     // <!--================================================== LAYER BATAS WILAYAH=====================================================  -->
 
