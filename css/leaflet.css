@@ -371,7 +371,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
-	color: #333;
+	color: rgb(255, 255, 255);
 	background: rgb(13, 14, 13);
 	}
 .leaflet-control-layers-scrollbar {
