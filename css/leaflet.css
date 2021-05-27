@@ -83,7 +83,7 @@
 	visibility: inherit;
 	}
 .leaflet-zoom-box {
-	width: 100px;
+	width: 0;
 	height: 0;
 	-moz-box-sizing: border-box;
 	     box-sizing: border-box;
@@ -333,6 +333,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-zoom-out {
 	font: bold 18px 'Lucida Console', Monaco, monospace;
 	text-indent: 1px;
+	position: relative;
+	margin-left: 50px;
 	}
 
 .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
