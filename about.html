@@ -167,9 +167,9 @@
             width: 90%;
         }
 
-        
 
-       
+
+
         .footer {
             background: rgb(1, 170, 1);
             height: 50px;
@@ -180,7 +180,7 @@
 
         }
 
-        
+
         .text-footer {
             margin: 0px 0;
             padding: 0px;
@@ -189,8 +189,8 @@
 
         }
 
-        
-        
+
+
 
         .container {
             padding-top: 40px;
@@ -201,9 +201,6 @@
             background-color: rgb(20, 34, 73);
 
         }
-
-        
-        
     </style>
 </head>
 
@@ -212,14 +209,14 @@
 
 
 <body>
-   
+
     <div class="header">
         <a class="navbar-brand" href="#">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a>
 
     </div>
-    
+
     <div id="mySidebar" class="sidebar">
         <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
@@ -275,7 +272,15 @@
     <!--================================================= PETA INTERACTIVE ============================================================  -->
 
     <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
 
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
 
 
     </script>
