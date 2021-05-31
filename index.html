@@ -90,11 +90,21 @@
             top: 5px;
             right: 5px;
             /* font-size: 30px; */
-            margin-left: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #72f804;
+            color: #0e0e0e;
+            /* padding: 5px 10px; */
         }
 
         .sidebar a:hover {
             color: #f1f1f1;
+        }
+
+        .closebtn:hover {
+            background-color: rgb(255, 255, 255);
         }
 
         .imgsidebar {
@@ -481,11 +491,9 @@
         </div> -->
     <div id="mySidebar" class="sidebar">
         <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</button>
 
-            <img src="img/x_logo.png" alt="" width="30" height="30" class="closebtn">
-
-        </a>
+        
         <br>
         <br>
         <a href="about.html">About</a>
