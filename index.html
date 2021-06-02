@@ -699,13 +699,14 @@
     legend.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = ["<center><b>Legenda Prakicu</b></center>"],
+            grades = ["<center><b>Legenda Prakicu</b></center>"]
+            cuaca = ["<center><b>cerah | berawan | Hujan</b></center>"]
             labels = ['img/LEGENDA.png'];
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var j = 0; j < grades.length; j++) {
             div.innerHTML +=
-                grades[j] + (" <img src=" + labels[j] + " height='45' width='138'>");
+                grades[j] + (" <img src=" + labels[j] + " height='45' width='138'>")+ "<br>"+ cuaca[j];
         }
 
         return div;
