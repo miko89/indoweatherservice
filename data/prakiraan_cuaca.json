@@ -1,38 +1,21 @@
 [
     {
-        "wilayah": "CIKARANG UTARA",
-        "lintang": "-6.256",
-        "bujur": "107.180",
-        "cuaca": "1"
+        "kecamatan": "Cikarang Pusat",
+		"kelurahan": "Cicau",
+        "lintang": "-6.365",
+        "bujur": "107.150",
+        "cuaca": "1",
+        "suhu": "28.2",
+        "rh":"95"
     },
     {
-        "wilayah": "CIKARANG SELATAN",
-        "lintang": "-6.34", 
-        "bujur": "107.112",
-        "cuaca": "1"
-    },
-    {
-        "wilayah": "CIKARANG PUSAT",
-        "lintang": "-6.39",
-        "bujur": "107.20",
-        "cuaca": "2"
-    },
-    {
-        "wilayah": "CIKARANG BARAT",
-        "lintang": "-6.282",
-        "bujur": "107.083",
-        "cuaca": "1"
-    },
-    {
-        "wilayah": "CIKARANG TIMUR",
-        "lintang": "-6.30",
-        "bujur": "107.22",
-        "cuaca": "2"
-    },
-    {
-        "wilayah": "JABABEKA GOLF",
-        "lintang": "-6.295157",
-        "bujur": "107.175958",
-        "cuaca": "2"
+        "kecamatan": "Cikarang Pusat",
+		"kelurahan": "Pasirranji",
+        "lintang": "-6.379", 
+        "bujur": "107.200",
+        "cuaca": "2",
+        "suhu": "30.0",
+        "rh":"88"
     }
+	
 ]

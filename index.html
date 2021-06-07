@@ -876,10 +876,10 @@
 
 
     var customIcon_1 = L.icon({
-        iconUrl: 'img/ringan.gif',
+        iconUrl: 'img/hujan_ringan.gif',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
-        popupAnchor: [0, -50]
+        popupAnchor: [0, -45]
     }) // size of the icon
 
 
@@ -955,9 +955,10 @@
         var prakicu = parseInt(dataprakicuJSON[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup(dataprakicuJSON[i].wilayah);
+        marker.bindPopup('<center><b>Kelurahan : '+dataprakicuJSON[i].kelurahan+'<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>'+'<img src="img/icon_suhu.png" alt="" width="8" height="25"> : '+dataprakicuJSON[i].suhu+'C'+'</br>'+'<img src="img/icon_rh.png" alt="" width="10" height="15"> : '+dataprakicuJSON[i].rh+'%');
         if (prakicu > 0 && prakicu < 2) { prakiraancuaca.addLayer(marker) }
         else { }
+
     }
 
 
@@ -965,7 +966,7 @@
         var prakicu = parseInt(dataprakicuJSON[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[j].lintang, dataprakicuJSON[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup(dataprakicuJSON[j].wilayah);
+        marker.bindPopup(dataprakicuJSON[j].kelurahan);
         if (prakicu > 1 && prakicu < 3) { prakiraancuaca.addLayer(marker) }
         else { }
     }
@@ -974,7 +975,7 @@
         var prakicu = parseInt(dataprakicuJSON[k].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[k].lintang, dataprakicuJSON[k].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup(dataprakicuJSON[k].wilayah);
+        marker.bindPopup(dataprakicuJSON[k].kelurahan);
         if (prakicu > 2 && prakicu < 4) { prakiraancuaca.addLayer(marker) }
         else { }
     }
@@ -982,7 +983,7 @@
         var prakicu = parseInt(dataprakicuJSON[l].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[l].lintang, dataprakicuJSON[l].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup(dataprakicuJSON[l].wilayah);
+        marker.bindPopup(dataprakicuJSON[l].kelurahan);
         if (prakicu > 3 && prakicu < 5) { prakiraancuaca.addLayer(marker) }
         else { }
     }
