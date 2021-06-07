@@ -521,12 +521,23 @@
                 <div class="container">
                     <!-- <div class="slidecontainer"> -->
                     <div class="loader">Loading...</div>
-                    <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
-                    <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
-                        <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
 
-                    <!-- <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
-                        class="slider">
+                    <div class="slidecontainer">
+                        <h6 class="text-keterangan" style="color: cornsilk;"><b>Citra Satelit 6 jam</b> </h6>
+                    <br>
+                        <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
+                            <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
+                        <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
+                            class="slider">
+                            
+                        <br>
+                        <!-- <p class="text-slider"> Citra Satelit : <span id="demo"> </span> <b> | Tanggal : 9 April 2021</b></p> -->
+                    </div>
+        
+
+
+
+
                     <p class="text-slider"> Satelit Cuaca : <span id="demo"> </span> <b> | Tanggal : <span id="Date">
                             </span></b></p> -->
                     <!-- </div> -->
@@ -538,7 +549,7 @@
                     <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
                     <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p>
 
-                    <img id='img_rain' src='img/satelit.png' height="0" width="0" class="imagefdrs" />
+                    <img id='img_rain' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
 
 
 
@@ -584,24 +595,24 @@
     }
 
 
-    //SLIDER
-    // var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    // var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-    // var date = new Date();
-    // var day = date.getDate();
-    // var month = date.getMonth();
-    // var thisDay = date.getDay(),
-    //     thisDay = myDays[thisDay];
-    // var yy = date.getYear();
-    // var year = (yy < 1000) ? yy + 1900 : yy;
-    // // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
-    // // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
+    SLIDER
+    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var thisDay = date.getDay(),
+        thisDay = myDays[thisDay];
+    var yy = date.getYear();
+    var year = (yy < 1000) ? yy + 1900 : yy;
+    // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+    // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
 
-    // var imgffmc = document.getElementById('img_ffmc');
-    // var imgfwi = document.getElementById('img_fwi');
-    // var slider = document.getElementById("myRange");
-    // var output = document.getElementById("demo");
-    // var date = document.getElementById("Date")
+    var imgffmc = document.getElementById('img_ffmc');
+    var imgfwi = document.getElementById('img_fwi');
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var date = document.getElementById("Date")
     // output.innerHTML = slider.value;
     // date.innerHTML = day + " " + months[month] + " " + year;
     // slider.oninput = function (e) {
@@ -612,14 +623,14 @@
 
     //     output.innerHTML = this.value;
     // };
-    // var img_array1 = ['img/ECMWF/39_asia_transparan_ffmc_01.png', 'img/ECMWF/39_asia_transparan_ffmc_02.png', 'img/ECMWF/39_asia_transparan_ffmc_03.png', 'img/ECMWF/39_asia_transparan_ffmc_04.png', 'img/ECMWF/39_asia_transparan_ffmc_05.png', 'img/ECMWF/39_asia_transparan_ffmc_06.png', 'img/ECMWF/39_asia_transparan_ffmc_07.png'];
-    // var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
-    // function setImage(obj) {
-    //     var value = obj.value;
-    //     imgffmc.src = img_array1[value];
-    //     imgfwi.src = img_array2[value];
+    var img_array1 = ['img/satelit/hasilsat_20210415_00.png', 'img/satelit/hasilsat_20210415_12.png', 'img/satelit/hasilsat_20210416_00.png', 'img/satelit/hasilsat_20210416_12.png', 'img/satelit/hasilsat_20210417_00.png'];];
+    var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
+    function setImage(obj) {
+        var value = obj.value;
+        imgffmc.src = img_array1[value];
+        imgfwi.src = img_array2[value];
 
-    // }
+    }
 
 
     // center of the map
