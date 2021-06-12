@@ -344,53 +344,59 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-control-layers {
 	/* box-shadow: 0 1px 5px rgb(103, 255, 15); */
-	background: rgb(0, 0, 0);
-	border-radius: 10px;
+
+	padding: 0px 10px 20px 10px;
+	color: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.027);
+	display:block;
+	border-radius: 5px;
 	/* display:none */
 	}
-.leaflet-control-layers-toggle {
+/* .leaflet-control-layers-toggle {
 	background-image: url(img/layers_data.png);
 	width: 150px;
 	height: 60px;
-	}
-.leaflet-retina .leaflet-control-layers-toggle {
+	} */
+/* .leaflet-retina .leaflet-control-layers-toggle {
 	background-image: url(img/layers.png);
 	background-size: 36px 36px;
-	}
-.leaflet-touch .leaflet-control-layers-toggle {
+	} */
+
+/* .leaflet-touch .leaflet-control-layers-toggle {
 	width: 300px;
 	height: 50px;
-	}
-.leaflet-control-layers .leaflet-control-layers-list,
+	} */
+/* .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
-	display: none;
-	}
-.leaflet-control-layers-expanded .leaflet-control-layers-list {
-	display:inline-block;
-	position:static;
-	}
-.leaflet-control-layers-expanded {
+	display:contents;
+	} */
+/* .leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display:contents;
+	position:fixed;
+	} */
+/* .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
-	color: rgb(255, 255, 255);
-	background: rgb(13, 14, 13);
-	}
+	color: rgb(5, 5, 5);
+	background: rgb(253, 188, 188);
+	display: contents;
+	} */
 .leaflet-control-layers-scrollbar {
 	overflow-y: hidden;
 	overflow-x: hidden;
-	padding-right: 5px;
+	padding-right: 10px;
 	}
-.leaflet-control-layers-selector {
+/* .leaflet-control-layers-selector {
 	margin-top: 2px;
-	position: relative;
+	position: fixed;
 	top: 1px;
-	}
+	} */
 .leaflet-control-layers label {
-	display: block;
+	display: contents;
 	}
 .leaflet-control-layers-separator {
 	height: 0;
-	border-top: 1px solid rgb(129, 230, 63);
-	margin: 5px -10px 5px -6px;
+	border-top: 2px solid rgb(129, 230, 63);
+	margin: 5px -10px 5px -10px;
 	}
 
 /* Default icon URLs */

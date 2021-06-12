@@ -3,12 +3,12 @@
 
 <head>
     <title>INDO WEATHER SERVICE</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        crossorigin="" /> -->
+    <!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
+        crossorigin=""></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -22,8 +22,12 @@
     <script src="js/jquery-3.4.1.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="js/leaflet.js"></script>
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -43,19 +47,19 @@
             width: 100%;
             height: 600px;
             top: 100px;
-            margin-left: auto;
-            margin-right: auto
+            margin-left:0;
+            margin-right:0
         }
 
         /* <!-- ================================================== CSS-LABEL ========================================================= -->
 <!-- ================================================== ISI LAMAN ========================================================= --> */
         .sidebar {
-            height: 100%;
+            height: 400px;
             width: 0;
-            position: fixed;
-            z-index: 1500;
-            top: 0;
-            left: 0;
+            position: absolute;
+            z-index: 1200;
+            top: 250px;
+            right: 0;
             background-color: rgb(19, 19, 19);
             overflow-x: hidden;
             transition: 0.3s;
@@ -64,10 +68,10 @@
 
 
         .sidebar-pane {
-            padding: 8px 8px 8px 32px;
+            padding: 10px 8px 8px 32px;
             text-decoration: none;
             font-size: 18px;
-            color: #72f804;
+            color: #ffffff;
             display: block;
             transition: 0.3s;
         }
@@ -77,42 +81,42 @@
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 18px;
-            color: #72f804;
+            color: #ffffff;
             display: block;
             transition: 0.3s;
         }
 
-        .sidebar a:hover {
+        /* .sidebar a:hover {
             color: #f1f1f1;
-        }
+        } */
 
         .sidebar .closebtn {
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            left: 10px;
             /* font-size: 30px; */
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
-            background-color: #72f804;
+            background-color: #ffffff;
             color: #0e0e0e;
             /* padding: 5px 10px; */
         }
 
-        .sidebar a:hover {
+        /* .sidebar a:hover {
             color: #f1f1f1;
-        }
+        } */
 
         .closebtn:hover {
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(206, 10, 27);
         }
 
         .imgsidebar {
             position: absolute;
             top: 5px;
-            left: 30px;
-            margin-right: 5px;
+            right: 70px;
+            margin-left: 5px;
         }
 
         /* .imgheader {
@@ -140,7 +144,7 @@
         }
 
         #main {
-            transition: margin-left .5s;
+            transition: margin-right .5s;
             padding: 16px;
         }
 
@@ -180,6 +184,9 @@
             height: 100px;
             position: fixed;
             z-index: 1500;
+            margin-left: 0;
+            margin-right: 0;
+            
         }
 
         /* .body-content {
@@ -323,15 +330,13 @@
         .container {
             padding-top: 40px;
             padding-bottom: 20px;
-            margin-left: 0;
-            margin-right: 0;
-            max-width: 100%;
-            max-height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(to bottom, #05395c, #abff3e);
 
         }
-
-
 
         .slider {
             -webkit-appearance: none;
@@ -488,8 +493,7 @@
             <div class="container-fluid">
                
               <a class="navbar-brand" href="#"> 
-                <button class="openbtn" onclick="openNav()">☰</button>
-               
+                
                   <img src="img/logo_iws_1.png" alt="" width="120" height="70">
                 </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -504,11 +508,12 @@
                     <a class="nav-link" href="#">Features</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#"><button class="openbtn" onclick="openNav()">Prakiraan Cuaca</button>
+                    </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                  </li>
+                  </li> -->
                 </ul>
 
                
@@ -516,6 +521,10 @@
               </div>
             </div>
           </nav>
+
+
+
+
     </div>
     <!-- </nav> -->
     <!-- <div class="wrap">
@@ -530,13 +539,11 @@
         <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</button>
 
-
-        <br>
-        <br>
-        <a href="about.html">About</a>
+        <!-- <a href="about.html">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
+        <br> -->
         <br>
         <div class="sidebar-content">
             <div class="sidebar-pane" id="">
@@ -585,13 +592,13 @@
 
 
                 <div id="chartContainer_ch"
-                    style="height: 300px; width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
+                    style="height: 300px; width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
                 <br>
                 <div id="chartContainer_suhu"
-                    style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
+                    style="height: 300px;  width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
                 <br>
                 <div id="chartContainer_cuaca"
-                    style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
+                    style="height: 300px;  width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
             </div>
         </div>
   
@@ -616,12 +623,12 @@
 
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("main").style.marginRight = "250px";
     }
 
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("main").style.marginRight = "0";
     }
 
 

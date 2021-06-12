@@ -44,17 +44,82 @@
     <style>
         /* <!-- ================================================== CSS-LABEL ========================================================= -->
 <!-- ================================================== ISI LAMAN ========================================================= --> */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1500;
+            top: 0;
+            left: 0;
+            background-color: rgb(19, 19, 19);
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .sidebar-pane {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #72f804;
+            display: block;
+            transition: 0.3s;
+        }
+
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #72f804;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .closebtn:hover {
+            background-color: rgb(255, 255, 255);
+        }
+
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            /* font-size: 30px; */
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #72f804;
+            color: #0e0e0e;
+            /* padding: 5px 10px; */
+        }
+
+        .imgsidebar {
+            position: absolute;
+            top: 5px;
+            left: 30px;
+            margin-right: 5px;
+        }
+
+        .imgheader {
+            position: absolute;
+            top: 5px;
+            left: 30px;
+            margin-right: 5px;
+        }
 
         .openbtn {
-            font-size: 15px;
+            font-size: 18px;
             cursor: pointer;
             border-radius: 10px;
             background-color: #111;
             color: white;
-            padding: 5px 10px;
-            margin-right:0;
-            
-            
+            padding: 10px 10px;
             /* border: none; */
         }
 
@@ -63,19 +128,32 @@
         }
 
 
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
         /* <!-- ================================================== CSS-LEGENDA ========================================================= --> */
 
         .header {
-            background: rgb(54, 54, 54);
+            background: rgb(255, 255, 255);
             border-bottom: solid 10px;
-            padding: 10px 0;
+            padding: 1px 0;
             width: 100%;
-            height: 100px;
-            position: fixed;
-            z-index: 1500;
-            margin-left: 0;
-            margin-right: 0;
-            
+            height: 90px;
+            position: auto;
+            z-index: 100;
         }
 
         /* .body-content {
@@ -98,7 +176,7 @@
 
 
         .footer {
-            background: rgb(2, 27, 65);
+            background: rgb(1, 170, 1);
             height: 50px;
             width: 100%;
             position: relative;
@@ -106,7 +184,6 @@
             margin-right: 0;
 
         }
-
 
 
         .text-footer {
@@ -259,6 +336,7 @@
             }
 
         }
+
 
         /* ================================================== TEAM ========================================================= -->  */
         .heading {
@@ -416,79 +494,32 @@
 <body>
 
     <div class="header">
-        <!-- <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.html">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
-        </a> -->
-    
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           
-            <div class="container-fluid">
-               
-              <a class="navbar-brand" href="#"> 
-                
-                  <img src="img/logo_iws_1.png" alt="" width="120" height="70">
-                </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html"><button class="openbtn" onclick="openNav()">Prakiraan Cuaca</button>
-                    </a>
-                  </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                  </li> -->
-                </ul>
-
-               
-
-              </div>
-            </div>
-          </nav>
-
-
-
+        </a>
 
     </div>
-    <!-- </nav> -->
-    <!-- <div class="wrap">
 
-        <div class="header">
-            <div class="row">
-                <div class="col-xs-12"></div>
-                <img alt="SPARTAN" src="img/header_fdrs_SPARTAN10.png" height="80" width="1348" />
-            </div>
-        </div> -->
-    <div id="mySidebar" class="sidebar">
-        <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
-        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</button>
+    <div class="sidebar" id="mySidebar">
+        <a href="index.html">
+            <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
+        </a>
+        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</button>
 
-        <!-- <a href="about.html">About</a>
+        <br>
+        <br>
+        <a href="about.html">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
-        <br> -->
-        <br>
-        <div class="sidebar-content">
-            <div class="sidebar-pane" id="">
-                <div id="example">
-                    <!--Here the layer control menu will be added-->
-                </div>
-            </div>
-        </div>
+        <a href="index.html">Back To Map</a>
+
 
 
     </div>
-    <div class="row">
-        <div class="col-xs-12"></div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+
 
         <div class="container">
             <h3 class="animated bounceInDown"><b>INDO WEATHER SERVICE</b></h3>
@@ -576,9 +607,10 @@
         </div>
 
 
-    </div>
 
-   
+
+    </div>
+    </div>
 
 
 
@@ -596,7 +628,15 @@
     <!--================================================= PETA INTERACTIVE ============================================================  -->
 
     <script>
-        
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
 
         $(document).ready(function () {
             // Check if element is scrolled into view
