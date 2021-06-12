@@ -343,15 +343,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* layers control */
 
 .leaflet-control-layers {
-	box-shadow: rgb(255, 255, 255);
-	background: rgb(2, 2, 2);
-	border-radius: 6px;
-	/* display: none */
+	/* box-shadow: 0 1px 5px rgb(103, 255, 15); */
+	background: rgb(0, 0, 0);
+	border-radius: 10px;
+	/* display:none */
 	}
 .leaflet-control-layers-toggle {
 	background-image: url(img/layers_data.png);
 	width: 150px;
-	height: 40px;
+	height: 60px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
 	background-image: url(img/layers.png);

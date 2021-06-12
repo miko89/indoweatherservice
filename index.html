@@ -62,6 +62,7 @@
             padding-top: 60px;
         }
 
+
         .sidebar-pane {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
@@ -493,14 +494,14 @@
         <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</button>
 
-        
+
         <br>
         <br>
         <a href="about.html">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
-
+        <br>
         <div class="sidebar-content">
             <div class="sidebar-pane" id="">
                 <div id="example">
@@ -518,42 +519,42 @@
 
             <div id="map">
             </div>
-                <div class="container">
-                    <!-- <div class="slidecontainer"> -->
-                    <div class="loader">Loading...</div>
-                    <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
-                    <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
+            <div class="container">
+                <!-- <div class="slidecontainer"> -->
+                <div class="loader">Loading...</div>
+                <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
+                <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
                         <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
 
-                    <!-- <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
+                <!-- <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
                         class="slider">
                     <p class="text-slider"> Satelit Cuaca : <span id="demo"> </span> <b> | Tanggal : <span id="Date">
                             </span></b></p> -->
-                    <!-- </div> -->
-                    <!-- <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row">
                     <div class="col-xs-12"></div>
                     <hr class="garis_bawah">
                 </div> -->
 
-                    <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
-                    <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p>
+                <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
+                <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p>
 
-                    <img id='img_rain' src='img/satelit.png' height="0" width="0" class="imagefdrs" />
-
-
+                <img id='img_rain' src='img/satelit.png' height="0" width="0" class="imagefdrs" />
 
 
-                    <div id="chartContainer_ch"
-                        style="height: 300px; width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
-                    <br>
-                    <div id="chartContainer_suhu"
-                        style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
-                    <br>
-                    <div id="chartContainer_cuaca"
-                        style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
-                </div>
+
+
+                <div id="chartContainer_ch"
+                    style="height: 300px; width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
+                <br>
+                <div id="chartContainer_suhu"
+                    style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
+                <br>
+                <div id="chartContainer_cuaca"
+                    style="height: 300px;  width:auto ; position:relative; margin-right:0; margin-left:0;"></div>
             </div>
         </div>
+    </div>
 
 
 
@@ -700,13 +701,13 @@
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = ["<center><b>Legenda Prakicu</b></center>"]
-            cuaca = ["<center><b>cerah | berawan | Hujan</b></center>"]
-            labels = ['img/LEGENDA.png'];
+        cuaca = ["<center><b>cerah | berawan | Hujan</b></center>"]
+        labels = ['img/LEGENDA.png'];
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var j = 0; j < grades.length; j++) {
             div.innerHTML +=
-                grades[j] + (" <img src=" + labels[j] + " height='45' width='138'>")+ "<br>"+ cuaca[j];
+                grades[j] + (" <img src=" + labels[j] + " height='45' width='138'>") + "<br>" + cuaca[j];
         }
 
         return div;
@@ -955,7 +956,7 @@
         var prakicu = parseInt(dataprakicuJSON[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<center><b>Kelurahan : '+dataprakicuJSON[i].kelurahan+'<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>'+'<img src="img/icon_suhu.png" alt="" width="8" height="25"> : '+dataprakicuJSON[i].suhu+'C'+'</br>'+'<img src="img/icon_rh.png" alt="" width="10" height="15"> : '+dataprakicuJSON[i].rh+'%');
+        marker.bindPopup('<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.png" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.png" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
         if (prakicu > 0 && prakicu < 2) { prakiraancuaca.addLayer(marker) }
         else { }
 
