@@ -22,11 +22,14 @@
     <script src="js/jquery-3.4.1.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="js/leaflet.js"></script>
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 
 
     <link rel="shortcut icon" href="img/picture_iws.ico" type="image/x-icon">
@@ -51,17 +54,17 @@
             font-size: 15px;
             cursor: pointer;
             border-radius: 10px;
-            background-color: #111;
-            color: white;
+            background-color: rgb(94, 94, 94);
+            color: rgb(231, 231, 231);
             padding: 5px 10px;
-            margin-right:0;
-            
-            
+            margin-right: 0;
+
+
             /* border: none; */
         }
 
         .openbtn:hover {
-            background-color: #444;
+            background-color: rgb(0, 0, 0);
         }
 
 
@@ -77,7 +80,7 @@
             z-index: 1500;
             margin-left: 0;
             margin-right: 0;
-            
+
         }
 
         /* .body-content {
@@ -167,7 +170,7 @@
             position: relative;
             text-align: center;
             height: 70vh;
-            background: linear-gradient(to bottom, #05395c, #abff3e);
+            background: linear-gradient(to bottom, #121213, #101b22, #0c4d29);
             color: #fff;
         }
 
@@ -302,7 +305,7 @@
             align-items: center;
             margin: 20px;
             transition: 0.5s;
-            background: #051842;
+            background: #161616;
         }
 
         .box:hover {
@@ -351,7 +354,7 @@
             right: -5px;
             bottom: -5px;
             z-index: -3;
-            
+
         }
 
         .team .box:before,
@@ -421,40 +424,54 @@
         <!-- <a class="navbar-brand" href="index.html">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a> -->
-    
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           
+
             <div class="container-fluid">
-               
-              <a class="navbar-brand" href="#"> 
-                
-                  <img src="img/logo_iws_1.png" alt="" width="120" height="70">
+
+                <a class="navbar-brand" href="#">
+
+                    <img src="img/logo_iws_1.png" alt="" width="120" height="70">
                 </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html"><button class="openbtn" onclick="openNav()">Prakiraan Cuaca</button>
-                    </a>
-                  </li>
-                  <!-- <li class="nav-item">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Services</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Client</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Download</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><button class="openbtn" onclick="openNav()">Weather Forecast Product</button>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
-                </ul>
+                    </ul>
 
-               
 
-              </div>
+
+                </div>
             </div>
-          </nav>
+        </nav>
 
 
 
@@ -494,7 +511,12 @@
 
         <div class="container">
             <h3 class="animated bounceInDown"><b>INDO WEATHER SERVICE</b></h3>
-            <p class="animated bounceInDown">"InfoMET your weather partner powered by BMKG"</p>
+            <p class="animated bounceInDown" style="margin-right:100px; margin-left:100px;">
+                Indoweather service merupakan produk berbasis web. Produk ini dikembangkan
+                untuk memenuhi kebutuhan pengguna yang memerlukan informasi cuaca, dengan resolusi tinggi, secara spasial maupun temporal.Melalui integrasi Big Data BMKG dan teknik digitasi model resolusi tinggi, pengguna akan mendapatkan
+                informasi prakiraan cuaca sesuai dengan area yang diperlukan.
+            
+        </p>
             <span class="animated bounce"></span>
 
         </div>
@@ -580,7 +602,7 @@
 
     </div>
 
-   
+
 
 
 
@@ -598,7 +620,7 @@
     <!--================================================= PETA INTERACTIVE ============================================================  -->
 
     <script>
-        
+
 
         $(document).ready(function () {
             // Check if element is scrolled into view
