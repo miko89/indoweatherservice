@@ -510,9 +510,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-	background: rgb(0, 1, 43);
+	background: rgb(17, 17, 17);
 	color: rgb(255, 255, 255);
-	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	box-shadow: 0 3px 14px rgba(37, 37, 37, 0.4);
 	}
 .leaflet-container a.leaflet-popup-close-button {
 	position: absolute;
@@ -524,7 +524,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	width: 18px;
 	height: 14px;
 	font: 16px/14px Tahoma, Verdana, sans-serif;
-	color: #3cff0b;
+	color: #ffffff;
 	text-decoration: none;
 	font-weight: bold;
 	background: transparent;
