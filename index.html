@@ -165,13 +165,6 @@
         /* <!-- ================================================== CSS-LEGENDA ========================================================= -->
 <!-- ================================================== ISI LAMAN ========================================================= --> */
 
-
-        .legenda-left {
-            margin: 10px;
-            padding: 10px;
-
-        }
-
         .wrap {
             width: 100%;
             border: solid 0px;
@@ -224,8 +217,8 @@
         } */
 
         .footer {
-            background: rgb(2, 27, 65);
-            height: 50px;
+            background: rgb(7, 7, 7);
+            height: 70px;
             width: 100%;
             position: relative;
             margin-left: 0;
@@ -303,11 +296,12 @@
         }
 
 
-        .legend {
+        /* .legend {
             line-height: 30px;
             color: rgb(24, 24, 24);
-            opacity: 0.1;
-        }
+            opacity: 0;
+           
+        } */
 
 
         /* .legend i {
@@ -337,7 +331,7 @@
             margin-right: auto;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, #031c2c, #abff3e);
+            background: linear-gradient(to top, #031c2c, #0f1d11);
 
         }
 
@@ -358,18 +352,6 @@
             display: none
         }
 
-        .garis_bawah {
-            width: 1350px;
-            height: 8px;
-            border-radius: 0px;
-            background: rgb(255, 255, 255);
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 0px;
-            margin-top: auto;
-
-
-        }
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -771,7 +753,7 @@
     legend.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = ["<center><b>Legenda Prakicu</b></center>"]
+            grades = ["<center><b>LEGENDA PRAKIRAAN CUACA</b></center>"]
         cuaca = ["<center><b>cerah | cerah berawan | berawan | kabut | hujan ringan | hujan sedang | hujan lebat | hujan petir</b></center>"]
         labels = ['img/legendaiws.svg'];
 
@@ -1027,7 +1009,7 @@
         var prakicu = parseInt(dataprakicuJSON[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.png" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.png" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
+        marker.bindPopup('<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
         if (prakicu > 0 && prakicu < 2) { prakiraancuaca.addLayer(marker) }
         else { }
 
