@@ -185,13 +185,17 @@
 
         }
 
-        /* .body-content {
-            max-height: 100%;
-            width: 100%;
-            background: rgb(2, 26, 58);
+        .body-content {
+            /* top: 0;
+            padding-bottom: 20px;
             margin-left: auto;
-            margin-right: auto
-        } */
+            margin-right: auto; */
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #031c2c, #0f1d11);
+
+
+        }
 
 
         .center {
@@ -217,12 +221,12 @@
         } */
 
         .footer {
-            background: rgb(7, 7, 7);
-            height: 70px;
+            background: rgb(34, 34, 34);
+            height: 50px;
             width: 100%;
             position: relative;
-            margin-left: 0;
-            margin-right: 0;
+            /* margin-left: 5px; */
+            /* margin-right: auto; */
 
         }
 
@@ -324,7 +328,7 @@
         }
 
 
-        .container {
+        /* .container {
             padding-top: 60px;
             padding-bottom: 20px;
             margin-left: auto;
@@ -332,15 +336,28 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to top, #031c2c, #0f1d11);
+            
+
+        } */
+
+        .container {
+            padding-top: 100px;
+            /* margin-left: 0;
+            margin-right: 0; */
+            max-width: 760px;
+            background-color: none;
+            position: relative;
+            object-position: center;
+
 
         }
 
         .slider {
             -webkit-appearance: none;
-            width: 670px;
+            width: 100%;
             height: 7px;
             border-radius: 5px;
-            background: rgb(145, 255, 0);
+            background: rgb(166, 255, 0);
             outline: none;
             opacity: 100;
             -webkit-transition: .2s;
@@ -348,8 +365,9 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 0;
-            display: none
+            margin-top: 5px;
+
+
         }
 
 
@@ -359,7 +377,7 @@
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            background: rgb(9, 153, 214);
+            background: rgb(255, 255, 255);
             cursor: pointer;
         }
 
@@ -367,7 +385,7 @@
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: rgb(7, 93, 231);
+            background: rgb(255, 255, 255);
             cursor: pointer;
         }
 
@@ -465,7 +483,7 @@
 <!-- ================================================== ISI LAMAN ========================================================= -->
 
 
-<body>
+<body class>
     <!-- <nav class="navbar navbar-light" style="background-color: #7769f7;"> -->
     <!-- <nav class="navbar navbar-light"> -->
     <div class="header">
@@ -510,7 +528,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="left: 10px;"><button class="openbtn" onclick="openNav()">Weather Forecast Product</button>
+                            <a class="nav-link" href="#" style="left: 10px;"><button class="openbtn"
+                                    onclick="openNav()">Weather Forecast Product</button>
                             </a>
                         </li>
                         <!-- <li class="nav-item">
@@ -558,40 +577,39 @@
 
     </div>
 
+
     <div class="row">
         <div class="col-xs-12"></div>
         <div id="map">
 
 
         </div>
-        <div class="container">
-
-            <br>
-            <br>
-            <br>
-            <!-- <div class="slidecontainer"> -->
-            <div class="loader">Loading...</div>
-            <!-- <img id='garis_slider' src='img/GARIS_SLIDER5.png' class="imageslider" /> -->
-            <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
-                        <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
-
-            <!-- <input onchange='setImage(this)' type="range" min="0" max="7" value="0" step="1" id="myRange"
+        <div class="body-content">
+            <div class="container">
+<br>
+                <!-- <div class="slidecontainer"> -->
+                <div class="loader">Loading...</div>
+               
+                <div class="slidecontainer">
+                    <h6 class="text-keterangan" style="color: cornsilk;"><b>Citra Satelit 6 jam</b> </h6>
+                    <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
+                    <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
+                    <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
-                    <p class="text-slider"> Satelit Cuaca : <span id="demo"> </span> <b> | Tanggal : <span id="Date">
-                            </span></b></p> -->
-            <!-- </div> -->
-            <!-- <div class="row">
-                    <div class="col-xs-12"></div>
-                    <hr class="garis_bawah">
-                </div> -->
 
-            <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
-            <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p>
+                    <!-- <p class="text-slider"> Citra Satelit : <span id="demo"> </span> <b> | Tanggal : 9 April 2021</b></p> -->
+                </div>
 
-            <img id='img_rain' src='img/satelit.png' height="0" width="0" class="imagefdrs" />
+                <!-- <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
+                <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p> -->
+            </div>
 
 
+            <img id='img_rain' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
 
+
+<br>
+<br>
 
             <div id="chartContainer_ch"
                 style="height: 300px; width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
@@ -601,19 +619,19 @@
             <br>
             <div id="chartContainer_cuaca"
                 style="height: 300px;  width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
+                <br>
         </div>
-    </div>
 
 
 
 
 
-    <div class="row">
-        <div class="col-xs-12"></div>
-        <div class="footer">
-            <p class="text-footer">&copy; Copyright ActionLearning_meteo.</p>
+        <div class="row">
+            <div class="col-xs-12"></div>
+            <div class="footer">
+                <p class="text-footer">&copy; Copyright ActionLearning_meteo.</p>
+            </div>
         </div>
-    </div>
 
 
 </body>
@@ -635,41 +653,40 @@
 
 
     //SLIDER
-    // var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    // var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-    // var date = new Date();
-    // var day = date.getDate();
-    // var month = date.getMonth();
-    // var thisDay = date.getDay(),
-    //     thisDay = myDays[thisDay];
-    // var yy = date.getYear();
-    // var year = (yy < 1000) ? yy + 1900 : yy;
-    // // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
-    // // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
+    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var thisDay = date.getDay(),
+        thisDay = myDays[thisDay];
+    var yy = date.getYear();
+    var year = (yy < 1000) ? yy + 1900 : yy;
+    // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+    // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
 
-    // var imgffmc = document.getElementById('img_ffmc');
-    // var imgfwi = document.getElementById('img_fwi');
-    // var slider = document.getElementById("myRange");
-    // var output = document.getElementById("demo");
-    // var date = document.getElementById("Date")
+    var imgffmc = document.getElementById('img_rain');
+    var imgfwi = document.getElementById('img_fwi');
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var date = document.getElementById("Date")
     // output.innerHTML = slider.value;
     // date.innerHTML = day + " " + months[month] + " " + year;
     // slider.oninput = function (e) {
     //     let value = parseInt(e.target.value);
     //     if (value >= 0) {
-    //         date.innerHTML = thisDay + " " + day + " " + months[month] + " " + year;
+    //         date.innerHTML = day + value + " " + months[month] + " " + year;
     //     } else { }
-
     //     output.innerHTML = this.value;
     // };
-    // var img_array1 = ['img/ECMWF/39_asia_transparan_ffmc_01.png', 'img/ECMWF/39_asia_transparan_ffmc_02.png', 'img/ECMWF/39_asia_transparan_ffmc_03.png', 'img/ECMWF/39_asia_transparan_ffmc_04.png', 'img/ECMWF/39_asia_transparan_ffmc_05.png', 'img/ECMWF/39_asia_transparan_ffmc_06.png', 'img/ECMWF/39_asia_transparan_ffmc_07.png'];
-    // var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
-    // function setImage(obj) {
-    //     var value = obj.value;
-    //     imgffmc.src = img_array1[value];
-    //     imgfwi.src = img_array2[value];
+    var img_array1 = ['img/satelit/hasilsat_20210415_00.png', 'img/satelit/hasilsat_20210415_12.png', 'img/satelit/hasilsat_20210416_00.png', 'img/satelit/hasilsat_20210416_12.png', 'img/satelit/hasilsat_20210417_00.png'];
+    var img_array2 = ['img/ECMWF/39_asia_transparan_fwi_00.png', 'img/ECMWF/39_asia_transparan_fwi_01.png', 'img/ECMWF/39_asia_transparan_fwi_02.png', 'img/ECMWF/39_asia_transparan_fwi_03.png', 'img/ECMWF/39_asia_transparan_fwi_04.png', 'img/ECMWF/39_asia_transparan_fwi_05.png', 'img/ECMWF/39_asia_transparan_fwi_06.png', 'img/ECMWF/39_asia_transparan_fwi_07.png'];
+    function setImage(obj) {
+        var value = obj.value;
+        imgffmc.src = img_array1[value];
+        imgfwi.src = img_array2[value];
 
-    // }
+    }
 
 
     // center of the map
@@ -760,7 +777,7 @@
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var j = 0; j < grades.length; j++) {
             div.innerHTML +=
-                grades[j]+(" <img src=" +labels[j] + " height='50' width='500'>"+"<br>"+cuaca[j]);
+                grades[j] + (" <img src=" + labels[j] + " height='50' width='500'>" + "<br>" + cuaca[j]);
         }
 
         return div;
@@ -1009,7 +1026,7 @@
         var prakicu = parseInt(dataprakicuJSON[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
         if (prakicu > 0 && prakicu < 2) { prakiraancuaca.addLayer(marker) }
         else { }
 
