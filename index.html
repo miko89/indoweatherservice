@@ -359,19 +359,19 @@
             border-radius: 5px;
             background: rgb(166, 255, 0);
             outline: none;
-            opacity: 100;
+            opacity: 100%;
             -webkit-transition: .2s;
             transition: opacity .2s;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 5px;
+            margin-top: 20px;
 
 
         }
 
 
-        .slider::-webkit-slider-thumb {
+        /* .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
             width: 15px;
@@ -379,24 +379,24 @@
             border-radius: 50%;
             background: rgb(255, 255, 255);
             cursor: pointer;
-        }
+        } */
 
         .slider::-moz-range-thumb {
-            width: 25px;
+            width: 15px;
             height: 25px;
-            border-radius: 50%;
+            /* border-radius: 100%; */
             background: rgb(255, 255, 255);
             cursor: pointer;
         }
 
-        .imageslider {
+        /* .imageslider {
             width: 740px;
             height: 30px;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 10px;
-        }
+            margin-top: 20px;
+        } */
 
         .imagefdrs {
 
@@ -497,7 +497,7 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="index.html">
-
+                    <img src="img/logo_bmkg.svg" alt="" width="50" height="90">&ensp;
                     <img src="img/logoiws.svg" alt="" width="120" height="70">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -593,8 +593,6 @@
                 <div class="slidecontainer">
                     <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p>
                     <h5 class="text-keterangan" style="color: cornsilk;"><b>Citra Satelit 6 jam Terakhir</b> </h5>
-                    <!-- <input type="range" min="0" max="7" value="1" class="slider" id="myRange">
-                    <p class="text-keterangan"> Prakiraan H+ : <span id="demo"> </span></p> -->
                     <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
 
@@ -606,7 +604,7 @@
             </div>
 
 
-            <img id='img_rain' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
+            <img id='img_satelit' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
 
 
             <br>
@@ -667,10 +665,10 @@
     // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
     // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
 
-    var imgffmc = document.getElementById('img_ffmc');
+    var imgsatelit = document.getElementById('img_satelit');
 
-    // var slider = document.getElementById("myRange");
-    // var output = document.getElementById("demo");
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
     var date00 = document.getElementById("Date00")
     date00.innerHTML = day + "/" + months[month] + "/" + year;
 
@@ -691,7 +689,7 @@
     var img_array1 = ['img/satelit/hasilsat_20210415_00.png', 'img/satelit/hasilsat_20210415_12.png', 'img/satelit/hasilsat_20210416_00.png', 'img/satelit/hasilsat_20210416_12.png', 'img/satelit/hasilsat_20210417_00.png'];
     function setImage(obj) {
         var value = obj.value;
-        imgffmc.src = img_array1[value];
+        imgsatelit.src = img_array1[value];
 
     }
 
@@ -778,7 +776,7 @@
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = ["<center><b>LEGENDA PRAKIRAAN CUACA</b></center>"]
-        cuaca = ["<center><b>cerah | cerah berawan | berawan | kabut | hujan ringan | hujan sedang | hujan lebat | hujan petir</b></center>"]
+        cuaca = ["<center><b>cerah  &ensp;|  cerah berawan   |   berawan  &emsp;&ensp;|&ensp; hujan ringan | hujan sedang | hujan lebat |&ensp; hujan petir</b></center>"]
         labels = ['img/legendaiws.svg'];
 
         // loop through our density intervals and generate a label with a colored square for each interval
@@ -1108,8 +1106,8 @@
     //     new L.LatLng(28.0, 150)
     // )
 
-    var imageUrl_rain = document.getElementById("img_rain")
-    var imageBounds_rain = new L.LatLngBounds(
+    var imageUrl_satelit = document.getElementById("img_satelit")
+    var imageBounds_satelit = new L.LatLngBounds(
         new L.LatLng(-21.2, 90),
         new L.LatLng(19.8, 149.6)
     )
@@ -1126,7 +1124,7 @@
     // var LayerFDRS_fwi = L.imageOverlay(imageUrl_fwi, imageBounds_fwi, { zindex: 900 })//.addTo(map);
     // var LayerFDRS_bui = L.imageOverlay(imageUrl_bui, imageBounds_bui, { zindex: 900 })//.addTo(map);
     // var LayerFDRS_isi = L.imageOverlay(imageUrl_isi, imageBounds_isi, { zindex: 900 })//.addTo(map);
-    var LayerFDRS_rain = L.imageOverlay(imageUrl_rain, imageBounds_rain, { zindex: 300 })//.addTo(map);
+    var LayerSatelit = L.imageOverlay(imageUrl_satelit, imageBounds_satelit, { zindex: 300 })//.addTo(map);
 
 
 
@@ -1152,7 +1150,7 @@
         // "FWI": LayerFDRS_fwi,
         // "BUI": LayerFDRS_bui,
         // "ISI": LayerFDRS_isi,
-        "Citra Satelit": LayerFDRS_rain,
+        "Citra Satelit": LayerSatelit,
         // "Nama_wilayah": Stamen_TerrainLabels,
         "Wilayah Cikarang": geojson,
 
