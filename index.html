@@ -12,6 +12,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+    <script type="text/javascript">function showLocalTime(a,b,c,d){if(document.getElementById&&document.getElementById(a)){this.container=document.getElementById(a),this.displayversion=d;var e="server-php"==b?'<? print date("F d, Y H:i:s", time())?>':"server-ssi"==b?'<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->':"6/16/2021 10:12:05 PM";this.localtime=this.serverdate=new Date(e),this.localtime.setTime(this.serverdate.getTime()+60*c*1e3),this.updateTime(),this.updateContainer()}}function formatField(a,b){if("undefined"!=typeof b){var c=a>12?a-12:a;return 0==c?12:c}return a<=9?"0"+a:a}var minggutxt=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],weekdaystxt=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],bulantxt=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],monthstxt=["January","February","March","April","May","June","July","August","September","October","November","December"];showLocalTime.prototype.updateTime=function(){var a=this;this.localtime.setSeconds(this.localtime.getSeconds()+1),setTimeout(function(){a.updateTime()},1e3)},showLocalTime.prototype.updateContainer=function(){var a=this;if("long"==this.displayversion)this.container.innerHTML=this.localtime.toLocaleString();else{var b=this.localtime.getHours(),c=this.localtime.getMinutes(),d=this.localtime.getSeconds(),k=(this.localtime.getDate(),this.localtime.getUTCDate(),minggutxt[this.localtime.getDay()],bulantxt[this.localtime.getMonth()],weekdaystxt[this.localtime.getUTCDay()],monthstxt[this.localtime.getUTCMonth()],b+1);k>=24&&(k-=24);var l=b+2;l>=24&&(l-=24);var m=b-7;m<0&&(m+=24);this.container.innerHTML="<span class='hari-digit hidden-sm'><a href='http://jam.bmkg.go.id/' target='_blank'>Standar Waktu Indonesia</a> </span><span class='FontDigit'>"+formatField(b)+":"+formatField(c)+":"+formatField(d)+" WIB / </span><span class='FontDigit'>"+formatField(m)+":"+formatField(c)+":"+formatField(d)+" UTC</span>"}setTimeout(function(){a.updateContainer()},1e3)};
+	</script>
+
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -484,9 +487,12 @@
 
 
 <body>
+
+    
     <!-- <nav class="navbar navbar-light" style="background-color: #7769f7;"> -->
     <!-- <nav class="navbar navbar-light"> -->
     <div class="header">
+        
         <!-- <a class="navbar-brand" href="index.html">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a> -->
@@ -495,6 +501,7 @@
         ">
 
             <div class="container-fluid">
+               
 
                 <a class="navbar-brand" href="https://www.bmkg.go.id/">
                     <img src="img/logo_bmkg.svg" alt="" width="50" height="90">
@@ -537,6 +544,8 @@
                                     onclick="openNav()">Weather Forecast Product</button>
                             </a>
                         </li>
+
+                       
                         <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
@@ -545,7 +554,17 @@
 
 
                 </div>
+
+                <div id="timecontainer" class="topbar-time pull-left hidden-xs"></div>
+            <script type="text/javascript">new showLocalTime("timecontainer", "server-asp", 0, "short")</script>
+        </div>
+<br>
+<br>
+        <div class="topbar-time hari-digit hidden-xs">Rabu, 16 Juni 2021</div>
+        <div class="topbar-toggler"><span class="fa fa-angle-down"></span></div>
+
             </div>
+            
         </nav>
 
 
