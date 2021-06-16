@@ -12,8 +12,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <script type="text/javascript">function showLocalTime(a,b,c,d){if(document.getElementById&&document.getElementById(a)){this.container=document.getElementById(a),this.displayversion=d;var e="server-php"==b?'<? print date("F d, Y H:i:s", time())?>':"server-ssi"==b?'<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->':"6/16/2021 10:12:05 PM";this.localtime=this.serverdate=new Date(e),this.localtime.setTime(this.serverdate.getTime()+60*c*1e3),this.updateTime(),this.updateContainer()}}function formatField(a,b){if("undefined"!=typeof b){var c=a>12?a-12:a;return 0==c?12:c}return a<=9?"0"+a:a}var minggutxt=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],weekdaystxt=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],bulantxt=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],monthstxt=["January","February","March","April","May","June","July","August","September","October","November","December"];showLocalTime.prototype.updateTime=function(){var a=this;this.localtime.setSeconds(this.localtime.getSeconds()+1),setTimeout(function(){a.updateTime()},1e3)},showLocalTime.prototype.updateContainer=function(){var a=this;if("long"==this.displayversion)this.container.innerHTML=this.localtime.toLocaleString();else{var b=this.localtime.getHours(),c=this.localtime.getMinutes(),d=this.localtime.getSeconds(),k=(this.localtime.getDate(),this.localtime.getUTCDate(),minggutxt[this.localtime.getDay()],bulantxt[this.localtime.getMonth()],weekdaystxt[this.localtime.getUTCDay()],monthstxt[this.localtime.getUTCMonth()],b+1);k>=24&&(k-=24);var l=b+2;l>=24&&(l-=24);var m=b-7;m<0&&(m+=24);this.container.innerHTML="<span class='hari-digit hidden-sm'><a href='http://jam.bmkg.go.id/' target='_blank'>Standar Waktu Indonesia</a> </span><span class='FontDigit'>"+formatField(b)+":"+formatField(c)+":"+formatField(d)+" WIB / </span><span class='FontDigit'>"+formatField(m)+":"+formatField(c)+":"+formatField(d)+" UTC</span>"}setTimeout(function(){a.updateContainer()},1e3)};
-	</script>
+    <script type="text/javascript">function showLocalTime(a, b, c, d) { if (document.getElementById && document.getElementById(a)) { this.container = document.getElementById(a), this.displayversion = d; var e = "server-php" == b ? '<? print date("F d, Y H:i:s", time())?>' : "server-ssi" == b ? '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' : "6/16/2021 10:12:05 PM"; this.localtime = this.serverdate = new Date(e), this.localtime.setTime(this.serverdate.getTime() + 60 * c * 1e3), this.updateTime(), this.updateContainer() } } function formatField(a, b) { if ("undefined" != typeof b) { var c = a > 12 ? a - 12 : a; return 0 == c ? 12 : c } return a <= 9 ? "0" + a : a } var minggutxt = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"], weekdaystxt = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], bulantxt = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"], monthstxt = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; showLocalTime.prototype.updateTime = function () { var a = this; this.localtime.setSeconds(this.localtime.getSeconds() + 1), setTimeout(function () { a.updateTime() }, 1e3) }, showLocalTime.prototype.updateContainer = function () { var a = this; if ("long" == this.displayversion) this.container.innerHTML = this.localtime.toLocaleString(); else { var b = this.localtime.getHours(), c = this.localtime.getMinutes(), d = this.localtime.getSeconds(), k = (this.localtime.getDate(), this.localtime.getUTCDate(), minggutxt[this.localtime.getDay()], bulantxt[this.localtime.getMonth()], weekdaystxt[this.localtime.getUTCDay()], monthstxt[this.localtime.getUTCMonth()], b + 1); k >= 24 && (k -= 24); var l = b + 2; l >= 24 && (l -= 24); var m = b - 7; m < 0 && (m += 24); this.container.innerHTML = "<span class='hari-digit hidden-sm'><a href='http://jam.bmkg.go.id/' target='_blank'>Standar Waktu Indonesia</a> </span><span class='FontDigit'>" + formatField(b) + ":" + formatField(c) + ":" + formatField(d) + " WIB / </span><span class='FontDigit'>" + formatField(m) + ":" + formatField(c) + ":" + formatField(d) + " UTC</span>" } setTimeout(function () { a.updateContainer() }, 1e3) };
+    </script>
+   
 
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -47,6 +48,8 @@
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script type="text/javascript" src="data/cikarang.js"></script>
 
+    <!-- <script src="js/moment.js"></script> -->
+    <script src="js/moment-with-locales.js"></script>
     <style>
         #map {
             /* width: 894px; */
@@ -488,11 +491,11 @@
 
 <body>
 
-    
+
     <!-- <nav class="navbar navbar-light" style="background-color: #7769f7;"> -->
     <!-- <nav class="navbar navbar-light"> -->
     <div class="header">
-        
+
         <!-- <a class="navbar-brand" href="index.html">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a> -->
@@ -501,7 +504,7 @@
         ">
 
             <div class="container-fluid">
-               
+
 
                 <a class="navbar-brand" href="https://www.bmkg.go.id/">
                     <img src="img/logo_bmkg.svg" alt="" width="50" height="90">
@@ -545,27 +548,25 @@
                             </a>
                         </li>
 
-                       
+
                         <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
                     </ul>
-
+                   &emsp;
+                   &emsp;
+                   &emsp;
+                    <span id="date_moment" style="color: rgb(255, 224, 98)"></span>
 
 
                 </div>
+   
+                
+               
+                
+    </div>
 
-                <div id="timecontainer" class="topbar-time pull-left hidden-xs"></div>
-            <script type="text/javascript">new showLocalTime("timecontainer", "server-asp", 0, "short")</script>
-        </div>
-<br>
-<br>
-        <div class="topbar-time hari-digit hidden-xs">Rabu, 16 Juni 2021</div>
-        <div class="topbar-toggler"><span class="fa fa-angle-down"></span></div>
-
-            </div>
-            
-        </nav>
+    </nav>
 
 
 
@@ -603,20 +604,23 @@
 
 
     <div class="row">
-        <div class="col-xs-12"></div>
+        <div class="col-sm-4 col-xs-12"></div>
         <div id="map">
 
 
         </div>
         <div class="body-content">
             <div class="container">
+            
                 <br>
                 <!-- <div class="slidecontainer"> -->
                 <div class="loader">Loading...</div>
+              
 
                 <div class="slidecontainer">
                     <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p>
-                    <h5 class="text-keterangan" style="color: rgb(255, 224, 98)"><b>Citra Satelit 6 jam Terakhir</b> </h5>
+                    <h5 class="text-keterangan" style="color: rgb(255, 224, 98)"><b>Citra Satelit 6 jam Terakhir</b>
+                    </h5>
                     <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
 
@@ -651,7 +655,7 @@
 
 
     <div class="row">
-        <div class="col-xs-12"></div>
+        <div class="col-sm-4 col-xs-12"></div>
         <div class="footer">
             <p class="text-footer">&copy; Copyright ActionLearning_meteo.</p>
         </div>
@@ -664,6 +668,13 @@
 <!--================================================= PETA INTERACTIVE ============================================================  -->
 
 <script>
+
+
+var d = moment().format('LLLL');
+
+// const d = moment().format('LLLL');
+document.getElementById("date_moment").innerHTML = d;
+
 
     //SIDEBAR
 
@@ -720,7 +731,7 @@
         imgsatelit.src = img_array1[value];
 
     }
-    
+
     // ================================================= BASEMAP ============================================================
 
     // center of the map
@@ -934,7 +945,7 @@
         var prakicu = parseInt(dataprakicuJSON[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/'+ dataprakicuJSON[i].arah+'.svg" alt="" width="15" height="30"> : '+'<center><b>Tanggal : ' + dataprakicuJSON[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
+        marker.bindPopup('<img src="img/' + dataprakicuJSON[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
         if (prakicu == 1) { prakiraancuaca.addLayer(marker) }
         else { }
     }
@@ -944,7 +955,7 @@
         var prakicu = parseInt(dataprakicuJSON[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[j].lintang, dataprakicuJSON[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/'+ dataprakicuJSON[j].arah+'.svg" alt="" width="15" height="30"> : '+'<center><b>Tanggal : ' + dataprakicuJSON[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[j].rh + '%');
+        marker.bindPopup('<img src="img/' + dataprakicuJSON[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[j].rh + '%');
         if (prakicu == 2) { prakiraancuaca.addLayer(marker) }
         else { }
     }
