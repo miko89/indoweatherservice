@@ -597,7 +597,7 @@
 
                 <div class="slidecontainer">
                     <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p>
-                    <h5 class="text-keterangan" style="color: rgb(255, 224, 98)"><b>Citra Satelit 6 jam Terakhir</b> </h5>
+                    <h5 class="text-keterangan" style="color: cornsilk;"><b>Citra Satelit 6 jam Terakhir</b> </h5>
                     <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
 
@@ -646,8 +646,6 @@
 
 <script>
 
-    //SIDEBAR
-
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
         document.getElementById("main").style.marginRight = "250px";
@@ -658,10 +656,8 @@
         document.getElementById("main").style.marginRight = "0";
     }
 
-    // ================================================= TANGGAL/BULAN/TAHUN ============================================================
 
-    //TANGGAL
-
+    //SLIDER
     var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
     var date = new Date();
@@ -701,8 +697,7 @@
         imgsatelit.src = img_array1[value];
 
     }
-    
-    // ================================================= BASEMAP ============================================================
+
 
     // center of the map
     var center = new L.latLng(-6.3256, 107.17965);
@@ -719,6 +714,8 @@
     // Peta Grayscale 
     var grayscale = L.tileLayer(mbUrl, { id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr }).addTo(map);
     streets = L.tileLayer(mbUrl, { id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr });
+
+
 
     // Peta OSM
     var OSM = L.tileLayer(
@@ -747,6 +744,32 @@
         //attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
     })
 
+
+
+    //Label  
+    map.createPane('labels');
+    map.getPane('labels').style.zIndex = 400;
+    // Layers in this pane are non-interactive and do not obscure mouse/touch events
+    map.getPane('labels').style.pointerEvents = 'none';
+    var Stamen_TerrainLabels = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-labels/{z}/{x}/{y}{r}.{ext}', {
+        //attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        subdomains: 'abcd',
+        FontSize: 4,
+        minZoom: 0,
+        maxZoom: 18,
+        zindex: 400,
+        ext: 'png',
+        pane: 'labels'
+    });
+
+    //Map_Backgroun2                
+    var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+        //attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        subdomains: 'abcd',
+        minZoom: 0,
+        maxZoom: 20,
+        ext: 'png'
+    });
 
     // ==================================================================== LEGENDA ======================================================//
     //MEMBUAT LEGENDA
@@ -793,7 +816,52 @@
     legend.addTo(map);
 
 
+
+
+
+    // var legend = L.control({ position: "topright" });
+
+    // legend.onAdd = function (map) {
+
+    //     var div = L.DomUtil.create('div', 'info legend'),
+    //         grades = ["<b> Logo Spartan</b>"],
+    //         labels = ['img/legenda_siklon_2.png'];
+
+    //     // loop through our density intervals and generate a label with a colored square for each interval
+    //     for (var i = 0; i < grades.length; i++) {
+    //         div.innerHTML +=
+    //             ("<img src=" + labels[i] + " height='25' width='250'>");
+    //     }
+
+    //     return div;
+    // };
+    // legend.addTo(map);
+
     // <!--================================================== LAYER BATAS WILAYAH=====================================================  -->
+
+
+    // var district_boundary = new L.geoJson();
+
+    // $.ajax({
+    // dataType: "json",
+    // url: "data/cikarang.geojson",
+
+
+    // success: function(data) {
+    //      $(data.features).each(function(key, data) {
+    //         district_boundary.addData(data);
+    //      });
+
+    //         },
+    // onEachFeature: function (feature, layer) {
+    //     layer.bindPopup('<p>kecamatan: '+feature.properties.WADMKC+'</p>');
+    //     }
+
+    // }
+    // )
+
+
+
 
     function style(feature) {
 
@@ -839,7 +907,13 @@
     geojson.addTo(map);
 
 
-    // <!--================================================== LAYER PRAKIRAAN CUACA =====================================================  -->
+
+
+
+
+
+
+    // <!--================================================== LAYER HOTSPOT =====================================================  -->
 
     var jsonprakiraan = 'data/prakiraan_cuaca.json';
     function getJSONValue(fileJSON) {
@@ -852,8 +926,37 @@
     prakicujson = getJSONValue(jsonprakiraan)
     var dataprakicuJSON = JSON.parse(prakicujson)
 
+
+
+    // var jsondatafdrs = 'data/GSMAP_20200405_FIX_1.json';
+    // function getJSONValue(fileJSON) {
+    //     var value = $.ajax({
+    //         url: fileJSON,
+    //         async: false
+    //     }).responseText;
+    //     return value
+    // }
+    // datafdrs = getJSONValue(jsondatafdrs)
+    // var datafdrsJSON = JSON.parse(datafdrs)
+
+
+
+    // size of the icon
+    // iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+    // popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+
+
+
+    // var customIcon_1 = L.icon({
+    //     iconUrl: 'img/curah_hujan.gif',
+    //     iconSize: [30, 50],
+    //     iconAnchor:   [15, 50],
+    //     popupAnchor:  [-10, -76]
+    // }) // size of the icon
+
+
     var customIcon_1 = L.icon({
-        iconUrl: 'img/cerah.gif',
+        iconUrl: 'img/hujan_ringan.gif',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -861,14 +964,14 @@
 
 
     var customIcon_2 = L.icon({
-        iconUrl: 'img/cerahberawan.gif',
+        iconUrl: 'img/berawan.gif',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -50]
     }) // size of the icon     
 
     var customIcon_3 = L.icon({
-        iconUrl: 'img/berawan.gif',
+        iconUrl: 'img/hujan_sedang.gif',
         iconSize: [50, 84],
         iconAnchor: [42, 84],
         popupAnchor: [-10, -76]
@@ -876,39 +979,30 @@
 
 
     var customIcon_4 = L.icon({
-        iconUrl: 'img/hujanringan.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
-    }) // size of the icon  
-
-    var customIcon_5 = L.icon({
-        iconUrl: 'img/hujansedang.gif',
+        iconUrl: 'img/hujan_lebat.gif',
         iconSize: [50, 84],
         iconAnchor: [42, 84],
         popupAnchor: [-10, -76]
     }) // size of the icon  
 
 
-    var customIcon_6 = L.icon({
-        iconUrl: 'img/hujanlebat.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
-    }) // size of the icon  
 
 
-    var customIcon_4 = L.icon({
-        iconUrl: 'img/hujanpetir.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
-    }) // size of the icon  
 
 
     var prakiraancuaca = L.layerGroup()
 
-    //============================================================ POP UP  / MARKER ==============================================================
+    var garistrack = L.layerGroup()
+    var PREC100 = L.layerGroup()
+
+
+
+
+    //============================================================ANGIN===============================================================
+
+
+
+    //============================================================siklon==============================================================
 
 
     for (i = 0; i < dataprakicuJSON.length; i++) {
@@ -918,14 +1012,18 @@
         marker.bindPopup('<img src="img/'+ dataprakicuJSON[i].arah+'.svg" alt="" width="15" height="30"> : '+'<center><b>Tanggal : ' + dataprakicuJSON[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
         if (prakicu == 1) { prakiraancuaca.addLayer(marker) }
         else { }
+
+
     }
+
+
 
 
     for (j = 0; j < dataprakicuJSON.length; j++) {
         var prakicu = parseInt(dataprakicuJSON[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON[j].lintang, dataprakicuJSON[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/'+ dataprakicuJSON[j].arah+'.svg" alt="" width="15" height="30"> : '+'<center><b>Tanggal : ' + dataprakicuJSON[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[j].rh + '%');
+        marker.bindPopup(dataprakicuJSON[j].kelurahan);
         if (prakicu == 2) { prakiraancuaca.addLayer(marker) }
         else { }
     }
@@ -949,8 +1047,45 @@
 
 
 
-    // <!--================================================== LAYER SATELIT =====================================================  -->
 
+
+
+    // <!--================================================== LAYER FDRS =====================================================  -->
+
+    // var imageUrl_ffmc = document.getElementById("img_ffmc")
+    // var imageBounds_ffmc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+
+    // var imageUrl_dmc = document.getElementById("img_dmc")
+    // var imageBounds_dmc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+
+    // var imageUrl_dc = 'img/fdrs_dc_gsmap_1.png';
+    // var imageBounds_dc = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+    // var imageUrl_fwi = document.getElementById("img_fwi")
+    // var imageBounds_fwi = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+
+    // var imageUrl_bui = 'img/fdrs_bui_gsmap_1.png';
+    // var imageBounds_bui = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
+
+    // var imageUrl_isi = 'img/fdrs_isi_gsmap_1.png';
+    // var imageBounds_isi = new L.LatLngBounds(
+    //     new L.LatLng(-12.7, 91.2),
+    //     new L.LatLng(28.0, 150)
+    // )
 
     var imageUrl_satelit = document.getElementById("img_satelit")
     var imageBounds_satelit = new L.LatLngBounds(
@@ -958,6 +1093,18 @@
         new L.LatLng(19.8, 149.6)
     )
 
+    // var imageUrl_1 = 'img/KAB_RIAU.png';
+    // var imageBounds_1 = new L.LatLngBounds(
+    //     new L.LatLng(-11.35, 91.68),
+    //     new L.LatLng(27.25, 148.15)
+    // )
+
+    // var LayerFDRS_ffmc = L.imageOverlay(imageUrl_ffmc, imageBounds_ffmc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_dmc = L.imageOverlay(imageUrl_dmc, imageBounds_dmc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_dc = L.imageOverlay(imageUrl_dc, imageBounds_dc, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_fwi = L.imageOverlay(imageUrl_fwi, imageBounds_fwi, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_bui = L.imageOverlay(imageUrl_bui, imageBounds_bui, { zindex: 900 })//.addTo(map);
+    // var LayerFDRS_isi = L.imageOverlay(imageUrl_isi, imageBounds_isi, { zindex: 900 })//.addTo(map);
     var LayerSatelit = L.imageOverlay(imageUrl_satelit, imageBounds_satelit, { zindex: 300 })//.addTo(map);
 
 
@@ -977,12 +1124,27 @@
     };
 
     var overlays = {
+
+        // "FFMC": LayerFDRS_ffmc,
+        // "DMC": LayerFDRS_dmc,
+        // "DC": LayerFDRS_dc,
+        // "FWI": LayerFDRS_fwi,
+        // "BUI": LayerFDRS_bui,
+        // "ISI": LayerFDRS_isi,
         "Citra Satelit": LayerSatelit,
+        // "Nama_wilayah": Stamen_TerrainLabels,
         "Wilayah Cikarang": geojson,
+
         "Prakiraan Cuaca": prakiraancuaca,
+
+
+        // "PREC100": PREC100
+
+
     };
 
 
+    // L.control.layers(baseLayers, overlays).addTo(map);
     var layer = L.control.layers(baseLayers, overlays).addTo(map);
 
     var htmlObject = layer.getContainer();
