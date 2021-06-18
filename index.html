@@ -50,6 +50,7 @@
 
     <script src="js/moment.js"></script>
     <script src="js/moment-with-locales.js"></script>
+    <script src="js/moment-timezone-with-data.js"></script>
     <style>
         #map {
             /* width: 894px; */
@@ -711,10 +712,10 @@
 
                 <div class="slidecontainer">
                     <!-- <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p> -->
-                    <h5 class="text-keterangan" style="color: rgb(115, 140, 255)"><b>Citra Satelit 6 jam Terakhir</b>
-                    </h5>
+                    <h5 class="text-keterangan" style="color: rgb(74, 201, 255)">Citra Satelit 6 jam Terakhir</h5>
                     <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
+
                     <div class="loader">Loading...</div>
                     <!-- <p class="text-slider"> Citra Satelit : <span id="demo"> </span> <b> | Tanggal : 9 April 2021</b></p> -->
                 </div>
@@ -761,18 +762,31 @@
 <script>
 
     moment.locale('id')
-    var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
-    var t = moment.utc().format('dddd, Do/MMMM/YYYY,  LTS [UTC]');
+    // var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
+    // var t = moment.utc().format('dddd, Do/MMMM/YYYY,  LTS [UTC]');
     var d0 = moment().add(0, 'days').calendar('dddd, Do/MMMM/YYYY');
     var d1 = moment().add(1, 'days').calendar('dddd, Do/MMMM/YYYY');
     var d2 = moment().add(2, 'days').calendar('dddd, Do/MMMM/YYYY');
 
+
+
     // const d = moment().format('LLLL');
-    document.getElementById("date_moment").innerHTML = d;
-    document.getElementById("time_moment").innerHTML = t;
+    // document.getElementById("date_moment").innerHTML = d;
+    // document.getElementById("time_moment").innerHTML = t;
     document.getElementById("date00").innerHTML = d0;
     document.getElementById("date01").innerHTML = d1;
     document.getElementById("date02").innerHTML = d2;
+
+    
+
+function update() {
+  $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
+  $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+}
+
+
+setInterval(update, 1000);
+
 
 
 

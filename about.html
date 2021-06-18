@@ -633,12 +633,13 @@
 
     <script>
         moment.locale('id')
-        var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
-        var t = moment.utc().format('dddd, Do/MMMM/YYYY,  LTS [UTC]');
+        function update() {
+            $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
+            $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+        }
 
-        document.getElementById("date_moment").innerHTML = d;
-        document.getElementById("time_moment").innerHTML = t;
 
+        setInterval(update, 1000);
         $(document).ready(function () {
             // Check if element is scrolled into view
             function isScrolledIntoView(elem) {
