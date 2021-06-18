@@ -46,14 +46,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    <script src="js/moment.js"></script>
-    <script src="js/moment-with-locales.js"></script>
-
     <style>
         /* <!-- ================================================== CSS-LABEL ========================================================= -->
 <!-- ================================================== ISI LAMAN ========================================================= --> */
 
-        /* .openbtn {
+        .openbtn {
             font-size: 15px;
             cursor: pointer;
             border-radius: 10px;
@@ -61,26 +58,29 @@
             color: rgb(231, 231, 231);
             padding: 5px 10px;
             margin-right: 0;
+
+
+            /* border: none; */
         }
 
         .openbtn:hover {
             background-color: rgb(0, 0, 0);
-        } */
+        }
 
 
         /* <!-- ================================================== CSS-LEGENDA ========================================================= --> */
 
         .header {
-            background: rgb(153, 153, 153);
+            background: rgb(54, 54, 54);
             border-bottom: solid 10px;
-            padding: 0;
+            padding: 10px 0;
             width: 100%;
-            height: 115px;
+            height: 100px;
             position: fixed;
             z-index: 1500;
             margin-left: 0;
             margin-right: 0;
-            top: 0
+
         }
 
         /* .body-content {
@@ -279,8 +279,7 @@
 
         .team-layout {
             padding: 0;
-            background: #1f1f1f;
-            color: rgb(21, 255, 118)
+
         }
 
 
@@ -306,7 +305,7 @@
             align-items: center;
             margin: 20px;
             transition: 0.5s;
-            background: #bdbdbd;
+            background: #161616;
         }
 
         .box:hover {
@@ -343,7 +342,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: rgb(126, 126, 126);
+            background: #fff;
             z-index: -1;
         }
 
@@ -360,7 +359,7 @@
 
         .team .box:before,
         .team .box:after {
-            background: linear-gradient(230deg, #3a4e61, #abff3e);
+            background: linear-gradient(230deg, #042a4e, #abff3e);
         }
 
         /* .team .box:nth-child(2):before,
@@ -380,7 +379,7 @@
             right: 10px;
             bottom: 30px;
             height: 90px;
-            background: rgba(0, 48, 66, 0.781);
+            background: rgba(0, 0, 0, 0.4);
             display: inline-block;
             justify-content: center;
             align-items: center;
@@ -392,13 +391,13 @@
 
         .box:hover .content {
             opacity: 1;
-            height: 23px;
+            height: 20px;
         }
 
         .box .content h2 {
             font-size: 16px;
             text-align: center;
-            color: rgb(252, 249, 249);
+            color: #fff;
             font-weight: 500;
             line-height: 20px;
             letter-spacing: 1px;
@@ -406,9 +405,9 @@
 
         .box .content span {
             text-align: center;
-            font-size: 14px;
-            color: rgb(8, 8, 8);
-            font-weight: 600;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 200;
             line-height: 20px;
             letter-spacing: 2px;
         }
@@ -431,10 +430,9 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="#">
-                    <img src="img/logobmkg.svg" alt="" width="40" height="80">&ensp;
+                    <img src="img/logobmkg.svg" alt="" width="50" height="90">&ensp;
                     <img src="img/logo_iws_1.png" alt="" width="120" height="70">
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -442,16 +440,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <!-- <a class="nav-link" aria-current="page" href="about.html">About</a> -->
-                            <a class="nav-link" aria-current="page" href="index.html">Map Interactive</a>
+                            <a class="nav-link active" aria-current="page" href="about.html">About</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Service</a>
+                            <a class="nav-link" href="index.html">Services</a>
                         </li>
 
                         <li class="nav-item">
@@ -465,21 +457,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Download</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><button class="openbtn" onclick="openNav()">Weather Forecast Product</button>
+                            </a>
+                        </li>
                         <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
                     </ul>
 
+
+
                 </div>
-                <p>
-                    <span id="date_moment"
-                        style="font-size: 15px; float: right; padding:5px ; color: rgb(24, 24, 24)"></span>
-                    <br>
-                    <span id="time_moment"
-                        style="font-size: 15px; float: right;  padding:5px ; color: rgb(133, 133, 133)"></span>
-
-                </p>
-
             </div>
         </nav>
 
@@ -523,12 +513,10 @@
             <h3 class="animated bounceInDown"><b>INDO WEATHER SERVICE</b></h3>
             <p class="animated bounceInDown" style="margin-right:100px; margin-left:100px;">
                 Indoweather service merupakan produk berbasis web. Produk ini dikembangkan
-                untuk memenuhi kebutuhan pengguna yang memerlukan informasi cuaca, dengan resolusi tinggi, secara
-                spasial maupun temporal.Melalui integrasi Big Data BMKG dan teknik digitasi model resolusi tinggi,
-                pengguna akan mendapatkan
+                untuk memenuhi kebutuhan pengguna yang memerlukan informasi cuaca, dengan resolusi tinggi, secara spasial maupun temporal.Melalui integrasi Big Data BMKG dan teknik digitasi model resolusi tinggi, pengguna akan mendapatkan
                 informasi prakiraan cuaca sesuai dengan area yang diperlukan.
-
-            </p>
+            
+        </p>
             <span class="animated bounce"></span>
 
         </div>
@@ -632,12 +620,7 @@
     <!--================================================= PETA INTERACTIVE ============================================================  -->
 
     <script>
-        moment.locale('id')
-        var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
-        var t = moment.utc().format('dddd, Do/MMMM/YYYY,  LTS [UTC]');
 
-        document.getElementById("date_moment").innerHTML = d;
-        document.getElementById("time_moment").innerHTML = t;
 
         $(document).ready(function () {
             // Check if element is scrolled into view

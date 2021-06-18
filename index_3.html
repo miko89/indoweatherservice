@@ -14,7 +14,7 @@
 
     <script type="text/javascript">function showLocalTime(a, b, c, d) { if (document.getElementById && document.getElementById(a)) { this.container = document.getElementById(a), this.displayversion = d; var e = "server-php" == b ? '<? print date("F d, Y H:i:s", time())?>' : "server-ssi" == b ? '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' : "6/16/2021 10:12:05 PM"; this.localtime = this.serverdate = new Date(e), this.localtime.setTime(this.serverdate.getTime() + 60 * c * 1e3), this.updateTime(), this.updateContainer() } } function formatField(a, b) { if ("undefined" != typeof b) { var c = a > 12 ? a - 12 : a; return 0 == c ? 12 : c } return a <= 9 ? "0" + a : a } var minggutxt = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"], weekdaystxt = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], bulantxt = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"], monthstxt = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; showLocalTime.prototype.updateTime = function () { var a = this; this.localtime.setSeconds(this.localtime.getSeconds() + 1), setTimeout(function () { a.updateTime() }, 1e3) }, showLocalTime.prototype.updateContainer = function () { var a = this; if ("long" == this.displayversion) this.container.innerHTML = this.localtime.toLocaleString(); else { var b = this.localtime.getHours(), c = this.localtime.getMinutes(), d = this.localtime.getSeconds(), k = (this.localtime.getDate(), this.localtime.getUTCDate(), minggutxt[this.localtime.getDay()], bulantxt[this.localtime.getMonth()], weekdaystxt[this.localtime.getUTCDay()], monthstxt[this.localtime.getUTCMonth()], b + 1); k >= 24 && (k -= 24); var l = b + 2; l >= 24 && (l -= 24); var m = b - 7; m < 0 && (m += 24); this.container.innerHTML = "<span class='hari-digit hidden-sm'><a href='http://jam.bmkg.go.id/' target='_blank'>Standar Waktu Indonesia</a> </span><span class='FontDigit'>" + formatField(b) + ":" + formatField(c) + ":" + formatField(d) + " WIB / </span><span class='FontDigit'>" + formatField(m) + ":" + formatField(c) + ":" + formatField(d) + " UTC</span>" } setTimeout(function () { a.updateContainer() }, 1e3) };
     </script>
-
+   
 
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -48,14 +48,14 @@
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script type="text/javascript" src="data/cikarang.js"></script>
 
-    <script src="js/moment.js"></script>
+    <!-- <script src="js/moment.js"></script> -->
     <script src="js/moment-with-locales.js"></script>
     <style>
         #map {
             /* width: 894px; */
             width: 100%;
             height: 500px;
-            top: 120px;
+            top: 115px;
             margin-left: 5px;
             margin-right: 0
         }
@@ -64,26 +64,25 @@
 <!-- ================================================== ISI LAMAN ========================================================= --> */
         .sidebar {
             height: 350px;
-            width: 250px;
+            width: 0;
             position: absolute;
             z-index: 1200;
             top: 130px;
             right: 0;
             background-color: rgb(19, 19, 19);
-            overflow: hidden;
+            overflow-x: hidden;
+            transition: 0.3s;
             padding-top: 60px;
-            margin-right: 0;
-
         }
 
 
         .sidebar-pane {
-            padding: 15px 8px 8px 50px;
+            padding: 10px 8px 8px 32px;
             text-decoration: none;
             font-size: 18px;
             color: #ffffff;
             display: block;
-            transition: 1.0s;
+            transition: 0.3s;
         }
 
 
@@ -93,18 +92,17 @@
             font-size: 18px;
             color: #ffffff;
             display: block;
-            transition: 1.0s;
+            transition: 0.3s;
         }
 
         /* .sidebar a:hover {
             color: #f1f1f1;
         } */
 
-        .closebtn {
-            /* position:absolute; */
-            margin-bottom: 0;
-            float: right;
-            margin-right: 100px;
+        .sidebar .closebtn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
             /* font-size: 30px; */
             font-size: 15px;
             font-weight: bold;
@@ -112,9 +110,7 @@
             border-radius: 5px;
             background-color: #ffffff;
             color: #0e0e0e;
-            margin-top: 20px;
-
-
+            /* padding: 5px 10px; */
         }
 
         /* .sidebar a:hover {
@@ -140,18 +136,13 @@
         } */
 
         .openbtn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            /* font-size: 30px; */
             font-size: 15px;
-            font-weight: bold;
             cursor: pointer;
-            border-radius: 5px;
-            background-color: #1a1a1a;
-            color: #e6e6e6;
-            /* padding: 5px 10px; */
-
+            border-radius: 10px;
+            background-color: #111;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 0;
 
 
             /* border: none; */
@@ -188,9 +179,9 @@
         }
 
         .header {
-            background: rgb(0, 0, 0);
+            background: rgb(134, 134, 134);
             border-bottom: solid 10px;
-            padding: 0;
+            padding: 10px 0;
             width: 100%;
             height: 115px;
             position: fixed;
@@ -201,12 +192,13 @@
         }
 
         .body-content {
-            top: 100px;
+            /* top: 0;
+            padding-bottom: 20px;
             margin-left: auto;
-            margin-right: auto;
+            margin-right: auto; */
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, #04160c, #010b1a);
+            background: linear-gradient(to top, #031c2c, #0f1d11);
 
 
         }
@@ -244,19 +236,6 @@
 
         }
 
-        .button_forecast {
-            position: relative;
-            /* font-size: 30px; */
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 10px;
-            background-color: #6ad5ff;
-            color: #1b1b1b;
-            padding: 2px 5px;
-            margin: 0 15px 0 10px
-        }
-
         /* .text-header {
             margin: 10px 0;
             padding: 10px;
@@ -290,11 +269,10 @@
         }
 
         .text-keterangan {
+            margin: 0px 0;
+            padding: 0px;
             text-align: center;
             color: rgb(255, 255, 255);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .text-slider {
@@ -306,36 +284,23 @@
 
 
         .button {
+            background-color: rgb(50, 51, 50);
+            color: rgb(83, 17, 17);
             border: none;
-            color: rgb(128, 19, 19);
-            padding: 5px 100px;
+            padding: 2px 54px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            top: 0;
-            cursor: pointer;
-            z-index: 500;
-            margin-left: 100px;
-            /* margin-right: auto; */
+            font-size: 14px;
+            font-weight: bold;
             position: relative;
-
-
-        }
-
-
-        .button1 {
-            background-color: #ff000060;
+            top: 10px;
+            left: 300px;
+            display: block;
 
         }
 
-        /* Green */
-        .button2 {
-            background-color: #ff0000;
-        }
 
-        /* Blue */
-        xgw .button:hover,
+        .button:hover,
         .button:focus {
             background-color: rgb(7, 140, 163)
         }
@@ -389,28 +354,6 @@
             background-color: none;
             position: relative;
             object-position: center;
-            color: cornsilk;
-            text-align: center;
-
-
-        }
-
-
-
-
-        /* #time_display {
-            border: 1px solid black;
-            font: 20pt 'Arial';
-            padding: 5px;
-            margin-bottom: 10px;
-            text-align: left;
-        } */
-
-
-
-
-        .slidecontainer {
-            width: 100%;
 
 
         }
@@ -418,40 +361,37 @@
         .slider {
             -webkit-appearance: none;
             width: 100%;
-            height: 15px;
-            border-radius: 20px;
-            background: rgb(90, 90, 90);
+            height: 7px;
+            border-radius: 5px;
+            background: rgb(166, 255, 0);
             outline: none;
-            opacity: 0.5;
+            opacity: 100%;
             -webkit-transition: .2s;
             transition: opacity .2s;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 20px;
-            position: relative;
+            margin-top: 20px;
 
 
         }
 
-        .slider:hover {
-            opacity: 100%;
-        }
 
-        .slider::-webkit-slider-thumb {
+        /* .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            background: #66ff00;
+            background: rgb(255, 255, 255);
             cursor: pointer;
-        }
+        } */
 
         .slider::-moz-range-thumb {
-            width: 25px;
+            width: 15px;
             height: 25px;
-            background: #83ffcb;
+            /* border-radius: 100%; */
+            background: rgb(255, 255, 255);
             cursor: pointer;
         }
 
@@ -556,12 +496,6 @@
     <!-- <nav class="navbar navbar-light"> -->
     <div class="header">
 
-
-        <!-- &emsp;
-        &emsp;
-        &emsp; -->
-
-
         <!-- <a class="navbar-brand" href="index.html">
             <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
         </a> -->
@@ -571,11 +505,14 @@
 
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo_bmkg.svg" alt="" width="40" height="80">&ensp;
-                    <img src="img/logo_iws_1.png" alt="" width="120" height="75">
-                </a>
 
+                <a class="navbar-brand" href="https://www.bmkg.go.id/">
+                    <img src="img/logo_bmkg.svg" alt="" width="50" height="90">
+                </a>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="img/logoiws.svg" alt="" width="120" height="70">
+                </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -585,16 +522,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <!-- <a class="nav-link" aria-current="page" href="about.html">About</a> -->
-                            <a class="nav-link active" aria-current="page" href="index.html">Map Interactive</a>
+                            <a class="nav-link" aria-current="page" href="about.html">About</a>
+                            <!-- <a class="nav-link active" aria-current="page" href="about.html">About</a> -->
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="About.html">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Service</a>
+                            <a class="nav-link" href="index.html">Services</a>
                         </li>
 
                         <li class="nav-item">
@@ -609,28 +542,31 @@
                             <a class="nav-link" href="index.html">Download</a>
                         </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="left: 10px;"><button class="openbtn"
+                                    onclick="openNav()">Weather Forecast Product</button>
+                            </a>
+                        </li>
 
 
                         <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
                     </ul>
-
+                   &emsp;
+                   &emsp;
+                   &emsp;
+                    <span id="date_moment" style="color: rgb(255, 224, 98)"></span>
 
 
                 </div>
-                <p>
-                    <span id="date_moment"
-                        style="font-size: 15px; float: right; padding:5px ; color: rgb(153, 153, 153)"></span>
-                    <br>
-                    <span id="time_moment"
-                        style="font-size: 15px; float: right;  padding:5px ; color: rgb(137, 182, 129)"></span>
+   
+                
+               
+                
+    </div>
 
-                </p>
-            </div>
-
-        </nav>
+    </nav>
 
 
 
@@ -646,13 +582,8 @@
             </div>
         </div> -->
     <div id="mySidebar" class="sidebar">
-        <button class="openbtn" onclick="openNav()">☰ </button>
         <img src="img/logoiws.svg" alt="" width="120" height="70" class="imgsidebar">
-
-
-
-        <!-- <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</button> -->
-
+        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</button>
 
         <!-- <a href="about.html">About</a>
         <a href="#">Services</a>
@@ -661,18 +592,14 @@
         <br> -->
         <br>
         <div class="sidebar-content">
-
             <div class="sidebar-pane" id="">
                 <div id="example">
                     <!--Here the layer control menu will be added-->
-
                 </div>
-
-
             </div>
         </div>
 
-        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</button>
+
     </div>
 
 
@@ -681,43 +608,25 @@
         <div id="map">
 
 
-
-
         </div>
         <div class="body-content">
-            <br>
-            <!-- <div class="slidecontainer"> -->
-
             <div class="container">
-                <!-- <div id="time_display"></div> -->
-                <!-- <button id="next">Next</button>
-                <button id="prev">Previous</button> -->
-
-
-                <p class="text-keterangan" style="color: rgb(255, 251, 233)"><b>Prakiraan Cuaca 1 - 2 hari kedepan</b>
-                </p>
-
-                <button id="prakiraancuaca00" onclick="myFunction()" class="button_forecast"><span id="date00"></span>
-                </button>
-
-                <button id="prakiraancuaca01" onclick="myFunction()" class="button_forecast"><span id="date01"></span>
-                </button>
-
-                <button id="prakiraancuaca02" onclick="myFunction()" class="button_forecast"><span id="date02"></span>
-                </button>
-
+            
                 <br>
-                <br>
+                <!-- <div class="slidecontainer"> -->
+                <div class="loader">Loading...</div>
+              
 
                 <div class="slidecontainer">
-                    <!-- <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p> -->
-                    <h5 class="text-keterangan" style="color: rgb(115, 140, 255)"><b>Citra Satelit 6 jam Terakhir</b>
+                    <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p>
+                    <h5 class="text-keterangan" style="color: rgb(255, 224, 98)"><b>Citra Satelit 6 jam Terakhir</b>
                     </h5>
                     <input onchange='setImage(this)' type="range" min="0" max="6" value="0" step="1" id="myRange"
                         class="slider">
-                    <div class="loader">Loading...</div>
+
                     <!-- <p class="text-slider"> Citra Satelit : <span id="demo"> </span> <b> | Tanggal : 9 April 2021</b></p> -->
                 </div>
+
                 <!-- <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
                 <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p> -->
             </div>
@@ -727,7 +636,7 @@
 
 
             <br>
-
+            <br>
 
             <div id="chartContainer_ch"
                 style="height: 300px; width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
@@ -760,49 +669,12 @@
 
 <script>
 
-    moment.locale('id')
-    var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
-    var t = moment.utc().format('dddd, Do/MMMM/YYYY,  LTS [UTC]');
-    var d0 = moment().add(0, 'days').calendar('dddd, Do/MMMM/YYYY');
-    var d1 = moment().add(1, 'days').calendar('dddd, Do/MMMM/YYYY');
-    var d2 = moment().add(2, 'days').calendar('dddd, Do/MMMM/YYYY');
 
-    // const d = moment().format('LLLL');
-    document.getElementById("date_moment").innerHTML = d;
-    document.getElementById("time_moment").innerHTML = t;
-    document.getElementById("date00").innerHTML = d0;
-    document.getElementById("date01").innerHTML = d1;
-    document.getElementById("date02").innerHTML = d2;
+var d = moment().format('LLLL');
 
+// const d = moment().format('LLLL');
+document.getElementById("date_moment").innerHTML = d;
 
-
-
-    // var tanggal_$ = document.getElementById.bind(document); // convenience id selector
-    // var selected_date = moment(); // initalize moment.js object ('today')
-
-    // var showDate = function () { // update DOM with delected_date
-    //     var output_pattern = "dd, MMMM, D, YYYY"; // see moment.js docs for various date patterns
-    //     tanggal_$("time_display").innerHTML = selected_date.format(output_pattern);
-    // }
-
-    // var changeDate = function (difference) { // update value of selected_date
-    //     selected_date.add(difference, 'days')
-    // }
-
-    // var changeAndShow = function (difference) { // the actual click action
-    //     changeDate(difference);
-    //     showDate();
-    // }
-
-    // showDate();  // initially shoe today's date
-
-    // tanggal_$("next").onclick = function () {
-    //     changeAndShow(1); // increase by one day
-    // }
-
-    // tanggal_$("prev").onclick = function () {
-    //     changeAndShow(-1); // decrease by one day
-    // }
 
     //SIDEBAR
 
@@ -812,70 +684,23 @@
     }
 
     function closeNav() {
-        document.getElementById("mySidebar").style.width = "50px";
-        document.getElementById("main").style.marginRight = "50px";
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
     }
-
-    $("#prakiraancuaca00").click(function (event) {
-        event.preventDefault();
-        if (map.hasLayer(prakiraancuaca00)) {
-            $(this).removeClass('selected');
-            map.removeLayer(prakiraancuaca00);
-        } else {
-            map.removeLayer(prakiraancuaca02);
-            $(this).addClass('selected');
-            map.removeLayer(prakiraancuaca01);
-            $(this).addClass('selected');
-            map.addLayer(prakiraancuaca00);
-            $(this).addClass('selected');
-        }
-    });
-
-    $("#prakiraancuaca01").click(function (event) {
-        event.preventDefault();
-        if (map.hasLayer(prakiraancuaca01)) {
-            $(this).removeClass('selected');
-            map.removeLayer(prakiraancuaca01);
-        } else {
-            map.removeLayer(prakiraancuaca02);
-            $(this).addClass('selected');
-            map.removeLayer(prakiraancuaca00);
-            $(this).addClass('selected');
-            map.addLayer(prakiraancuaca01);
-            $(this).addClass('selected');
-
-        }
-    });
-
-    $("#prakiraancuaca02").click(function (event) {
-        event.preventDefault();
-        if (map.hasLayer(prakiraancuaca02)) {
-            $(this).removeClass('selected');
-            map.removeLayer(prakiraancuaca02);
-        } else {
-            map.removeLayer(prakiraancuaca01);
-            $(this).addClass('selected');
-            map.removeLayer(prakiraancuaca00);
-            $(this).addClass('selected');
-            map.addLayer(prakiraancuaca02);
-            $(this).addClass('selected');
-        }
-    });
-
 
     // ================================================= TANGGAL/BULAN/TAHUN ============================================================
 
     //TANGGAL
 
-    // var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    // var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-    // var date = new Date();
-    // var day = date.getDate();
-    // var month = date.getMonth();
-    // var thisDay = date.getDay(),
-    //     thisDay = myDays[thisDay];
-    // var yy = date.getYear();
-    // var year = (yy < 1000) ? yy + 1900 : yy;
+    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var thisDay = date.getDay(),
+        thisDay = myDays[thisDay];
+    var yy = date.getYear();
+    var year = (yy < 1000) ? yy + 1900 : yy;
     // document.getElementById('Tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
     // document.getElementById('Tanggal').innerHTML= day + ' ' + months[month] + ' ' + year;
 
@@ -883,8 +708,8 @@
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
-    // var date00 = document.getElementById("Date00")
-    // date00.innerHTML = day + "/" + months[month] + "/" + year;
+    var date00 = document.getElementById("Date00")
+    date00.innerHTML = day + "/" + months[month] + "/" + year;
 
     // output.innerHTML = slider.value;
     // slider.oninput = function (e) {
@@ -910,7 +735,7 @@
     // ================================================= BASEMAP ============================================================
 
     // center of the map
-    var center = new L.latLng(-6.3189, 107.17965);
+    var center = new L.latLng(-6.3256, 107.17965);
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -1041,12 +866,12 @@
 
     })
 
-    // geojson.addTo(map);
+    geojson.addTo(map);
 
 
     // <!--================================================== LAYER PRAKIRAAN CUACA =====================================================  -->
 
-    var jsonprakiraan00 = 'data/forecast00.json';
+    var jsonprakiraan = 'data/prakiraan_cuaca.json';
     function getJSONValue(fileJSON) {
         var value = $.ajax({
             url: fileJSON,
@@ -1054,30 +879,8 @@
         }).responseText;
         return value
     }
-    prakicujson00 = getJSONValue(jsonprakiraan00)
-    var dataprakicuJSON00 = JSON.parse(prakicujson00)
-
-    var jsonprakiraan01 = 'data/forecast01.json';
-    function getJSONValue(fileJSON) {
-        var value = $.ajax({
-            url: fileJSON,
-            async: false
-        }).responseText;
-        return value
-    }
-    prakicujson01 = getJSONValue(jsonprakiraan01)
-    var dataprakicuJSON01 = JSON.parse(prakicujson01)
-
-    var jsonprakiraan02 = 'data/forecast02.json';
-    function getJSONValue(fileJSON) {
-        var value = $.ajax({
-            url: fileJSON,
-            async: false
-        }).responseText;
-        return value
-    }
-    prakicujson02 = getJSONValue(jsonprakiraan02)
-    var dataprakicuJSON02 = JSON.parse(prakicujson02)
+    prakicujson = getJSONValue(jsonprakiraan)
+    var dataprakicuJSON = JSON.parse(prakicujson)
 
     var customIcon_1 = L.icon({
         iconUrl: 'img/cerah.gif',
@@ -1125,7 +928,7 @@
     }) // size of the icon  
 
 
-    var customIcon_7 = L.icon({
+    var customIcon_4 = L.icon({
         iconUrl: 'img/hujanpetir.gif',
         iconSize: [50, 84],
         iconAnchor: [42, 84],
@@ -1133,207 +936,48 @@
     }) // size of the icon  
 
 
-    var prakiraancuaca00 = L.layerGroup()
-    var prakiraancuaca01 = L.layerGroup()
-    var prakiraancuaca02 = L.layerGroup()
-
+    var prakiraancuaca = L.layerGroup()
 
     //============================================================ POP UP  / MARKER ==============================================================
-    //============================================================ FORECAST 00 ==============================================================
 
 
-    for (i = 0; i < dataprakicuJSON00.length; i++) {
-        var prakicu = parseInt(dataprakicuJSON00[i].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[i].lintang, dataprakicuJSON00[i].bujur]))
+    for (i = 0; i < dataprakicuJSON.length; i++) {
+        var prakicu = parseInt(dataprakicuJSON[i].cuaca)
+        var Coordinate = new L.latLng(([dataprakicuJSON[i].lintang, dataprakicuJSON[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%');
-        if (prakicu == 1) { prakiraancuaca00.addLayer(marker) }
+        marker.bindPopup('<img src="img/' + dataprakicuJSON[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[i].rh + '%');
+        if (prakicu == 1) { prakiraancuaca.addLayer(marker) }
         else { }
     }
 
 
-    for (j = 0; j < dataprakicuJSON00.length; j++) {
-        var prakicu = parseInt(dataprakicuJSON00[j].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[j].lintang, dataprakicuJSON00[j].bujur]))
+    for (j = 0; j < dataprakicuJSON.length; j++) {
+        var prakicu = parseInt(dataprakicuJSON[j].cuaca)
+        var Coordinate = new L.latLng(([dataprakicuJSON[j].lintang, dataprakicuJSON[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%');
-        if (prakicu == 2) { prakiraancuaca00.addLayer(marker) }
+        marker.bindPopup('<img src="img/' + dataprakicuJSON[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON[j].rh + '%');
+        if (prakicu == 2) { prakiraancuaca.addLayer(marker) }
         else { }
     }
 
-    for (k = 0; k < dataprakicuJSON00.length; k++) {
-        var prakicu = parseInt(dataprakicuJSON00[k].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[k].lintang, dataprakicuJSON00[k].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON00[k].kelurahan);
-        if (prakicu == 3) { prakiraancuaca00.addLayer(marker) }
+    for (k = 0; k < dataprakicuJSON.length; k++) {
+        var prakicu = parseInt(dataprakicuJSON[k].cuaca)
+        var Coordinate = new L.latLng(([dataprakicuJSON[k].lintang, dataprakicuJSON[k].bujur]))
+        var marker = L.marker(Coordinate, { icon: customIcon_1 })
+        marker.bindPopup(dataprakicuJSON[k].kelurahan);
+        if (prakicu == 3) { prakiraancuaca.addLayer(marker) }
         else { }
     }
-    for (l = 0; l < dataprakicuJSON00.length; l++) {
-        var prakicu = parseInt(dataprakicuJSON00[l].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[l].lintang, dataprakicuJSON00[l].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON00[l].kelurahan);
+    for (l = 0; l < dataprakicuJSON.length; l++) {
+        var prakicu = parseInt(dataprakicuJSON[l].cuaca)
+        var Coordinate = new L.latLng(([dataprakicuJSON[l].lintang, dataprakicuJSON[l].bujur]))
+        var marker = L.marker(Coordinate, { icon: customIcon_2 })
+        marker.bindPopup(dataprakicuJSON[l].kelurahan);
         if (prakicu == 4) { prakiraancuaca.addLayer(marker) }
         else { }
     }
 
-    for (m = 0; m < dataprakicuJSON00.length; m++) {
-        var prakicu = parseInt(dataprakicuJSON00[m].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[m].lintang, dataprakicuJSON00[m].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_5 })
-        marker.bindPopup(dataprakicuJSON00[m].kelurahan);
-        if (prakicu == 5) { prakiraancuaca00.addLayer(marker) }
-        else { }
-    }
 
-    for (n = 0; n < dataprakicuJSON00.length; n++) {
-        var prakicu = parseInt(dataprakicuJSON00[n].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[n].lintang, dataprakicuJSON00[n].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_6 })
-        marker.bindPopup(dataprakicuJSON00[n].kelurahan);
-        if (prakicu == 6) { prakiraancuaca00.addLayer(marker) }
-        else { }
-    }
-
-    for (o = 0; o < dataprakicuJSON00.length; o++) {
-        var prakicu = parseInt(dataprakicuJSON00[o].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON00[o].lintang, dataprakicuJSON00[o].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_7 })
-        marker.bindPopup(dataprakicuJSON00[o].kelurahan);
-        if (prakicu == 7) { prakiraancuaca00.addLayer(marker) }
-        else { }
-    }
-
-    //============================================================ FORECAST 01 ==============================================================
-
-    for (i = 0; i < dataprakicuJSON01.length; i++) {
-        var prakicu = parseInt(dataprakicuJSON01[i].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[i].lintang, dataprakicuJSON01[i].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON01[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON01[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[i].rh + '%');
-        if (prakicu == 1) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-
-    for (j = 0; j < dataprakicuJSON01.length; j++) {
-        var prakicu = parseInt(dataprakicuJSON01[j].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[j].lintang, dataprakicuJSON01[j].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON01[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON01[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[j].rh + '%');
-        if (prakicu == 2) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-    for (k = 0; k < dataprakicuJSON01.length; k++) {
-        var prakicu = parseInt(dataprakicuJSON01[k].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[k].lintang, dataprakicuJSON01[k].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON01[k].kelurahan);
-        if (prakicu == 3) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-    for (l = 0; l < dataprakicuJSON01.length; l++) {
-        var prakicu = parseInt(dataprakicuJSON01[l].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[l].lintang, dataprakicuJSON01[l].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[l].kelurahan);
-        if (prakicu == 4) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-    for (m = 0; m < dataprakicuJSON01.length; m++) {
-        var prakicu = parseInt(dataprakicuJSON01[m].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[m].lintang, dataprakicuJSON01[m].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[m].kelurahan);
-        if (prakicu == 5) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-    for (n = 0; m < dataprakicuJSON01.length; n++) {
-        var prakicu = parseInt(dataprakicuJSON01[n].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[n].lintang, dataprakicuJSON01[n].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[n].kelurahan);
-        if (prakicu == 6) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-    for (o = 0; o < dataprakicuJSON01.length; o++) {
-        var prakicu = parseInt(dataprakicuJSON01[o].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON01[o].lintang, dataprakicuJSON01[o].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[o].kelurahan);
-        if (prakicu == 7) { prakiraancuaca01.addLayer(marker) }
-        else { }
-    }
-
-    //============================================================ FORECAST 02 ==============================================================
-
-    for (i = 0; i < dataprakicuJSON02.length; i++) {
-        var prakicu = parseInt(dataprakicuJSON02[i].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[i].lintang, dataprakicuJSON02[i].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON02[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON02[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[i].rh + '%');
-        if (prakicu == 1) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-
-
-    for (j = 0; j < dataprakicuJSON02.length; j++) {
-        var prakicu = parseInt(dataprakicuJSON02[j].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[j].lintang, dataprakicuJSON02[j].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON02[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON02[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[j].rh + '%');
-        if (prakicu == 2) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-
-    for (k = 0; k < dataprakicuJSON02.length; k++) {
-        var prakicu = parseInt(dataprakicuJSON02[k].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[k].lintang, dataprakicuJSON02[k].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON02[k].kelurahan);
-        if (prakicu == 3) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-    for (l = 0; l < dataprakicuJSON02.length; l++) {
-        var prakicu = parseInt(dataprakicuJSON02[l].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[l].lintang, dataprakicuJSON02[l].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON02[l].kelurahan);
-        if (prakicu == 4) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-
-    for (m = 0; m < dataprakicuJSON02.length; m++) {
-        var prakicu = parseInt(dataprakicuJSON02[m].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[m].lintang, dataprakicuJSON02[m].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_5 })
-        marker.bindPopup(dataprakicuJSON02[m].kelurahan);
-        if (prakicu == 5) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-
-    for (n = 0; n < dataprakicuJSON02.length; n++) {
-        var prakicu = parseInt(dataprakicuJSON02[n].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[n].lintang, dataprakicuJSON02[n].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_6 })
-        marker.bindPopup(dataprakicuJSON02[n].kelurahan);
-        if (prakicu == 6) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
-
-    for (o = 0; o < dataprakicuJSON02.length; o++) {
-        var prakicu = parseInt(dataprakicuJSON02[o].cuaca)
-        var Coordinate = new L.latLng(([dataprakicuJSON02[o].lintang, dataprakicuJSON02[o].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_7 })
-        marker.bindPopup(dataprakicuJSON02[o].kelurahan);
-        if (prakicu == 7) { prakiraancuaca02.addLayer(marker) }
-        else { }
-    }
 
     // <!--================================================== LAYER SATELIT =====================================================  -->
 
@@ -1365,14 +1009,11 @@
     var overlays = {
         "Citra Satelit": LayerSatelit,
         "Wilayah Cikarang": geojson,
-
+        "Prakiraan Cuaca": prakiraancuaca,
     };
 
 
-
     var layer = L.control.layers(baseLayers, overlays).addTo(map);
-
-
 
     var htmlObject = layer.getContainer();
     var a = document.getElementById('example')
@@ -1380,8 +1021,6 @@
         newParent.appendChild(el);
     }
     setParent(htmlObject, a);
-
-
 
     // <!--================================================== CHANGE IMAGE GRAFIK =====================================================  -->
 
