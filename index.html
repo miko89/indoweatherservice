@@ -777,15 +777,15 @@
     document.getElementById("date01").innerHTML = d1;
     document.getElementById("date02").innerHTML = d2;
 
-    
-
-function update() {
-  $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
-  $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
-}
 
 
-setInterval(update, 1000);
+    function update() {
+        $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
+        $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+    }
+
+
+    setInterval(update, 1000);
 
 
 
@@ -998,12 +998,12 @@ setInterval(update, 1000);
         var div = L.DomUtil.create('div', 'info legend'),
             grades = ["<center><b>LEGENDA SATELIT CUACA</b></center>"],
             labels = ['img/legenda_satelit.svg'];
-            satelit= ["<center><b>41 &ensp; &ensp;|&ensp; &ensp;48 &ensp; &ensp;|&ensp; &ensp;56 &ensp;&ensp;|&ensp; &ensp;62 &ensp;&ensp;|&ensp; &ensp;69 &ensp;&ensp;|&ensp; &ensp;75 &ensp;&ensp;|&ensp; &ensp;80 &ensp;&ensp;|&ensp; &ensp;100</center></b>"]
+        satelit = ["<center><b>41 &ensp; &ensp;|&ensp; &ensp;48 &ensp; &ensp;|&ensp; &ensp;56 &ensp;&ensp;|&ensp; &ensp;62 &ensp;&ensp;|&ensp; &ensp;69 &ensp;&ensp;|&ensp; &ensp;75 &ensp;&ensp;|&ensp; &ensp;80 &ensp;&ensp;|&ensp; &ensp;100</center></b>"]
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                grades[i]+("<img src=" + labels[i] + " height='30' width='350'>"+ satelit[i]);
+                grades[i] + ("<img src=" + labels[i] + " height='30' width='350'>" + satelit[i]);
         }
 
         return div;
@@ -1106,45 +1106,45 @@ setInterval(update, 1000);
         iconUrl: 'img/cerahberawan.gif',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
-        popupAnchor: [0, -50]
+        popupAnchor: [0, -45]
     }) // size of the icon     
 
     var customIcon_3 = L.icon({
         iconUrl: 'img/berawan.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -45]
     }) // size of the icon     
 
 
     var customIcon_4 = L.icon({
         iconUrl: 'img/hujanringan.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -45]
     }) // size of the icon  
 
     var customIcon_5 = L.icon({
         iconUrl: 'img/hujansedang.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -45]
     }) // size of the icon  
 
 
     var customIcon_6 = L.icon({
         iconUrl: 'img/hujanlebat.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -45]
     }) // size of the icon  
 
 
     var customIcon_7 = L.icon({
         iconUrl: 'img/hujanpetir.gif',
-        iconSize: [50, 84],
-        iconAnchor: [42, 84],
-        popupAnchor: [-10, -76]
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -45]
     }) // size of the icon  
 
 
@@ -1161,7 +1161,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[i].lintang, dataprakicuJSON00[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%' < +'</br>' + '<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec + 'km/jam');
         if (prakicu == 1) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1171,7 +1171,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[j].lintang, dataprakicuJSON00[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec + 'km/jam');
         if (prakicu == 2) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1180,7 +1180,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[k].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[k].lintang, dataprakicuJSON00[k].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON00[k].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[k].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[k].kelurahan + '<center><b> <h8 style="color:#8bff00">BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[k].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[k].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[k].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[k].kec + 'km/jam');
         if (prakicu == 3) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1188,7 +1188,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[l].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[l].lintang, dataprakicuJSON00[l].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON00[l].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[l].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[l].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[l].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[l].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[l].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[l].kec + 'km/jam');
         if (prakicu == 4) { prakiraancuaca.addLayer(marker) }
         else { }
     }
@@ -1197,7 +1197,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[m].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[m].lintang, dataprakicuJSON00[m].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_5 })
-        marker.bindPopup(dataprakicuJSON00[m].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[m].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[m].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[m].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[m].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[m].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[m].kec + 'km/jam');
         if (prakicu == 5) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1206,7 +1206,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[n].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[n].lintang, dataprakicuJSON00[n].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_6 })
-        marker.bindPopup(dataprakicuJSON00[n].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[n].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[n].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN LEBAT</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[n].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[n].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[n].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[n].kec + 'km/jam');
         if (prakicu == 6) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1215,7 +1215,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON00[o].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[o].lintang, dataprakicuJSON00[o].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_7 })
-        marker.bindPopup(dataprakicuJSON00[o].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[o].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[o].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN PETIR</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[o].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[o].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[o].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec + 'km/jam');
         if (prakicu == 7) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1226,7 +1226,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON01[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[i].lintang, dataprakicuJSON01[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON01[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON01[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[i].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[i].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[i].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[i].kec + 'km/jam');
         if (prakicu == 1) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1236,7 +1236,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON01[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[j].lintang, dataprakicuJSON01[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON01[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON01[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[j].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[j].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[j].kec + 'km/jam');
         if (prakicu == 2) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1245,7 +1245,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON01[k].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[k].lintang, dataprakicuJSON01[k].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON01[k].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[k].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[k].kelurahan + '<center><b> <h8 style="color:#8bff00">BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[k].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[k].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[k].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[k].kec + 'km/jam');
         if (prakicu == 3) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1253,7 +1253,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON01[l].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[l].lintang, dataprakicuJSON01[l].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[l].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[l].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[l].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[l].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[l].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[l].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[l].kec + 'km/jam');
         if (prakicu == 4) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1261,8 +1261,8 @@ setInterval(update, 1000);
     for (m = 0; m < dataprakicuJSON01.length; m++) {
         var prakicu = parseInt(dataprakicuJSON01[m].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[m].lintang, dataprakicuJSON01[m].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[m].kelurahan);
+        var marker = L.marker(Coordinate, { icon: customIcon_5 })
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[m].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[m].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[m].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[m].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[m].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[m].kec + 'km/jam');
         if (prakicu == 5) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1270,8 +1270,8 @@ setInterval(update, 1000);
     for (n = 0; m < dataprakicuJSON01.length; n++) {
         var prakicu = parseInt(dataprakicuJSON01[n].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[n].lintang, dataprakicuJSON01[n].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[n].kelurahan);
+        var marker = L.marker(Coordinate, { icon: customIcon_6 })
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[n].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[n].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN LEBAT</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[n].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[n].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[n].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[n].kec + 'km/jam');
         if (prakicu == 6) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1279,8 +1279,8 @@ setInterval(update, 1000);
     for (o = 0; o < dataprakicuJSON01.length; o++) {
         var prakicu = parseInt(dataprakicuJSON01[o].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON01[o].lintang, dataprakicuJSON01[o].bujur]))
-        var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON01[o].kelurahan);
+        var marker = L.marker(Coordinate, { icon: customIcon_7 })
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON01[o].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON01[o].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN PETIR</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON01[o].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON01[o].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON01[o].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON01[o].kec + 'km/jam');
         if (prakicu == 7) { prakiraancuaca01.addLayer(marker) }
         else { }
     }
@@ -1291,7 +1291,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[i].lintang, dataprakicuJSON02[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON02[i].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON02[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[i].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[i].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[i].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[i].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec + 'km/jam');
         if (prakicu == 1) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1301,7 +1301,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[j].lintang, dataprakicuJSON02[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<img src="img/' + dataprakicuJSON02[j].arah + '.svg" alt="" width="15" height="30"> : ' + '<center><b>Tanggal : ' + dataprakicuJSON02[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[j].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[j].rh + '%');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[j].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec + 'km/jam');
         if (prakicu == 2) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1310,7 +1310,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[k].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[k].lintang, dataprakicuJSON02[k].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_3 })
-        marker.bindPopup(dataprakicuJSON02[k].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[k].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[k].kelurahan + '<center><b> <h8 style="color:#8bff00">BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[k].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[k].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[k].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec + 'km/jam');
         if (prakicu == 3) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1318,7 +1318,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[l].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[l].lintang, dataprakicuJSON02[l].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_4 })
-        marker.bindPopup(dataprakicuJSON02[l].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[l].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[l].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN RINGAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[l].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[l].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[l].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec + 'km/jam');
         if (prakicu == 4) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1327,7 +1327,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[m].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[m].lintang, dataprakicuJSON02[m].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_5 })
-        marker.bindPopup(dataprakicuJSON02[m].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[m].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[m].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN SEDANG</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[m].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[m].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[m].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec + 'km/jam');
         if (prakicu == 5) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1336,7 +1336,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[n].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[n].lintang, dataprakicuJSON02[n].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_6 })
-        marker.bindPopup(dataprakicuJSON02[n].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[n].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[n].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN LEBAT</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[n].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[n].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[n].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec + 'km/jam');
         if (prakicu == 6) { prakiraancuaca02.addLayer(marker) }
         else { }
     }
@@ -1345,7 +1345,7 @@ setInterval(update, 1000);
         var prakicu = parseInt(dataprakicuJSON02[o].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON02[o].lintang, dataprakicuJSON02[o].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_7 })
-        marker.bindPopup(dataprakicuJSON02[o].kelurahan);
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON02[o].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON02[o].kelurahan + '<center><b> <h8 style="color:#8bff00">HUJAN PETIR</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON02[o].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON02[o].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON02[o].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec + 'km/jam');
         if (prakicu == 7) { prakiraancuaca02.addLayer(marker) }
         else { }
     }

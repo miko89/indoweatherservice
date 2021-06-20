@@ -5,23 +5,23 @@
 		"kelurahan": "Cicau",
         "lintang": "-6.365",
         "bujur": "107.150",
-        "cuaca": "1",
+        "cuaca": "2",
         "suhu": "28.2",
         "rh":"95",
         "arah":"2",
-        "Kec.Angin":"20"
+        "kec":"25"
     },
     {
-        "Tanggal":"14-06-2021",
+        "tanggal":"14-06-2021",
         "kecamatan": "Cikarang Pusat",
 		"kelurahan": "Pasirranji",
         "lintang": "-6.379", 
         "bujur": "107.200",
-        "cuaca": "2",
+        "cuaca": "3",
         "suhu": "30.0",
         "rh":"88",
-        "arah":"2",
-        "Kec.Angin":"20"
+        "arah":"5",
+        "kec":"30"
     }
 	
 ]
