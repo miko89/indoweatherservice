@@ -1,0 +1,9 @@
+[
+                    { "label": "Senin", "y": [15, 26], "name": "rainy" },
+                    { "label": "Selasa", "y": [15, 27], "name": "rainy" },
+                    { "label": "Rabu", "y": [13, 27], "name": "sunny" },
+                    { "label": "Kamis", "y": [14, 27], "name": "sunny" },
+                    { "label": "Jumat", "y": [15, 26], "name": "cloudy" },
+                    { "label": "Sabtu", "y": [17, 26], "name": "sunny" },
+                    { "label": "Minggu", "y": [16, 27], "name": "rainy" }
+                ]

@@ -687,6 +687,7 @@
         </div>
         <div class="body-content">
             <br>
+            
             <!-- <div class="slidecontainer"> -->
 
             <div class="container">
@@ -694,7 +695,7 @@
                 <!-- <button id="next">Next</button>
                 <button id="prev">Previous</button> -->
 
-
+              
                 <p class="text-keterangan" style="color: rgb(255, 251, 233)"><b>Prakiraan Cuaca 1 - 2 hari kedepan</b>
                 </p>
 
@@ -707,9 +708,9 @@
                 <button id="prakiraancuaca02" onclick="myFunction()" class="button_forecast"><span id="date02"></span>
                 </button>
 
-                <br>
-                <br>
-
+                <hr>
+               
+                
                 <div class="slidecontainer">
                     <!-- <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p> -->
                     <h5 class="text-keterangan" style="color: rgb(74, 201, 255)">Citra Satelit 6 jam Terakhir</h5>
@@ -722,7 +723,7 @@
                 <!-- <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
                 <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p> -->
             </div>
-
+            
 
             <img id='img_satelit' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
 
@@ -924,7 +925,7 @@
     // ================================================= BASEMAP ============================================================
 
     // center of the map
-    var center = new L.latLng(-6.3189, 107.16565);
+    var center = new L.latLng(-6.3189, 107.16000);
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -976,13 +977,13 @@
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = ["<center><b>LEGENDA PRAKIRAAN CUACA</b></center>"]
-        cuaca = ["<center><b>cerah  &ensp;|  cerah berawan   |   berawan  &emsp;&ensp;|&ensp; hujan ringan | hujan sedang | hujan lebat |&ensp; hujan petir</b></center>"]
+        cuaca = ["<center><b>cerah  &ensp;|  cerah berawan  | berawan |&ensp; hujan ringan | hujan sedang | hujan lebat |&ensp; hujan petir</b></center>"]
         labels = ['img/legendaiws.svg'];
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var j = 0; j < grades.length; j++) {
             div.innerHTML +=
-                grades[j] + (" <img src=" + labels[j] + " height='50' width='500'>" + "<br>" + cuaca[j]);
+                grades[j] + (" <img src=" + labels[j] + " height='50' width='470'>" + "<br>" + cuaca[j]);
         }
 
         return div;
@@ -991,19 +992,19 @@
     legend.addTo(map);
 
 
-    var legend = L.control({ position: 'bottomright' });
+    var legend = L.control({ position: 'bottomleft' });
 
     legend.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = ["<center><b>LEGENDA SATELIT CUACA</b></center>"],
+            grades = ["<center><b>LEGENDA CITRA SATELIT</b></center>"],
             labels = ['img/legenda_satelit.svg'];
         satelit = ["<center><b>41 &ensp; &ensp;|&ensp; &ensp;48 &ensp; &ensp;|&ensp; &ensp;56 &ensp;&ensp;|&ensp; &ensp;62 &ensp;&ensp;|&ensp; &ensp;69 &ensp;&ensp;|&ensp; &ensp;75 &ensp;&ensp;|&ensp; &ensp;80 &ensp;&ensp;|&ensp; &ensp;100</center></b>"]
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                grades[i] + ("<img src=" + labels[i] + " height='30' width='350'>" + satelit[i]);
+                grades[i] + ("<img src=" + labels[i] + " height='15' width='350'>" + satelit[i]);
         }
 
         return div;
@@ -1056,7 +1057,7 @@
 
     })
 
-    // geojson.addTo(map);
+    geojson.addTo(map);
 
 
     // <!--================================================== LAYER PRAKIRAAN CUACA =====================================================  -->
@@ -1095,7 +1096,8 @@
     var dataprakicuJSON02 = JSON.parse(prakicujson02)
 
     var customIcon_1 = L.icon({
-        iconUrl: 'img/cerah.gif',
+        // iconUrl: 'img/cerah.gif',
+        iconUrl: 'img/CERAH.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -1103,14 +1105,16 @@
 
 
     var customIcon_2 = L.icon({
-        iconUrl: 'img/cerahberawan.gif',
+        // iconUrl: 'img/cerahberawan.gif',
+        iconUrl: 'img/CERAHBERAWAN.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
     }) // size of the icon     
 
     var customIcon_3 = L.icon({
-        iconUrl: 'img/berawan.gif',
+        // iconUrl: 'img/berawan.gif',
+        iconUrl: 'img/BERAWAN.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -1118,14 +1122,16 @@
 
 
     var customIcon_4 = L.icon({
-        iconUrl: 'img/hujanringan.gif',
+        // iconUrl: 'img/hujanringan.gif',
+        iconUrl: 'img/HUJANRINGAN.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
     }) // size of the icon  
 
     var customIcon_5 = L.icon({
-        iconUrl: 'img/hujansedang.gif',
+        // iconUrl: 'img/hujansedang.gif',
+        iconUrl: 'img/HUJANSEDANG.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -1133,7 +1139,8 @@
 
 
     var customIcon_6 = L.icon({
-        iconUrl: 'img/hujanlebat.gif',
+        // iconUrl: 'img/hujanlebat.gif',
+        iconUrl: 'img/HUJANLEBAT.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -1141,7 +1148,8 @@
 
 
     var customIcon_7 = L.icon({
-        iconUrl: 'img/hujanpetir.gif',
+        // iconUrl: 'img/hujanpetir.gif',
+        iconUrl: 'img/HUJANPETIR.svg',
         iconSize: [50, 50],
         iconAnchor: [25, 50],
         popupAnchor: [0, -45]
@@ -1156,12 +1164,12 @@
     //============================================================ POP UP  / MARKER ==============================================================
     //============================================================ FORECAST 00 ==============================================================
 
-
+    
     for (i = 0; i < dataprakicuJSON00.length; i++) {
         var prakicu = parseInt(dataprakicuJSON00[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[i].lintang, dataprakicuJSON00[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%' < +'</br>' + '<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec + 'km/jam');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%' < +'</br>' + '<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec + 'km/jam');
         if (prakicu == 1) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1171,7 +1179,7 @@
         var prakicu = parseInt(dataprakicuJSON00[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[j].lintang, dataprakicuJSON00[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center><b>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center><b> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec + 'km/jam');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec + 'km/jam');
         if (prakicu == 2) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
@@ -1575,11 +1583,11 @@
 
 
         //GRAFIK_CUACA
-
+        var dataPoints_2 = []; 
         var chart = new CanvasJS.Chart("chartContainer_cuaca", {
             theme: "dark2",
             title: {
-                text: "Weekly Weather Forecast"
+                text: "Prakiraan Cuaca"
             },
             axisY: {
                 suffix: " °C",
@@ -1595,17 +1603,25 @@
                 fillOpacity: 0.1,
                 color: "#91AAB1",
                 indexLabelFormatter: formatter,
+                // dataPoints: dataPoints_2,
                 dataPoints: [
-                    { label: "Monday", y: [15, 26], name: "rainy" },
-                    { label: "Tuesday", y: [15, 27], name: "rainy" },
-                    { label: "Wednesday", y: [13, 27], name: "sunny" },
-                    { label: "Thursday", y: [14, 27], name: "sunny" },
-                    { label: "Friday", y: [15, 26], name: "cloudy" },
-                    { label: "Saturday", y: [17, 26], name: "sunny" },
-                    { label: "Sunday", y: [16, 27], name: "rainy" }
+                    { label: "Senin", y: [15, 26], name: "rainy" },
+                    { label: "Selasa", y: [15, 27], name: "rainy" },
+                    { label: "Rabu", y: [13, 27], name: "sunny" },
+                    { label: "Kamis", y: [14, 27], name: "sunny" },
+                    { label: "Jumat", y: [15, 26], name: "cloudy" },
+                    { label: "Sabtu", y: [17, 26], name: "sunny" },
+                    { label: "Minggu", y: [16, 27], name: "rainy" }
                 ]
             }]
         });
+
+        // $.getJSON("prakicu.json", function (data) {
+        //     $.each(data, function (key, value) {
+        //         dataPoints_2.push({label:value.label, y:(value[15],[16]) , name:value.name});
+        //     });
+        //     chart.render();
+        // });
         chart.render();
 
         var images = [];
