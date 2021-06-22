@@ -174,7 +174,7 @@
         @media (max-width: 450px) {
             .sidebar {
                 top: 170px;
-                height: 380px;
+                height: 370px;
                 width: 35px;
 
 
@@ -599,20 +599,7 @@
 
 <body>
 
-
-    <!-- <nav class="navbar navbar-light" style="background-color: #7769f7;"> -->
-    <!-- <nav class="navbar navbar-light"> -->
     <div class="header">
-
-
-        <!-- &emsp;
-        &emsp;
-        &emsp; -->
-
-
-        <!-- <a class="navbar-brand" href="index.html">
-            <img src="img/logo_iws_1.png" alt="" width="120" height="70" class="imgsidebar">
-        </a> -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background:linear-gradient(to right, #131313, #131616, #173333, #081136);
         ">
@@ -657,15 +644,11 @@
                             <a class="nav-link" href="index.html">Download</a>
                         </li>
 
-
-
-
                         <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                   </li> -->
+
                     </ul>
-
-
 
                 </div>
                 <p>
@@ -1634,11 +1617,12 @@
 
 
         //GRAFIK_CUACA
-        // var dataPoints_2 = []; 
-        var chart = new CanvasJS.Chart("chartContainer_cuaca", {
+       //GRAFIK_CUACA
+
+       var chart = new CanvasJS.Chart("chartContainer_cuaca", {
             theme: "dark2",
             title: {
-                text: "Prakiraan Cuaca"
+                text: "Weekly Weather Forecast"
             },
             axisY: {
                 suffix: " °C",
@@ -1654,26 +1638,18 @@
                 fillOpacity: 0.1,
                 color: "#91AAB1",
                 indexLabelFormatter: formatter,
-                // dataPoints_2: dataPoints_2,
                 dataPoints: [
-                    { label: "Senin", y: [15, 26], name: "rainy" },
-                    { label: "Selasa", y: [15, 27], name: "rainy" },
-                    { label: "Rabu", y: [13, 27], name: "sunny" },
-                    { label: "Kamis", y: [14, 27], name: "sunny" },
-                    { label: "Jumat", y: [15, 26], name: "cloudy" },
-                    { label: "Sabtu", y: [17, 26], name: "sunny" },
-                    { label: "Minggu", y: [16, 27], name: "rainy" }
+                    { label: "Monday", y: [15, 26], name: "rainy" },
+                    { label: "Tuesday", y: [15, 27], name: "rainy" },
+                    { label: "Wednesday", y: [13, 27], name: "sunny" },
+                    { label: "Thursday", y: [14, 27], name: "sunny" },
+                    { label: "Friday", y: [15, 26], name: "cloudy" },
+                    { label: "Saturday", y: [17, 26], name: "sunny" },
+                    { label: "Sunday", y: [16, 27], name: "rainy" }
                 ]
             }]
         });
-
-        $.getJSON("prakicu.json", function (data) {
-            $.each(data, function (key, value) {
-                dataPoints.push({ label: value.label, y: (value[1], [2]), name: value.name });
-            });
-            chart.render();
-        });
-        // chart.render();
+        chart.render();
 
         var images = [];
 
@@ -1723,15 +1699,14 @@
         });
 
         function formatter(e) {
-            if (e.index === 0 && e.dataPoints.x === 0) {
-                return " Min " + e.dataPoints.y[e.index] + "°";
-            } else if (e.index == 1 && e.dataPoints_2.x === 0) {
-                return " Max " + e.dataPoints.y[e.index] + "°";
+            if (e.index === 0 && e.dataPoint.x === 0) {
+                return " Min " + e.dataPoint.y[e.index] + "°";
+            } else if (e.index == 1 && e.dataPoint.x === 0) {
+                return " Max " + e.dataPoint.y[e.index] + "°";
             } else {
-                return e.dataPoints.y[e.index] + "°";
+                return e.dataPoint.y[e.index] + "°";
             }
         }
-
 
 
     }
