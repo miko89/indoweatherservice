@@ -3,6 +3,7 @@
 
 <head>
     <title>INDO WEATHER SERVICE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" /> -->
@@ -64,7 +65,7 @@
         /* <!-- ================================================== CSS-LABEL ========================================================= -->
 <!-- ================================================== ISI LAMAN ========================================================= --> */
         .sidebar {
-            height: 370px;
+            height: 400px;
             width: 250px;
             position: absolute;
             z-index: 1200;
@@ -127,10 +128,12 @@
         }
 
         .imgsidebar {
-            position: absolute;
-            top: 5px;
-            right: 70px;
-            margin-left: 5px;
+            position: relative;
+            /* padding-top: 0; */
+            left: 70px;
+            margin-right: 5px;
+            width:110px ;
+            height:60px
         }
 
         /* .imgheader {
@@ -168,14 +171,69 @@
         }
 
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media screen and (max-height: 450px) {
+        @media (max-width: 450px) {
             .sidebar {
-                padding-top: 15px;
+                top: 170px;
+                height: 320px;
+                width: 40px;
+
+
             }
 
+            .imgsidebar {
+           display: none;
+
+        }
+
+        .openbtn {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            /* font-size: 30px; */
+            font-size: 15px;
+            
+            /* border: none; */
+        }
+
+        .closebtn {
+            /* position:absolute; */
+            margin-top: 10px;
+
+
+        }
+
+        .sidebar-pane {
+            padding: 0px 5px 5px 40px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            transition: 1.0s;
+        }
+
             .sidebar a {
-                font-size: 18px;
+                font-size: 10px;
+                padding: 0px 5px 5px 40px;
             }
+
+
+
+            #map {
+            /* width: 894px; */
+            width: 100%;
+            height: 600px;
+            top: 150px;
+            margin-left: 5px;
+            margin-right: 0
+        }
+
+
+
+
+
+
+
+
         }
 
         /* <!-- ================================================== CSS-LEGENDA ========================================================= -->
@@ -258,21 +316,6 @@
             margin: 0 15px 0 10px
         }
 
-        /* .text-header {
-            margin: 10px 0;
-            padding: 10px;
-            text-align: center;
-            color: rgb(46, 46, 46);
-        } */
-
-
-        /* .text-body-content {
-            margin: 20px 0;
-            padding: 10px;
-            text-align: center;
-            color: rgb(218, 138, 19);
-
-        } */
 
         .text-grafik {
             margin: 0px 0;
@@ -342,24 +385,6 @@
         }
 
 
-        /* .legend {
-            line-height: 30px;
-            color: rgb(24, 24, 24);
-            opacity: 0;
-           
-        } */
-
-
-        /* .legend i {
-            width: 18px;
-            height: 15px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.3;
-        } */
-
-
-
         .info {
             padding: 5px 6px;
             font: 10px/16px Arial, Helvetica, sans-serif;
@@ -370,17 +395,6 @@
         }
 
 
-        /* .container {
-            padding-top: 60px;
-            padding-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, #031c2c, #0f1d11);
-            
-
-        } */
 
         .container {
             padding-top: 100px;
@@ -395,18 +409,6 @@
 
 
         }
-
-
-
-
-        /* #time_display {
-            border: 1px solid black;
-            font: 20pt 'Arial';
-            padding: 5px;
-            margin-bottom: 10px;
-            text-align: left;
-        } */
-
 
 
 
@@ -456,14 +458,7 @@
             cursor: pointer;
         }
 
-        /* .imageslider {
-            width: 740px;
-            height: 30px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-        } */
+        
 
         .imagefdrs {
 
@@ -542,7 +537,62 @@
             }
         }
 
-        /*akhir loader*/
+
+
+       
+
+
+        .date_wib {
+            font-size: 15px;
+            color: rgb(228, 228, 228);
+            float: right;
+            padding: 5px
+        }
+
+        .date_utc {
+            font-size: 15px;
+            color: rgb(90, 233, 85);
+            float: right;
+            padding: 5px
+        }
+
+        @media (max-width: 475px) {
+            .date_wib {
+                font-size: 0.7em;
+                color: rgb(228, 228, 228);
+                /* float:right */
+
+
+            }
+
+
+            .date_utc {
+                font-size: 0.7em;
+                color:  rgb(90, 233, 85);
+                display: none;
+
+            }
+
+
+            .button_forecast {
+            
+            margin: 0 60px 10px 30px
+        
+        }
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+        
     </style>
 </head>
 
@@ -622,12 +672,9 @@
 
                 </div>
                 <p>
-                    <span id="date_moment"
-                        style="font-size: 15px; float: right; padding:5px ; color: rgb(153, 153, 153)"></span>
+                    <span id="date_wib" class="date_wib"></span>
                     <br>
-                    <span id="time_moment"
-                        style="font-size: 15px; float: right;  padding:5px ; color: rgb(137, 182, 129)"></span>
-
+                    <span id="date_utc" class="date_utc"></span>
                 </p>
             </div>
 
@@ -648,7 +695,7 @@
         </div> -->
     <div id="mySidebar" class="sidebar">
         <button class="openbtn" onclick="openNav()">☰ </button>
-        <img src="img/logoiws.svg" alt="" width="120" height="70" class="imgsidebar">
+        <img src="img/logoiws.svg" alt="" class="imgsidebar">
 
 
 
@@ -687,7 +734,7 @@
         </div>
         <div class="body-content">
             <br>
-            
+
             <!-- <div class="slidecontainer"> -->
 
             <div class="container">
@@ -695,7 +742,7 @@
                 <!-- <button id="next">Next</button>
                 <button id="prev">Previous</button> -->
 
-              
+
                 <p class="text-keterangan" style="color: rgb(255, 251, 233)"><b>Prakiraan Cuaca 1 - 2 hari kedepan</b>
                 </p>
 
@@ -709,8 +756,8 @@
                 </button>
 
                 <hr>
-               
-                
+
+
                 <div class="slidecontainer">
                     <!-- <p class="text-slider"><b>Data Tanggal : <span id="Date00"></span></b></p> -->
                     <h5 class="text-keterangan" style="color: rgb(74, 201, 255)">Citra Satelit 6 jam Terakhir</h5>
@@ -723,7 +770,7 @@
                 <!-- <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
                 <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p> -->
             </div>
-            
+
 
             <img id='img_satelit' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" />
 
@@ -780,9 +827,10 @@
 
 
 
+
     function update() {
-        $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
-        $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+        $('#date_wib').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
+        $('#date_utc').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
     }
 
 
@@ -926,15 +974,21 @@
 
     // center of the map
     var center = new L.latLng(-6.3189, 107.16000);
-    var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    var mbAttr = '<a href="https://www.openstreetmap.org/">OpenStreetMap</a>' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/"></a>, ' +
+        ' <a href="https://www.mapbox.com/"></a>',
         mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
     var map = L.map('map', {
         maxZoom: 15,
         minZoom: 1,
     }).setView(center, 11.8)
+
+    // var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    //     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    //     mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
 
     // Peta Grayscale 
     var grayscale = L.tileLayer(mbUrl, { id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr }).addTo(map);
@@ -971,9 +1025,9 @@
     // ==================================================================== LEGENDA ======================================================//
     //MEMBUAT LEGENDA
 
-    var legend = L.control({ position: "bottomleft" });
+    var legendforecast = L.control({ position: "bottomleft" });
 
-    legend.onAdd = function (map) {
+    legendforecast.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = ["<center><b>LEGENDA PRAKIRAAN CUACA</b></center>"]
@@ -983,13 +1037,13 @@
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var j = 0; j < grades.length; j++) {
             div.innerHTML +=
-                grades[j] + (" <img src=" + labels[j] + " height='50' width='470'>" + "<br>" + cuaca[j]);
+                grades[j] + (" <img src=" + labels[j] +"> <br>" + cuaca[j]);
         }
 
         return div;
     };
 
-    legend.addTo(map);
+    legendforecast.addTo(map);
 
 
     var legend = L.control({ position: 'bottomleft' });
@@ -1004,7 +1058,7 @@
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                grades[i] + ("<img src=" + labels[i] + " height='15' width='350'>" + satelit[i]);
+                grades[i] + ("<img src=" + labels[i]+">" + satelit[i]);
         }
 
         return div;
@@ -1164,7 +1218,7 @@
     //============================================================ POP UP  / MARKER ==============================================================
     //============================================================ FORECAST 00 ==============================================================
 
-    
+
     for (i = 0; i < dataprakicuJSON00.length; i++) {
         var prakicu = parseInt(dataprakicuJSON00[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[i].lintang, dataprakicuJSON00[i].bujur]))
@@ -1583,7 +1637,7 @@
 
 
         //GRAFIK_CUACA
-        var dataPoints_2 = []; 
+        // var dataPoints_2 = []; 
         var chart = new CanvasJS.Chart("chartContainer_cuaca", {
             theme: "dark2",
             title: {
@@ -1603,7 +1657,7 @@
                 fillOpacity: 0.1,
                 color: "#91AAB1",
                 indexLabelFormatter: formatter,
-                // dataPoints: dataPoints_2,
+                // dataPoints_2: dataPoints_2,
                 dataPoints: [
                     { label: "Senin", y: [15, 26], name: "rainy" },
                     { label: "Selasa", y: [15, 27], name: "rainy" },
@@ -1616,13 +1670,13 @@
             }]
         });
 
-        // $.getJSON("prakicu.json", function (data) {
-        //     $.each(data, function (key, value) {
-        //         dataPoints_2.push({label:value.label, y:(value[15],[16]) , name:value.name});
-        //     });
-        //     chart.render();
-        // });
-        chart.render();
+        $.getJSON("prakicu.json", function (data) {
+            $.each(data, function (key, value) {
+                dataPoints.push({ label: value.label, y: (value[1], [2]), name: value.name });
+            });
+            chart.render();
+        });
+        // chart.render();
 
         var images = [];
 
@@ -1672,12 +1726,12 @@
         });
 
         function formatter(e) {
-            if (e.index === 0 && e.dataPoint.x === 0) {
-                return " Min " + e.dataPoint.y[e.index] + "°";
-            } else if (e.index == 1 && e.dataPoint.x === 0) {
-                return " Max " + e.dataPoint.y[e.index] + "°";
+            if (e.index === 0 && e.dataPoints.x === 0) {
+                return " Min " + e.dataPoints.y[e.index] + "°";
+            } else if (e.index == 1 && e.dataPoints_2.x === 0) {
+                return " Max " + e.dataPoints.y[e.index] + "°";
             } else {
-                return e.dataPoint.y[e.index] + "°";
+                return e.dataPoints.y[e.index] + "°";
             }
         }
 

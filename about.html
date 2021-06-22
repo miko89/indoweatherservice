@@ -2,7 +2,9 @@
 <html>
 
 <head>
+
     <title>INDO WEATHER SERVICE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
@@ -171,7 +173,7 @@
             text-align: center;
             height: 70vh;
             background: linear-gradient(to bottom, #121213, #101b22, #0c4d29);
-            
+
             color: #fff;
         }
 
@@ -243,11 +245,23 @@
             transform: rotate(45deg);
         }
 
-
+        @media  (min-width: 800px) {
+   .container {
+       height: 80vh;
+       padding-top: 60px;
+   }
+}
 
         @media (max-width: 759px) {
             .container h3 {
-                font-size: 5em;
+                font-size: 2.5em;
+               
+               
+            }
+
+            .container {
+                height: 110vh;
+                padding-top: 70px;
             }
 
         }
@@ -256,23 +270,26 @@
 
 
             .container h3 {
-                font-size: 2em;
+                font-size: 2.5em;
+                
             }
 
             .container p,
             .funky-animations h3 {
-                font-size: 0.5em;
+                font-size: 0.9em;
+               
+
             }
 
-            @media (max-width: 475px) {
-            .container  {
-                height: 30vh;
+            .container {
+                height: 110vh;
+                
             }
 
         }
 
 
-        }
+
 
         /* ================================================== TEAM ========================================================= -->  */
         .heading {
@@ -422,6 +439,38 @@
             line-height: 20px;
             letter-spacing: 2px;
         }
+
+        .date_wib {
+            font-size: 15px;
+            color: rgb(24, 24, 24);
+            float: right;
+            padding: 5px
+        }
+
+        .date_utc {
+            font-size: 15px;
+            color: rgb(105, 105, 105);
+            float: right;
+            padding: 5px
+        }
+
+        @media (max-width: 475px) {
+            .date_wib {
+                font-size: 0.7em;
+                color: rgb(24, 24, 24);
+                /* float:right */
+
+
+            }
+
+
+            .date_utc {
+                font-size: 0.7em;
+                color: rgb(105, 105, 105);
+                display: none;
+
+            }
+        }
     </style>
 
 
@@ -482,11 +531,9 @@
 
                 </div>
                 <p>
-                    <span id="date_moment"
-                        style="font-size: 15px; float: right; padding:5px ; color: rgb(24, 24, 24)"></span>
+                    <span id="date_wib" class="date_wib"></span>
                     <br>
-                    <span id="time_moment"
-                        style="font-size: 15px; float: right;  padding:5px ; color: rgb(133, 133, 133)"></span>
+                    <span id="date_utc" class="date_utc"></span>
 
                 </p>
 
@@ -644,8 +691,8 @@
     <script>
         moment.locale('id')
         function update() {
-            $('#date_moment').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
-            $('#time_moment').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+            $('#date_wib').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
+            $('#date_utc').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
         }
 
 
