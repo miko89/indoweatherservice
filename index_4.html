@@ -364,7 +364,6 @@
             margin-left: 100px;
             /* margin-right: auto; */
             position: relative;
-            color:#47f9ff
 
 
         }
@@ -1205,38 +1204,25 @@
     //============================================================ POP UP  / MARKER ==============================================================
     //============================================================ FORECAST 00 ==============================================================
 
+
     for (i = 0; i < dataprakicuJSON00.length; i++) {
         var prakicu = parseInt(dataprakicuJSON00[i].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[i].lintang, dataprakicuJSON00[i].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_1 })
-        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center><h8 style="color:#8bff00">Kelurahan '+ dataprakicuJSON00[i].kelurahan+'</h8></b></center>'
-            +'<hr><b>&emsp;Pagi &emsp; &ensp; Siang &emsp; Malam &emsp; Dini Hari</b>'+
-            '<center><img src="img/' + dataprakicuJSON00[i].cuaca1 + '.svg" alt="" width="30" height="50">&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[i].cuaca2 + '.svg" alt="" width="30" height="50">'+ '&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[i].cuaca3 + '.svg" alt="" width="30" height="50">' +'&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[i].cuaca4 + '.svg" alt="" width="30" height="50"></center>' 
-            +'<h8 style="color:#edff47">'+ dataprakicuJSON00[i].suhu1 + '℃' + '&emsp;&ensp;'+ dataprakicuJSON00[i].suhu2 + '℃' + '&emsp;&ensp;'+ dataprakicuJSON00[i].suhu3 + '℃' + '&emsp;&emsp;'+ dataprakicuJSON00[i].suhu4 + '℃'+'</h8>'+
-             '<hr>'+'<h8 style="color:#47f9ff">'+dataprakicuJSON00[i].rh1 + '%'+'&ensp;&ensp;&emsp;'+dataprakicuJSON00[i].rh2 + '%' + '&ensp;&emsp;&emsp;'+ dataprakicuJSON00[i].rh3 + '%'+'&ensp;&emsp;&emsp;'+ dataprakicuJSON00[i].rh4 + '%'+'</center>'+
-             '<hr>'+'&ensp;'+ '<img src="img/' + dataprakicuJSON00[i].arah1 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec1 +'&ensp;&emsp;'+'<img src="img/' + dataprakicuJSON00[i].arah2 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec2 
-             +'&ensp;&emsp;'+ '<img src="img/' + dataprakicuJSON00[i].arah3 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec3 +'&ensp;&emsp;'+ '<img src="img/' + dataprakicuJSON00[i].arah4 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec4 
-             +'<br><center>'+ '( km / jam )'+'<br>');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[i].tanggal + '<center>Kelurahan : ' + dataprakicuJSON00[i].kelurahan + '<center> <h8 style="color:#8bff00">CERAH</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[i].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[i].rh + '%' < +'</br>' + '<img src="img/' + dataprakicuJSON00[i].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[i].kec + 'km/jam');
         if (prakicu == 1) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
+
 
     for (j = 0; j < dataprakicuJSON00.length; j++) {
         var prakicu = parseInt(dataprakicuJSON00[j].cuaca)
         var Coordinate = new L.latLng(([dataprakicuJSON00[j].lintang, dataprakicuJSON00[j].bujur]))
         var marker = L.marker(Coordinate, { icon: customIcon_2 })
-        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center><h8 style="color:#8bff00">Kelurahan '+ dataprakicuJSON00[j].kelurahan+'</h8></b></center>'
-            +'<hr><b>&emsp;Pagi &emsp; &ensp; Siang &emsp; Malam &emsp; Dini Hari</b>'+
-            '<center><img src="img/' + dataprakicuJSON00[j].cuaca1 + '.svg" alt="" width="30" height="50">&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[j].cuaca2 + '.svg" alt="" width="30" height="50">'+ '&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[j].cuaca3 + '.svg" alt="" width="30" height="50">' +'&emsp;&emsp;'+'<img src="img/' + dataprakicuJSON00[j].cuaca4 + '.svg" alt="" width="30" height="50"></center>' 
-            +'<h8 style="color:#edff47">'+ dataprakicuJSON00[j].suhu1 + '℃' + '&emsp;&ensp;'+ dataprakicuJSON00[j].suhu2 + '℃' + '&emsp;&ensp;'+ dataprakicuJSON00[j].suhu3 + '℃' + '&emsp;&emsp;'+ dataprakicuJSON00[j].suhu4 + '℃'+'</h8>'+
-             '<hr>'+'<h8 style="color:#47f9ff">'+dataprakicuJSON00[j].rh1 + '%'+'&ensp;&ensp;&emsp;'+dataprakicuJSON00[j].rh2 + '%' + '&ensp;&emsp;&emsp;'+ dataprakicuJSON00[j].rh3 + '%'+'&ensp;&emsp;&emsp;'+ dataprakicuJSON00[j].rh4 + '%'+'</center>'+
-             '<hr>'+'&ensp;'+ '<img src="img/' + dataprakicuJSON00[j].arah1 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec1 +'&ensp;&emsp;'+'<img src="img/' + dataprakicuJSON00[j].arah2 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec2 
-             +'&ensp;&emsp;'+ '<img src="img/' + dataprakicuJSON00[j].arah3 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec3 +'&ensp;&emsp;'+ '<img src="img/' + dataprakicuJSON00[j].arah4 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec4 
-             +'<br><center>'+ '( km / jam )'+'<br>');
+        marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[j].tanggal + '<center>Kelurahan : ' + dataprakicuJSON00[j].kelurahan + '<center> <h8 style="color:#8bff00">CERAH BERAWAN</h8></b></center>' + '<img src="img/icon_suhu.svg" alt="" width="8" height="25"> : ' + dataprakicuJSON00[j].suhu + 'C' + '</br>' + '<img src="img/icon_rh.svg" alt="" width="10" height="15"> : ' + dataprakicuJSON00[j].rh + '%' + '</br>' + '<img src="img/' + dataprakicuJSON00[j].arah + '.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[j].kec + 'km/jam');
         if (prakicu == 2) { prakiraancuaca00.addLayer(marker) }
         else { }
     }
-    
 
     for (k = 0; k < dataprakicuJSON00.length; k++) {
         var prakicu = parseInt(dataprakicuJSON00[k].cuaca)
