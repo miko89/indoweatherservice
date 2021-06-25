@@ -518,8 +518,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	max-height: 350px;
 	border-bottom: 3px solid rgb(16, 245, 111);
 	border-top: 3px solid rgb(2, 144, 187);
-	
-	
 	}
 .leaflet-container a.leaflet-popup-close-button {
 	position: absolute;
@@ -543,6 +541,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	overflow: auto;
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
+	
 	}
 
 .leaflet-oldie .leaflet-popup-content-wrapper {
