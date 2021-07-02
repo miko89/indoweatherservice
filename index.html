@@ -352,6 +352,10 @@
             background-color: #041c41;
         }
 
+        .btn-group button.active {
+        background-color: rgb(72, 0, 87);
+        }
+
 
         @media (max-width: 475px) {
             .btn-group button {
@@ -925,7 +929,7 @@
     $("#prakiraancuaca00").click(function (event) {
         event.preventDefault();
         if (map.hasLayer(prakiraancuaca00)) {
-            $(this).removeClass('selected');
+            $(this).removeClass('selected').removeClass('active');;
             map.removeLayer(prakiraancuaca00);
         } else {
             map.removeLayer(prakiraancuaca02);
@@ -933,7 +937,7 @@
             map.removeLayer(prakiraancuaca01);
             $(this).addClass('selected');
             map.addLayer(prakiraancuaca00);
-            $(this).addClass('selected');
+            $(this).addClass('selected').addClass('active').siblings().removeClass('active');;
            
            
         }
@@ -944,7 +948,7 @@
     $("#prakiraancuaca01").click(function (event) {
         event.preventDefault();
         if (map.hasLayer(prakiraancuaca01)) {
-            $(this).removeClass('selected');
+            $(this).removeClass('selected').removeClass('active');;
             map.removeLayer(prakiraancuaca01);
         } else {
             map.removeLayer(prakiraancuaca02);
@@ -952,7 +956,7 @@
             map.removeLayer(prakiraancuaca00);
             $(this).addClass('selected');
             map.addLayer(prakiraancuaca01);
-            $(this).addClass('selected');
+            $(this).addClass('selected').addClass('active').siblings().removeClass('active');;
 
         }
     });
@@ -960,7 +964,7 @@
     $("#prakiraancuaca02").click(function (event) {
         event.preventDefault();
         if (map.hasLayer(prakiraancuaca02)) {
-            $(this).removeClass('selected');
+            $(this).removeClass('selected').removeClass('active');;
             map.removeLayer(prakiraancuaca02);
         } else {
             map.removeLayer(prakiraancuaca01);
@@ -968,7 +972,7 @@
             map.removeLayer(prakiraancuaca00);
             $(this).addClass('selected');
             map.addLayer(prakiraancuaca02);
-            $(this).addClass('selected');
+            $(this).addClass('selected').addClass('active').siblings().removeClass('active');;
         }
     });
 
