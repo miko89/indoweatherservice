@@ -631,15 +631,7 @@
                 margin: 0 60px 10px 30px
             } */
 
-
-
-
-
-
-
-
-
-        }
+}
     </style>
 </head>
 
@@ -814,7 +806,7 @@
 
 
             <br>
-            <div id="chartContainer_cuaca"
+            <div id="chartContainer_cuaca" class="grafik_cuaca"
                 style="height: 300px;  width:100% ; position:relative; margin-right:0; margin-left:0;"></div>
 
 
@@ -2732,7 +2724,7 @@
             },
             toolTip: {
                 shared: true,
-                content: "<strong>Temperature: </strong> </br> Min: {y[0]} °C, Max: {y[1]} °C"
+                content: "{cuaca} <strong>Temperature: </strong> </br> Min: {y[0]} °C, Max: {y[1]} °C"
             },
             data: [{
                 type: "rangeSplineArea",
@@ -2776,28 +2768,48 @@
             var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
             var imageTop = chart.axisY[0].convertValueToPixel(chart.axisY[0].maximum);
 
-            image.width("40px")
+            
+        function myFunction(x) {
+  if (x.matches) { // If media query matches
+    image.width("15px")
+                .css({
+                    "left": imageCenter - 10 + "px",
+                    "position": "absolute", "top": imageTop + "px",
+                    "position": "absolute"
+                });
+  } else {
+    image.width("40px")
                 .css({
                     "left": imageCenter - 20 + "px",
                     "position": "absolute", "top": imageTop + "px",
                     "position": "absolute"
                 });
+  }
+}
+
+
+var x = window.matchMedia("(max-width: 400px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
         }
 
-        $(window).resize(function () {
-            var cerahCounter = 0, cerahberawanCounter = 0, berawanCounter = 0;
-            var imageCenter = 0;
-            for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
-                imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[i].x) - 20;
-                if (chart.data[0].dataPoints[i].cuaca == "cerah") {
-                    $(".cerah").eq(cerahCounter++).css({ "left": imageCenter });
-                } else if (chart.data[0].dataPoints[i].cuaca == "cerah berawan") {
-                    $(".cerah berawan").eq(cerahberawanCounter++).css({ "left": imageCenter });
-                } else if (chart.data[0].dataPoints[i].cuaca == "berawan") {
-                    $(".berawan").eq(berawanCounter++).css({ "left": imageCenter });
-                }
-            }
-        });
+
+
+       
+        // $(window).resize(function () {
+        //     var cerahCounter = 0, cerahberawanCounter = 0, berawanCounter = 0;
+        //     var imageCenter = 0;
+        //     for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
+        //         imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[i].x) - 10;
+        //         if (chart.data[0].dataPoints[i].cuaca == "1") {
+        //             $(".1").eq(cerahCounter++).css({ "left": imageCenter });
+        //         } else if (chart.data[0].dataPoints[i].cuaca == "c2") {
+        //             $(".2").eq(cerahberawanCounter++).css({ "left": imageCenter });
+        //         } else if (chart.data[0].dataPoints[i].cuaca == "berawan") {
+        //             $(".3").eq(berawanCounter++).css({ "3": imageCenter });
+        //         }
+        //     }
+        // });
 
         function formatter(e) {
             if (e.index === 0 && e.dataPoint.x === 0) {
