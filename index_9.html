@@ -17,7 +17,7 @@
     </script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script> -->
@@ -35,7 +35,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -49,7 +49,6 @@
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script type="text/javascript" src="data/cikarang.js"></script>
     <script type="text/javascript" src="cuaca.js"></script>
-    <script type="text/javascript" src="cuaca1.js"></script>
 
     <script src="js/moment.js"></script>
     <script src="js/moment-with-locales.js"></script>
@@ -119,10 +118,6 @@
             margin-top: 30px;
 
 
-        }
-
-        .img {
-            position: relative;
         }
 
         /* .sidebar a:hover {
@@ -262,11 +257,11 @@
         }
 
         .body-content {
-            top: 400px;
+            top: 100px;
             margin-left: auto;
             margin-right: auto;
             width: 100%;
-            height: 1200px;
+            height: 100%;
             background: linear-gradient(to top, #04160c, #010b1a);
 
 
@@ -302,7 +297,6 @@
             position: relative;
             margin-left: 0;
             margin-right: 0;
-            top:350px
 
         }
 
@@ -637,14 +631,9 @@
                 margin: 0 60px 10px 30px
             } */
 
-            /* .grafik_cuaca {
-
-                height: 350px;
-                width: 100%;
-                position: relative;
-                margin-right: 0;
-                margin-left: 0
-            } */
+            .inv {
+                display:none
+            }
 
 
             .grafik_suhu {
@@ -666,24 +655,8 @@
                 margin-left: 0
             }
 
-            .myDiv{
-                height: 350px;
-                width: 100%;
-                position: absolute;
-                margin-right: 0;
-                margin-left: 0;
-                display: block
-            }
-                
-            .myDiv2{
-                top:400px;
-                height: 350px;
-                width: 100%;
-                position:relative;
-                margin-right: 0;
-                margin-left: 0;
-                display: block
-}  
+          
+        
     </style>
 </head>
 
@@ -703,7 +676,6 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="img/logo_bmkg.svg" alt="" width="40" height="80">&ensp;
                     <img src="img/logoiws.svg" alt="" width="120" height="70">
-                    
                 </a>
 
 
@@ -816,7 +788,8 @@
                 <!-- <div id="time_display"></div> -->
                 <!-- <button id="next">Next</button>
                 <button id="prev">Previous</button> -->
-                <!-- <object type="image/svg+xml" data="img/7.svg"></object> -->
+
+
                 <h5 class="text-keterangan" style="color: rgb(255, 251, 233)">Prakiraan Cuaca 1 - 2 hari kedepan
                 </h5>
 
@@ -847,16 +820,6 @@
                         class="slider"> -->
 
                     <div class="loader">Loading...</div>
-                     <!-- <p class="text-slider"><b> Prakiraan Cuaca Wilayah Cikarang</b></p> -->
-                    <select id="myselection" class="autoselect" value="2">
-                        <option value="">Pilih Kelurahan</option>
-                        <option value="1">Mekarmukti</option>
-                        <option value="2">Pasargembong</option>
-                        <option value="wangunharja">Wangunharja</option>
-                        <option value="harjamekar">Harjamekar</option>
-                        <option value="simpangan">Simpangan</option>
-                    </select>
-        
                     <!-- <p class="text-slider"> Citra Satelit : <span id="demo"> </span> <b> | Tanggal : 9 April 2021</b></p> -->
                 </div>
                 <!-- <h6 class="text-keterangan"><b>GRAFIK PARAMETER CUACA</b></h6>
@@ -865,20 +828,29 @@
 
 
             <!-- <img id='img_satelit' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" /> -->
-        <br>
-            <div id="chartContainer_cuaca1"  style="z-index: 1" class="myDiv"></div>
-            <div id="chartContainer_cuaca2"  style="z-index: 2" class="myDiv"></div>
+
+            <select id = "my_select">
+                <option value="">Pilih Kelurahan</option>
+                <option value="mekarmukti" id="chartContainer_1" selected="selected">Mekarmukti</option>
+                <option value="pasargembong" id="chartContainer_2">Pasargembong</option>
+                <option value="wangunharja">Wangunharja</option>
+                <option value="harjamekar">Harjamekar</option>
+                <option value="simpangan">Simpangan</option>
+            </select>
+
+            <br>
+            <br>
             
-       
+            <div  style="height: 300px; width:100% ; position:relative; margin-right:0; margin-left:0" id="chartContainer_1"></div>
+          
             <br>
-            <div id="chartContainer_suhu" style="display: block"class="myDiv2"></div>
+            <div id="chartContainer_suhu" class="grafik_suhu"></div>
 
             <br>
-            <div id="chartContainer_ch" style="display: block"class="myDiv2"></div>
+            <div id="chartContainer_ch" class="grafik_ch"></div>
 
             <br>
-            <br>
-            <br>
+
         </div>
     </div>
 
@@ -900,29 +872,14 @@
 <!--================================================= PETA INTERACTIVE ============================================================  -->
 
 <script>
-$(document).ready(function(){
-    $('#myselection').on('change', function(){
-    	var demovalue = $(this).val(); 
-        $("div.myDiv").hide();
-        $("#chartContainer_cuaca"+demovalue).show();
-    });
-});
 
-$(document).ready(function() {
-  // Loop for every select in page
-  $('select').each(function(index, id) {
-    // Get the value 
-    var theValue = $(this).attr('value');
 
-    // Get the ID  
-    var theID = $(this).attr('id');
 
-    // Make option selected 
-    $('select#' + theID + ' option[value=' + theValue + ']').attr('selected', true);
 
-    
-  });
-});
+
+
+
+
 
     moment.locale('id')
     // var d = moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]');
@@ -1168,26 +1125,26 @@ $(document).ready(function() {
     legendforecast.addTo(map);
 
 
-    // var legend = L.control({ position: 'bottomleft' });
+    var legend = L.control({ position: 'bottomleft' });
 
-    // legend.onAdd = function (map) {
+    legend.onAdd = function (map) {
 
-    //     var div = L.DomUtil.create('div', 'info legend'),
-    //         grades = ["<center><b>LEGENDA CITRA SATELIT</b></center>"],
-    //         labels = ['img/legenda_satelit.svg'];
-    //     satelit = ["<center><b>41 &ensp; &ensp;|&ensp; &ensp;48 &ensp; &ensp;|&ensp; &ensp;56 &ensp;&ensp;|&ensp; &ensp;62 &ensp;&ensp;|&ensp; &ensp;69 &ensp;&ensp;|&ensp; &ensp;75 &ensp;&ensp;|&ensp; &ensp;80 &ensp;&ensp;|&ensp; &ensp;100</center></b>"]
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = ["<center><b>LEGENDA CITRA SATELIT</b></center>"],
+            labels = ['img/legenda_satelit.svg'];
+        satelit = ["<center><b>41 &ensp; &ensp;|&ensp; &ensp;48 &ensp; &ensp;|&ensp; &ensp;56 &ensp;&ensp;|&ensp; &ensp;62 &ensp;&ensp;|&ensp; &ensp;69 &ensp;&ensp;|&ensp; &ensp;75 &ensp;&ensp;|&ensp; &ensp;80 &ensp;&ensp;|&ensp; &ensp;100</center></b>"]
 
-    //     // loop through our density intervals and generate a label with a colored square for each interval
-    //     for (var i = 0; i < grades.length; i++) {
-    //         div.innerHTML +=
-    //             grades[i] + ("<img src=" + labels[i] + ">" + satelit[i]);
-    //     }
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                grades[i] + ("<img src=" + labels[i] + ">" + satelit[i]);
+        }
 
-    //     return div;
-    // };
+        return div;
+    };
 
 
-    // legend.addTo(map);
+    legend.addTo(map);
 
 
     // <!--================================================== LAYER BATAS WILAYAH=====================================================  -->
@@ -1325,7 +1282,7 @@ $(document).ready(function() {
 
     var customIcon_7 = L.icon({
         // iconUrl: 'img/hujanpetir.gif',
-        iconUrl: "img/HUJANPETIR.svg",
+        iconUrl: 'img/HUJANPETIR.svg',
         iconSize: [40, 40],
         iconAnchor: [20, 40],
         popupAnchor: [0, -45]
@@ -1697,15 +1654,15 @@ $(document).ready(function() {
         var marker = L.marker(Coordinate, { icon: customIcon_7 })
         marker.bindPopup('<center><b>Tanggal : ' + dataprakicuJSON00[o].tanggal + '<center><h8 style="color:#8bff00">Kelurahan ' + dataprakicuJSON00[o].kelurahan + '</h8></b></center>'
             + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>00.00 &ensp;&emsp; 01.00 &emsp; 02.00 &emsp;&ensp; 03.00</b>' +
-            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON00[o].cuaca0 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON00[o].cuaca1 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON00[o].cuaca2 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON00[o].cuaca3 + '.svg" alt="" width="30" height="50"></object></center>'
+            '<center><img src="img/' + dataprakicuJSON00[o].cuaca0 + '.svg" alt="" width="30" height="50">&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca1 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca2 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca3 + '.svg" alt="" width="30" height="50"></center>'
             + '<h8 style="color:#edff47">' + dataprakicuJSON00[o].suhu0 + '℃' + '&emsp;&ensp;' + dataprakicuJSON00[o].suhu1 + '℃' + '&emsp;&ensp;' + dataprakicuJSON00[o].suhu2 + '℃' + '&emsp;&emsp;' + dataprakicuJSON00[o].suhu3 + '℃' + '</h8>' +
             '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON00[o].rh0 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON00[o].rh1 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON00[o].rh2 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON00[o].rh3 + '%' + '</center>' +
-            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON00[o].arah0 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec0 + '&emsp;' + '<img src="img/' + dataprakicuJSON00[o].arah1 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec1   
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON00[o].arah0 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec0 + '&emsp;' + '<img src="img/' + dataprakicuJSON00[o].arah1 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec1
             + '&emsp;' + '<img src="img/' + dataprakicuJSON00[o].arah2 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec2 + '&emsp;' + '<img src="img/' + dataprakicuJSON00[o].arah3 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec3
             + '<br><center>' + '( km / jam )' + '<br>'
 
             + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>04.00 &ensp;&emsp; 05.00 &emsp; 06.00 &emsp;&ensp; 07.00</b>' +
-            '<center><img src="img/' + dataprakicuJSON00[o].cuaca4 + '.svg" alt="" width="30" height="50">&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca5 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca6 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON00[o].cuaca7 + '.svg" alt="" width="30" height="50"></object></center>'
+            '<center><img src="img/' + dataprakicuJSON00[o].cuaca4 + '.svg" alt="" width="30" height="50">&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca5 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca6 + '.svg" alt="" width="30" height="50">' + '&emsp;&emsp;' + '<img src="img/' + dataprakicuJSON00[o].cuaca7 + '.svg" alt="" width="30" height="50"></center>'
             + '<h8 style="color:#edff47">' + dataprakicuJSON00[o].suhu4 + '℃' + '&emsp;&ensp;' + dataprakicuJSON00[o].suhu5 + '℃' + '&emsp;&ensp;' + dataprakicuJSON00[o].suhu6 + '℃' + '&emsp;&emsp;' + dataprakicuJSON00[o].suhu7 + '℃' + '</h8>' +
             '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON00[o].rh4 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON00[o].rh5 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON00[o].rh6 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON00[o].rh7 + '%' + '</center>' +
             '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON00[o].arah4 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec4 + '&emsp;' + '<img src="img/' + dataprakicuJSON00[o].arah5 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON00[o].kec5
@@ -2807,26 +2764,20 @@ $(document).ready(function() {
       stripLines: [{
                     value: 24,
                     color:"yellow",
-                   
                 },
                 {
                     value: 48,
                     color:"yellow",
-                   
                 }
-            
             
             ]
                 
             },
-
-            
             data: [{
                 type: "spline",
                 dataPoints: dataPoints,
                 yValueFormatString: "Suhu : 0.0 °C"
             }],
-
             toolTip: {
                 // shared: true,
                 enable: true,
@@ -2844,26 +2795,22 @@ $(document).ready(function() {
             chart_suhu.render();
         });
 
-    
 
-    
+        //GRAFIK_CUACA
         //GRAFIK_CUACA
 
-        var chart = new CanvasJS.Chart("chartContainer_cuaca1", {
+        var chart = new CanvasJS.Chart("chartContainer_1", {
             theme: "dark2",
             exportEnabled: true,
             title: {
                 text: "Prakiraan Suhu dan Cuaca Hari ini",
                 fontSize: 20,
-                
-
             },
             subtitles: [{
                 text: "Wilayah Jababeka, Kelurahan : Mekarmukti",
                 fontSize: 15,
                 margin: 70,
                 fontColor: "#fff995"
-
             }],
 
             legend: {
@@ -2871,7 +2818,6 @@ $(document).ready(function() {
                 itemclick: toggleDataSeries,
                 fontSize: 17
             },
-
             axisY: {
                 suffix: "°C",
                 maximum: 40,
@@ -2879,7 +2825,6 @@ $(document).ready(function() {
                 gridThickness: 0,
                 // title: "Suhu (°C)"
             },
-
             axisY2: {
                 suffix: "%",
                 maximum: 150,
@@ -2893,75 +2838,61 @@ $(document).ready(function() {
                 suffix: ".00",
                 interval: 3
             },
-
             toolTip: {
                 // shared: true,
                 enable: true,
                 content: "{tanggal} | {label}.00 WIB <br> {kelurahan}</br> {y}  " 
-
-
             },
             data: [{
                 type: "spline",
                 fillOpacity: 0.1,
                 color: "#fff995",
                 name: "Suhu",
-                dataPoints: dataPoints_cuaca,
+                dataPoints: dataPoints_suhu,
                 showInLegend: true,
                 yValueFormatString: "Suhu : 0.0 °C"
-
-
             },
-
             {
                 type: "spline",
                 fillOpacity: 0.1,
                 color: "#33c4ff",
                 name: "RH",
                 axisYType: "secondary",
-                dataPoints: dataPoints_cuaca1,
+                dataPoints: dataPoints_rh,
                 showInLegend: true,
                 yValueFormatString: "RH : # '%'"
             }
-
             ]
         });
         chart.render();
 
-
         var images = [];
-
         addImages(chart);
-
         function addImages(chart) {
             for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
                 var dpsName = chart.data[0].dataPoints[i].cuaca;
                 if (dpsName == "1") {
-                    images.push($("<img>").attr("src", "img/1cerah.svg"));
+                    images.push($("<img>").attr("src", "img/1.svg"));
                 } else if (dpsName == "2") {
-                    images.push($("<img>").attr("src", "img/2cerahberawan.svg"));
+                    images.push($("<img>").attr("src", "img/2.svg"));
                 } else if (dpsName == "3") {
-                    images.push($("<img>").attr("src", "img/3berawan.svg"));
+                    images.push($("<img>").attr("src", "img/3.svg"));
                 } else if (dpsName == "4") {
-                    images.push($("<img>").attr("src", "img/4hujanringan.svg"));
+                    images.push($("<img>").attr("src", "img/4.svg"));
                 } else if (dpsName == "5") {
-                    images.push($("<img>").attr("src", "img/5hujansedang.svg"));
+                    images.push($("<img>").attr("src", "img/5.svg"));
                 } else if (dpsName == "6") {
-                    images.push($("<img>").attr("src", "img/6hujanlebat.svg"));
+                    images.push($("<img>").attr("src", "img/6.svg"));
                 } else if (dpsName == "7") {
-                    images.push($("<img>").attr("src", "img/7hujanpetir.svg"));
+                    images.push($("<img>").attr("src", "img/7.svg"));
                 }
-
-                images[i].attr("class", dpsName).appendTo($("#chartContainer_cuaca1>.canvasjs-chart-container"));
+                images[i].attr("class", dpsName).appendTo($("#chartContainer_1>.canvasjs-chart-container"));
                 positionImage(images[i], i);
             }
         }
-
         function positionImage(image, index) {
             var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
             var imageTop = chart.axisY[0].convertValueToPixel(chart.axisY[0].maximum);
-
-
             function myFunction(x) {
                 if (x.matches) { // If media query matches
                     image.width("16px")
@@ -2970,7 +2901,6 @@ $(document).ready(function() {
                             "position": "absolute", "top": imageTop - 50 + "px",
                             "position": "absolute",
                             // "margin": "70px"
-
                         });
                 } else {
                     image.width("40px")
@@ -2978,35 +2908,13 @@ $(document).ready(function() {
                             "left": imageCenter - 20 + "px",
                             "position": "absolute", "top": imageTop - 50 + "px",
                             "position": "absolute",
-
                         });
                 }
             }
-
-
             var x = window.matchMedia("(max-width: 475px)")
             myFunction(x) // Call listener function at run time
             x.addListener(myFunction) // Attach listener function on state changes
         }
-
-
-
-
-        // $(window).resize(function () {
-        //     var cerahCounter = 0, cerahberawanCounter = 0, berawanCounter = 0;
-        //     var imageCenter = 0;
-        //     for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
-        //         imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[i].x) - 10;
-        //         if (chart.data[0].dataPoints[i].cuaca == "1") {
-        //             $(".1").eq(cerahCounter++).css({ "left": imageCenter });
-        //         } else if (chart.data[0].dataPoints[i].cuaca == "c2") {
-        //             $(".2").eq(cerahberawanCounter++).css({ "left": imageCenter });
-        //         } else if (chart.data[0].dataPoints[i].cuaca == "berawan") {
-        //             $(".3").eq(berawanCounter++).css({ "3": imageCenter });
-        //         }
-        //     }
-        // });
-
         function toggleDataSeries(e) {
             if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
                 e.dataSeries.visible = false;
@@ -3017,185 +2925,41 @@ $(document).ready(function() {
         }
 
 
-        var chart_cuaca = new CanvasJS.Chart("chartContainer_cuaca2", {
-            theme: "dark2",
-            exportEnabled: true,
-            title: {
-                text: "Prakiraan Suhu dan Cuaca Hari ini",
-                fontSize: 20,
-                
+      
 
 
 
 
-            },
-            subtitles: [{
-                text: "Wilayah Jababeka, Kelurahan : Pasargembong",
-                fontSize: 15,
-                margin: 70,
-                fontColor: "#fff995"
-
-            }],
-
-            legend: {
-                cursor: "pointer",
-                itemclick: toggleDataSeries,
-                fontSize: 17
-            },
-
-            axisY: {
-                suffix: "°C",
-                maximum: 40,
-                minimum: 0,
-                gridThickness: 0,
-                // title: "Suhu (°C)"
-            },
-
-            axisY2: {
-                suffix: "%",
-                maximum: 150,
-                minimum: 20,
-                gridThickness: 0,
-                // title: "RH (%)"
-            },
-
-            axisX: {
-                title: "Jam (WIB)",
-                suffix: ".00",
-                interval: 3
-            },
-
-            toolTip: {
-                // shared: true,
-                enable: true,
-                content: "{tanggal} | {label}.00 WIB <br> {kelurahan}</br> {y}  " 
-
-
-            },
-            data: [{
-                type: "spline",
-                fillOpacity: 0.1,
-                color: "#fff995",
-                name: "Suhu",
-                dataPoints: dataPoints_cuaca2,
-                showInLegend: true,
-                yValueFormatString: "Suhu : 0.0 °C"
-
-
-            },
-
-            {
-                type: "spline",
-                fillOpacity: 0.1,
-                color: "#33c4ff",
-                name: "RH",
-                axisYType: "secondary",
-                dataPoints: dataPoints_cuaca3,
-                showInLegend: true,
-                yValueFormatString: "RH : # '%'"
-            }
-
-            ]
-        });
-        chart_cuaca.render();
 
 
 
 
-        var images = [];
-
-        addImages(chart_cuaca);
-
-        function addImages(chart_cuaca) {
-            for (var i = 0; i < chart_cuaca.data[0].dataPoints.length; i++) {
-                var dpsName = chart_cuaca.data[0].dataPoints[i].cuaca;
-                if (dpsName == "1") {
-                    images.push($("<img>").attr("src", "img/1cerah.svg"));
-                } else if (dpsName == "2") {
-                    images.push($("<img>").attr("src", "img/2cerahberawan.svg"));
-                } else if (dpsName == "3") {
-                    images.push($("<img>").attr("src", "img/3berawan.svg"));
-                } else if (dpsName == "4") {
-                    images.push($("<img>").attr("src", "img/4hujanringan.svg"));
-                } else if (dpsName == "5") {
-                    images.push($("<img>").attr("src", "img/5hujansedang.svg"));
-                } else if (dpsName == "6") {
-                    images.push($("<img>").attr("src", "img/6hujanlebat.svg"));
-                } else if (dpsName == "7") {
-                    images.push($("<img>").attr("src", "img/7hujanpetir.svg"));
-                }
-
-                images[i].attr("class", dpsName).appendTo($("#chartContainer_cuaca2>.canvasjs-chart-container"));
-                positionImage(images[i], i);
-            }
-        }
-
-        function positionImage(image, index) {
-            var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
-            var imageTop = chart.axisY[0].convertValueToPixel(chart.axisY[0].maximum);
-
-
-            function myFunction(x) {
-                if (x.matches) { // If media query matches
-                    image.width("40px")
-                        .css({
-                            "left": imageCenter - 10 + "px",
-                            "position": "absolute", "top": imageTop - 50 + "px",
-                            "position": "absolute",
-                            // "margin": "70px"
-
-                        });
-                } else {
-                    image.width("40px")
-                        .css({
-                            "left": imageCenter - 20 + "px",
-                            "position": "absolute", "top": imageTop - 50 + "px",
-                            "position": "absolute",
-
-                        });
-                }
-            }
-
-
-            var x = window.matchMedia("(max-width: 475px)")
-            myFunction(x) // Call listener function at run time
-            x.addListener(myFunction) // Attach listener function on state changes
-        }
 
 
 
 
-        // $(window).resize(function () {
-        //     var cerahCounter = 0, cerahberawanCounter = 0, berawanCounter = 0;
-        //     var imageCenter = 0;
-        //     for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
-        //         imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[i].x) - 10;
-        //         if (chart.data[0].dataPoints[i].cuaca == "1") {
-        //             $(".1").eq(cerahCounter++).css({ "left": imageCenter });
-        //         } else if (chart.data[0].dataPoints[i].cuaca == "c2") {
-        //             $(".2").eq(cerahberawanCounter++).css({ "left": imageCenter });
-        //         } else if (chart.data[0].dataPoints[i].cuaca == "berawan") {
-        //             $(".3").eq(berawanCounter++).css({ "3": imageCenter });
-        //         }
-        //     }
-        // });
-
-        function toggleDataSeries(e) {
-            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            } else {
-                e.dataSeries.visible = true;
-            }
-            e.chart.render();
 
 
-            
-        }
 
 
-}
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 </script>
 </body>
