@@ -121,10 +121,6 @@
 
         }
 
-        .img {
-            position: relative;
-        }
-
         /* .sidebar a:hover {
             color: #f1f1f1;
         } */
@@ -380,7 +376,7 @@
             margin: 0px 0;
             padding: 0px;
             text-align: center;
-            color: rgb(233, 232, 232);
+            color: rgb(8, 8, 8);
         }
 
 
@@ -863,14 +859,12 @@
                 <p class="text-keterangan">Grafik Curah Hujan dan Suhu Permukaan (Max & Min)</p> -->
             </div>
 
-
+<br>
             <!-- <img id='img_satelit' src='img/satelit/hasilsat_20210415_00.png' height="0" width="0" class="imagefdrs" /> -->
         <br>
             <div id="chartContainer_cuaca1"  style="z-index: 1" class="myDiv"></div>
             <div id="chartContainer_cuaca2"  style="z-index: 2" class="myDiv"></div>
-            
-       
-            <br>
+        
             <div id="chartContainer_suhu" style="display: block"class="myDiv2"></div>
 
             <br>
@@ -3137,7 +3131,7 @@ $(document).ready(function() {
 
             function myFunction(x) {
                 if (x.matches) { // If media query matches
-                    image.width("40px")
+                    image.width("16px")
                         .css({
                             "left": imageCenter - 10 + "px",
                             "position": "absolute", "top": imageTop - 50 + "px",
