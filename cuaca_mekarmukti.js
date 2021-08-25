@@ -1,4 +1,4 @@
-var dataPoints_cuaca =
+var dataPoints_mekarmukti_suhu =
 [
     { label: "00", y: 30.4, cuaca: "7", kelurahan: "Mekarmukti", tanggal: "30-06-2021"},
     { label: "01", y: 28.6, cuaca: "2", kelurahan: "Mekarmukti", tanggal: "30-06-2021"}, 
@@ -27,7 +27,7 @@ var dataPoints_cuaca =
     
     ]
     
-    var dataPoints_cuaca1 =
+    var dataPoints_mekarmukti_rh =
     [
     { label: "00", y: 95, cuaca: "1", kelurahan: "Mekarmukti", tanggal: "30-06-2021"},
     { label: "01", y: 95, cuaca: "2", kelurahan: "Mekarmukti", tanggal: "30-06-2021"},
