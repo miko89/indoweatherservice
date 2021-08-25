@@ -1,4 +1,4 @@
-var dataPoints_pasargembong_suhu =
+var dataPoints_pasirgombong_suhu =
     [
         { label: "00", y: 32.4, cuaca: "7", kelurahan: "Pasargembong", tanggal: "30-06-2021"},
         { label: "01", y: 29.6, cuaca: "1", kelurahan: "Pasargembong", tanggal: "30-06-2021"}, 
@@ -27,7 +27,7 @@ var dataPoints_pasargembong_suhu =
         
         ]
         
-        var dataPoints_pasargembong_rh =
+        var dataPoints_pasirgombong_rh =
         [
         { label: "00", y: 95, cuaca: "2", kelurahan: "Pasargembong", tanggal: "30-06-2021"},
         { label: "01", y: 95, cuaca: "2", kelurahan: "Pasargembong", tanggal: "30-06-2021"},
