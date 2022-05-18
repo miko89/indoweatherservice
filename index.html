@@ -60,7 +60,7 @@
             width: 100%;
             height: 500px;
             top: 120px;
-            margin-left: 5px;
+            margin-left: 0;
             margin-right: 0
         }
 
@@ -262,7 +262,7 @@
             margin-left: auto;
             margin-right: auto;
             width: 100%;
-            height: 1500px;
+            height: 1200px;
             background: linear-gradient(to top, #04160c, #010b1a);
 
 
@@ -724,7 +724,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Client</a>
+                            <a class="nav-link" href="client.html">Client</a>
                         </li>
 
                         <li class="nav-item">
@@ -799,10 +799,6 @@
     <div class="row">
         <div class="col-sm-4 col-xs-12"></div>
         <div id="map">
-
-
-
-
         </div>
         <div class="body-content">
             <br>
@@ -833,7 +829,8 @@
                     <button id="prakiraancuaca02" onclick="myFunction()" class="button_forecast"
                         style="width:33.3%"><span id="date02"></span></button>
                 </div>
-
+                <p style="color: rgb(255, 251, 233)">* Informasi yang tampil pada peta dalam bentuk icon prakiraan cuaca merupakan cuaca signifikan pada setiap wilayah untuk info lebih detail perjam silahkan klik icon cuaca tersebut.
+                </p>
                 <hr>
 
 
@@ -869,8 +866,8 @@
             <div id="chartContainer_suhu" style="display: block" class="myDiv2"></div>
 
             <br>
-            <br>
-            <div id="chartContainer_ch" style="display: block" class="myDiv2"></div>
+            <!-- <br>
+            <div id="chartContainer_ch" style="display: block" class="myDiv2"></div> -->
 
         </div>
     </div>
@@ -882,7 +879,7 @@
     <div class="row">
         <div class="col-sm-4 col-xs-12"></div>
         <div class="footer">
-            <p class="text-footer">&copy; Copyright ActionLearning_meteo.</p>
+            <p class="text-footer">&copy; Copyright Tim Action Learning Meteo 2021.</p>
         </div>
     </div>
 
@@ -1220,7 +1217,7 @@
         style: style,
         //   pane: 'labels',
         onEachFeature: function (feature, layer) {
-            layer.bindPopup('<h5>' + feature.properties.WADMKC + '</h5><b><p>WILAYAH: ' + feature.properties.NAMOBJ + '</p>');
+            layer.bindPopup('<h5>Kec.' + feature.properties.WADMKC+ '</h5><b>Kelurahan: ' + feature.properties.NAMOBJ);
 
         }
 
@@ -1325,7 +1322,7 @@
     }) // size of the icon  
 
 
-    var prakiraancuaca00 = L.layerGroup()
+    var prakiraancuaca00 = L.layerGroup().addTo(map);
     var prakiraancuaca01 = L.layerGroup()
     var prakiraancuaca02 = L.layerGroup()
 
@@ -2183,29 +2180,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[i].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[i].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[i].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[i].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[i].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[i].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[i].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[i].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[i].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[i].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
 
@@ -2244,29 +2241,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec20 + ';&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[j].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[j].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[j].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[j].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[j].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[j].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[j].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[j].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec20 + ';&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[j].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[j].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
 
@@ -2304,29 +2301,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[k].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[k].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[k].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[k].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[k].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[k].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[k].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[k].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[k].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[k].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
         if (prakicu == 3) { prakiraancuaca02.addLayer(marker) }
@@ -2365,29 +2362,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[l].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[l].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[l].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[l].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[l].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[l].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[l].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[l].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[l].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[l].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
 
@@ -2427,29 +2424,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[m].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[m].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[m].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[m].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[m].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[m].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[m].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[m].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[m].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[m].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
 
@@ -2488,29 +2485,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[n].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[n].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[n].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[n].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[n].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[n].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[n].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[n].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[n].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[n].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
 
         )
 
@@ -2547,29 +2544,29 @@
             + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah10 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec10 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah11 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec11
             + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu15 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh15 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec13
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec15
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>12.00 &ensp;&emsp; 13.00 &emsp; 14.00 &emsp;&ensp; 15.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca12 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca13 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca14 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca15 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu12 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu13 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu14 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu15 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh12 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh13 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh14 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh15 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah12 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec12 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah13 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec13
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah14 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec14 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah15 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec15
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu19 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh19 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec17
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec19
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>16.00 &ensp;&emsp; 17.00 &emsp; 18.00 &emsp;&ensp; 19.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca16 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca17 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca18 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca19 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu16 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu17 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu18 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu19 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh16 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh7 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh18 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh19 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah16 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec16 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah17 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec17
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah18 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec18 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah19 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec19
+            + '<br><center>' + '( km / jam )' + '<br>'
 
-            // + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
-            // '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
-            // + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu23 + '℃' + '</h8>' +
-            // '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh23 + '%' + '</center>' +
-            // '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec21
-            // + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec23
-            // + '<br><center>' + '( km / jam )' + '<br>'
+            + '<hr style="height:3px;border-width:0;color:gray;background-color:white">' + 'Waktu (WIB)' + '<br>' + '<br>' + '<b>20.00 &ensp;&emsp; 21.00 &emsp; 22.00 &emsp;&ensp; 23.00</b>' +
+            '<center><object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca20 + '.svg" alt="" width="30" height="50"></object>&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca21 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca22 + '.svg" alt="" width="30" height="50"></object>' + '&emsp;&emsp;' + '<object type="image/svg+xml" data="img/' + dataprakicuJSON02[o].cuaca23 + '.svg" alt="" width="30" height="50"></object></center>'
+            + '<h8 style="color:#edff47">' + dataprakicuJSON02[o].suhu20 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu21 + '℃' + '&emsp;&ensp;' + dataprakicuJSON02[o].suhu22 + '℃' + '&emsp;&emsp;' + dataprakicuJSON02[o].suhu23 + '℃' + '</h8>' +
+            '<hr>' + '<h8 style="color:#47f9ff">' + dataprakicuJSON02[o].rh20 + '%' + '&ensp;&ensp;&emsp;' + dataprakicuJSON02[o].rh21 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh22 + '%' + '&ensp;&emsp;&emsp;' + dataprakicuJSON02[o].rh23 + '%' + '</center>' +
+            '<hr>' + '&emsp;'+ '<img src="img/' + dataprakicuJSON02[o].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah21 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec21
+            + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah20 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec20 + '&emsp;' + '<img src="img/' + dataprakicuJSON02[o].arah23 + '_angin.svg" alt="" width="15" height="30">' + ' | ' + dataprakicuJSON02[o].kec23
+            + '<br><center>' + '( km / jam )' + '<br>'
         )
         if (prakicu == 7) { prakiraancuaca02.addLayer(marker) }
         else { }

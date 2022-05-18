@@ -179,6 +179,37 @@
                 display: none;
 
             }
+
+            .gfg {
+                margin-top: 100px;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 80%;
+            height: 1000px;
+            position: relative;
+        }
+       
+    
+       
+        }
+
+
+        .gfg {
+            margin: 3%;
+            position: relative;
+        }
+  
+        .first-txt {
+            position: absolute;
+            top: 270px;
+            left: 350px;
+            color: rgb(255, 208, 0);
+        }
+  
+        .second-txt {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
         }
     </style>
 
@@ -220,7 +251,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Client</a>
+                            <a class="nav-link" href="client.html">Client</a>
                         </li>
 
                         <li class="nav-item">
@@ -252,57 +283,22 @@
 
 
     </div>
+    <br>
+    <br>
+        <div class="gfg">
+            <img src="img/template_motogp.png">
+            <h3 class="first-txt">
+                <p>
+                    <span id="date"></span>
 
-    <div class="container">
-
-        <div class="w3-container w3-center w3-animate-top">
-            <object type="image/svg+xml" data="img/7.svg" alt="" width="150" height="250" padding-top="100px"></object>
-            <h1>Mengapa Memilih Kami ?</h1>
-            <p style="font-size: 20px; color:rgb(149, 255, 50)">sebagai patner anda dalam memberikan informasi cuaca</p>
-        </div>
-        <br>
-        <div class="w3-container w3-center w3-animate-zoom">
-            <img src="img/icon.svg" width="50" height="50">
-            <p style="font-size: 20px;">Berpengalaman di bidang layanan informasi cuaca</p>
-        </div>
-        <div class="w3-container w3-center w3-animate-zoom">
-            <img src="img/icon.svg" width="50" height="50">
-            <p style="font-size: 20px;">Menggunakan Teknologi Informasi Machine Learning</p>
-        </div>
-        <div class="w3-container w3-center w3-animate-zoom">
-            <img src="img/icon.svg" width="50" height="50">
-            <p style="font-size: 20px;">Para Pakar Ahli dalam berbagai Bidang</p>
-        </div>
-        <div class="w3-container w3-center w3-animate-zoom">
-            <img src="img/icon.svg" width="50" height="50">
-            <p style="font-size: 20px;">Menyediakan Layanan dalam berbagai sektor</p>
-        </div>
-        <div class="w3-container w3-center w3-animate-zoom">
-            <img src="img/icon.svg" width="50" height="50">
-            <p style="font-size: 20px;">Informasi yang berkualitas tinggi</p>
-        </div>
-
-        <br>
-        <div class="w3-container">
-            <a href="#" class="w3-button w3-white" style="font-size: 20px;">Join with Us</a>
-        </div>
-
+                </p>
+            </h3>
+              
+            <h3 class="second-txt">
+                A computer science portal
+            </h3>
+      
     </div>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -321,14 +317,38 @@
     <!--================================================= PETA INTERACTIVE ============================================================  -->
 
     <script>
- moment.locale('id')
+ moment.locale()
         function update() {
             $('#date_wib').html(moment().format('dddd, Do/MMMM/YYYY, LTS [WIB]'));
             $('#date_utc').html(moment.utc().format('dddd, Do/MMMM/YYYY, LTS [UTC]'));
+            $('#date').html(moment().format('dddd, Do/MMMM/YYYY'));
         }
 
 
         setInterval(update, 1000);
+
+
+
+        var jsonprakiraan00 = 'data/forecast00.json';
+    function getJSONValue(fileJSON) {
+        var value = $.ajax({
+            url: fileJSON,
+            async: false
+        }).responseText;
+        return value
+    }
+    prakicujson00 = getJSONValue(jsonprakiraan00)
+    var dataprakicuJSON00 = JSON.parse(prakicujson00)
+
+
+
+
+
+
+
+
+
+    
     </script>
 </body>
 
